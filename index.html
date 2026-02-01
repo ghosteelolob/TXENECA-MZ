@@ -9,34 +9,33 @@
 *{box-sizing:border-box;font-family:Arial,sans-serif}
 body{margin:0;background:#f2f2f2}
 
-/* HEADER */
 header{
   background:#111;color:#fff;
   padding:10px;text-align:center;
 }
 header a{color:#00ff88;text-decoration:none}
 
-/* CONTAINERS */
 .container{
   background:#fff;
   margin:20px;
   padding:20px;
   border-radius:8px;
 }
-h2,h3{margin-top:0}
 
-/* FORM */
 input,select,button{
   width:100%;
   padding:10px;
   margin:8px 0;
 }
+
 button{
   background:#007bff;
   color:#fff;
   border:none;
   border-radius:5px;
 }
+
+.hidden{display:none}
 
 /* SLIDER */
 .slider{
@@ -50,10 +49,7 @@ button{
 .slide{display:none;font-size:18px}
 .slide.active{display:block}
 
-/* HIDDEN */
-.hidden{display:none}
-
-/* FLOATING CARD */
+/* FLOATS */
 .floating-card{
   position:fixed;
   bottom:100px;
@@ -63,10 +59,8 @@ button{
   border-radius:8px;
   box-shadow:0 0 10px rgba(0,0,0,.2);
   font-size:14px;
-  z-index:10;
 }
 
-/* CONTACT FLOAT */
 .contact-float{
   position:fixed;
   bottom:10px;
@@ -77,123 +71,131 @@ button{
   border-radius:12px;
   font-size:12px;
   text-align:center;
-  z-index:10;
 }
 
-/* AJUDA */
 .ajuda{background:#eee}
 </style>
 </head>
 
 <body>
 
-<!-- HEADER -->
 <header>
-  <strong>Assistência TXENECA</strong><br>
-  Marcia: <a href="tel:852335151">85 233 5151</a> |
-  Lourenço: <a href="tel:864869286">86 486 9286</a>
+<strong>Assistência TXENECA</strong><br>
+Marcia: <a href="tel:852335151">85 233 5151</a> |
+Lourenço: <a href="tel:864869286">86 486 9286</a>
 </header>
 
-<!-- CADASTRO (PRIMEIRO) -->
+<!-- CADASTRO -->
 <section class="container" id="cadastro">
 <h2>Cadastro Obrigatório</h2>
 <form id="cadastroForm">
-  <input type="text" placeholder="Nome completo" required>
-  <select required>
-    <option value="">Género</option>
-    <option>Masculino</option>
-    <option>Feminino</option>
-    <option>Outro</option>
-  </select>
-  <input type="text" placeholder="Província" required>
-  <input type="text" placeholder="Área de trabalho" required>
-  <input type="tel" placeholder="Telefone" required>
-  <input type="email" placeholder="Email" required>
-  <input type="password" placeholder="Senha" required>
-  <button type="submit">Criar conta e continuar</button>
+<input required placeholder="Nome completo">
+<select required>
+<option value="">Género</option>
+<option>Masculino</option>
+<option>Feminino</option>
+<option>Outro</option>
+</select>
+<input required placeholder="Província">
+<input required placeholder="Área de trabalho">
+<input required placeholder="Telefone">
+<input type="email" required placeholder="Email">
+<input type="password" required placeholder="Senha">
+<button>Criar conta e continuar</button>
 </form>
 </section>
 
 <!-- SLIDER -->
 <section class="slider hidden">
-  <div class="slide active">Empréstimos rápidos e seguros</div>
-  <div class="slide">Taxas acessíveis para todos</div>
-  <div class="slide">Pagamentos via M-Pesa, e-Mola e M-Kesh</div>
+<div class="slide active">Cadastro simples e rápido</div>
+<div class="slide">Taxa de inscrição acessível</div>
+<div class="slide">Empréstimos de 5.000 a 200.000 MZN</div>
+<div class="slide">Pagamento via M-Pesa, e-Mola e M-Kesh</div>
+</section>
+
+<!-- TAXA -->
+<section class="container hidden">
+<h2>Taxa de Inscrição</h2>
+<select id="taxa" onchange="mostrarEmprestimo()">
+<option value="">Escolha a taxa</option>
+<option value="99">99 MT</option>
+<option value="199">199 MT</option>
+<option value="299">299 MT</option>
+<option value="399">399 MT</option>
+<option value="499">499 MT</option>
+<option value="999">999 MT</option>
+<option value="1999">1999 MT</option>
+</select>
+<p id="limite"></p>
 </section>
 
 <!-- SIMULADOR -->
-<section class="container hidden" id="simulador">
-<h2>Simulador de Empréstimo</h2>
-<input type="number" id="valor" placeholder="Valor do empréstimo (MZN)">
-<input type="number" id="prazo" placeholder="Prazo (meses)">
+<section class="container hidden">
+<h2>Simulador</h2>
+<input id="valor" placeholder="Valor do empréstimo">
+<input id="prazo" placeholder="Prazo (meses)">
 <button onclick="simular()">Simular</button>
 <p id="resultado"></p>
 </section>
 
 <!-- PAGAMENTO -->
 <section class="container hidden">
-<h2>Pagamento</h2>
+<h2>Pagamento da Taxa</h2>
 <label><input type="radio" name="op"> M-Pesa</label><br>
 <label><input type="radio" name="op"> e-Mola</label><br>
 <label><input type="radio" name="op"> M-Kesh</label>
-<input type="tel" placeholder="Número de telefone">
+<input placeholder="Número de telefone">
 <input type="file">
 <button>Enviar comprovativo</button>
 </section>
 
-<!-- AJUDA -->
 <section class="container ajuda">
 <h3>Precisa de ajuda?</h3>
 <p>📞 Marcia – 85 233 5151</p>
 <p>📞 Lourenço – 86 486 9286</p>
 </section>
 
-<!-- FLOATING CARD -->
 <div class="floating-card" id="floatingCard"></div>
 
-<!-- CONTACT FLOAT -->
 <div class="contact-float">
-📞<br>
-Marcia<br>85 233 5151<br><br>
-Lourenço<br>86 486 9286
+📞<br>Marcia<br>85 233 5151<br><br>Lourenço<br>86 486 9286
 </div>
 
 <script>
-// CADASTRO
-document.getElementById("cadastroForm").addEventListener("submit",function(e){
-  e.preventDefault();
-  document.getElementById("cadastro").style.display="none";
-  document.querySelectorAll(".hidden").forEach(el=>el.style.display="block");
-});
+document.getElementById("cadastroForm").onsubmit=e=>{
+e.preventDefault();
+document.getElementById("cadastro").style.display="none";
+document.querySelectorAll(".hidden").forEach(x=>x.style.display="block");
+};
 
-// SLIDER
-let slides=document.querySelectorAll(".slide");
-let s=0;
+let slides=document.querySelectorAll(".slide"),s=0;
 setInterval(()=>{
-  slides.forEach(sl=>sl.classList.remove("active"));
-  s=(s+1)%slides.length;
-  slides[s].classList.add("active");
+slides.forEach(x=>x.classList.remove("active"));
+s=(s+1)%slides.length;
+slides[s].classList.add("active");
 },3000);
 
-// SIMULADOR
-function simular(){
-  let v=Number(document.getElementById("valor").value);
-  let p=document.getElementById("prazo").value;
-  let juros=v*0.1;
-  document.getElementById("resultado").innerText=
-  `Total a pagar: ${(v+juros).toFixed(2)} MZN em ${p} meses`;
+function mostrarEmprestimo(){
+let t=Number(document.getElementById("taxa").value);
+let max=Math.min(200000,5000 + t*100);
+document.getElementById("limite").innerText=
+`Com esta taxa pode solicitar até ${max.toLocaleString()} MZN`;
 }
 
-// FLOATING VALUES
+function simular(){
+let v=Number(valor.value),j=v*0.1;
+resultado.innerText=`Total a pagar: ${(v+j).toFixed(2)} MZN`;
+}
+
 const msgs=[
-  "💰 Cliente recebeu 15.000 MZN",
-  "💰 Cliente recebeu 8.500 MZN",
-  "💰 Cliente recebeu 22.000 MZN"
+"💰 Cliente recebeu 15.000 MZN",
+"💰 Cliente recebeu 8.500 MZN",
+"💰 Cliente recebeu 22.000 MZN"
 ];
 let i=0;
 setInterval(()=>{
-  document.getElementById("floatingCard").innerText=msgs[i];
-  i=(i+1)%msgs.length;
+floatingCard.innerText=msgs[i];
+i=(i+1)%msgs.length;
 },3000);
 </script>
 
