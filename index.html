@@ -2,283 +2,200 @@
 <html lang="pt">
 <head>
 <meta charset="UTF-8">
-<title>TXENECA | Empréstimos Rápidos e Seguros</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TXENECA-MZ</title>
 
 <style>
-:root{
-  --azul:#0b3c5d;
-  --azul2:#071f2f;
-  --verde:#25d366;
-  --cinza:#f4f7fb;
-  --branco:#ffffff;
+*{box-sizing:border-box;font-family:Arial,sans-serif}
+body{margin:0;background:#f2f2f2}
+
+/* HEADER */
+header{
+  background:#111;color:#fff;
+  padding:10px;text-align:center;
 }
+header a{color:#00ff88;text-decoration:none}
 
-*{box-sizing:border-box}
-
-body{
-  margin:0;
-  font-family:'Segoe UI',Arial,sans-serif;
-  background:var(--cinza);
-  color:#333;
-  scroll-behavior:smooth;
+/* CONTAINERS */
+.container{
+  background:#fff;
+  margin:20px;
+  padding:20px;
+  border-radius:8px;
 }
+h2,h3{margin-top:0}
 
-/* HERO */
-.hero{
-  background:linear-gradient(135deg,var(--azul),var(--azul2));
+/* FORM */
+input,select,button{
+  width:100%;
+  padding:10px;
+  margin:8px 0;
+}
+button{
+  background:#007bff;
   color:#fff;
-  padding:90px 20px;
+  border:none;
+  border-radius:5px;
+}
+
+/* SLIDER */
+.slider{
+  background:#007bff;
+  color:#fff;
+  margin:20px;
+  padding:30px;
+  border-radius:8px;
   text-align:center;
 }
+.slide{display:none;font-size:18px}
+.slide.active{display:block}
 
-.hero h1{
-  font-size:44px;
-  letter-spacing:2px;
-}
+/* HIDDEN */
+.hidden{display:none}
 
-.hero p{
-  font-size:19px;
-  max-width:700px;
-  margin:15px auto 0;
-  opacity:.95;
-}
-
-/* NAV */
-nav{
-  position:sticky;
-  top:0;
+/* FLOATING CARD */
+.floating-card{
+  position:fixed;
+  bottom:100px;
+  left:10px;
   background:#fff;
-  display:flex;
-  justify-content:center;
-  gap:30px;
-  padding:15px;
-  box-shadow:0 4px 20px rgba(0,0,0,.12);
+  padding:10px;
+  border-radius:8px;
+  box-shadow:0 0 10px rgba(0,0,0,.2);
+  font-size:14px;
   z-index:10;
 }
 
-nav a{
-  text-decoration:none;
-  color:var(--azul);
-  font-weight:700;
-}
-
-/* SECTIONS */
-section{
-  max-width:1150px;
-  margin:auto;
-  padding:50px 20px;
-}
-
-.box{
-  background:#fff;
-  border-radius:20px;
-  padding:35px;
-  box-shadow:0 20px 45px rgba(0,0,0,.1);
-  margin-bottom:35px;
-}
-
-h2{
-  color:var(--azul);
-  margin-top:0;
-}
-
-/* FORM */
-select,input,button{
-  width:100%;
-  padding:15px;
-  margin-top:14px;
-  border-radius:12px;
-  border:1px solid #ccc;
-  font-size:15px;
-}
-
-button{
-  background:var(--azul);
-  color:#fff;
-  border:none;
-  font-weight:700;
-  cursor:pointer;
-  transition:.3s;
-}
-
-button:hover{
-  background:var(--azul2);
-  transform:translateY(-3px);
-}
-
-/* GRID */
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
-  gap:25px;
-}
-
-.card{
-  background:linear-gradient(135deg,#eef5fb,#ffffff);
-  padding:30px;
-  border-radius:20px;
-  text-align:center;
-  font-weight:600;
-  box-shadow:0 12px 25px rgba(0,0,0,.1);
-}
-
-/* RESULT */
-.result{
-  margin-top:20px;
-  background:#eafaf1;
-  padding:20px;
-  border-radius:15px;
-  font-weight:700;
-  font-size:16px;
-}
-
-/* STEPS */
-.step{
-  text-align:center;
-  padding:25px;
-}
-
-/* CONTACT */
-.contact{
-  background:linear-gradient(135deg,var(--azul),var(--azul2));
-  color:#fff;
-  padding:30px;
-  border-radius:20px;
-  text-align:center;
-}
-
-.contact a{
-  display:inline-block;
-  margin-top:15px;
-  background:var(--verde);
-  color:#fff;
-  padding:14px 26px;
-  border-radius:40px;
-  text-decoration:none;
-  font-weight:700;
-}
-
-/* WHATSAPP FLOAT */
-.whatsapp{
+/* CONTACT FLOAT */
+.contact-float{
   position:fixed;
-  bottom:22px;
-  right:22px;
-  background:#25d366;
+  bottom:10px;
+  right:10px;
+  background:#007bff;
   color:#fff;
-  padding:18px 20px;
-  border-radius:50%;
-  font-size:24px;
-  text-decoration:none;
-  box-shadow:0 12px 30px rgba(0,0,0,.4);
+  padding:12px;
+  border-radius:12px;
+  font-size:12px;
+  text-align:center;
+  z-index:10;
 }
 
-/* FOOTER */
-footer{
-  background:var(--azul2);
-  color:#fff;
-  text-align:center;
-  padding:30px;
-}
+/* AJUDA */
+.ajuda{background:#eee}
 </style>
 </head>
 
 <body>
 
-<div class="hero">
-  <h1>TXENECA</h1>
-  <p>Empréstimos rápidos, seguros e transparentes para transformar seus planos em realidade.</p>
+<!-- HEADER -->
+<header>
+  <strong>Assistência TXENECA</strong><br>
+  Marcia: <a href="tel:852335151">85 233 5151</a> |
+  Lourenço: <a href="tel:864869286">86 486 9286</a>
+</header>
+
+<!-- CADASTRO (PRIMEIRO) -->
+<section class="container" id="cadastro">
+<h2>Cadastro Obrigatório</h2>
+<form id="cadastroForm">
+  <input type="text" placeholder="Nome completo" required>
+  <select required>
+    <option value="">Género</option>
+    <option>Masculino</option>
+    <option>Feminino</option>
+    <option>Outro</option>
+  </select>
+  <input type="text" placeholder="Província" required>
+  <input type="text" placeholder="Área de trabalho" required>
+  <input type="tel" placeholder="Telefone" required>
+  <input type="email" placeholder="Email" required>
+  <input type="password" placeholder="Senha" required>
+  <button type="submit">Criar conta e continuar</button>
+</form>
+</section>
+
+<!-- SLIDER -->
+<section class="slider hidden">
+  <div class="slide active">Empréstimos rápidos e seguros</div>
+  <div class="slide">Taxas acessíveis para todos</div>
+  <div class="slide">Pagamentos via M-Pesa, e-Mola e M-Kesh</div>
+</section>
+
+<!-- SIMULADOR -->
+<section class="container hidden" id="simulador">
+<h2>Simulador de Empréstimo</h2>
+<input type="number" id="valor" placeholder="Valor do empréstimo (MZN)">
+<input type="number" id="prazo" placeholder="Prazo (meses)">
+<button onclick="simular()">Simular</button>
+<p id="resultado"></p>
+</section>
+
+<!-- PAGAMENTO -->
+<section class="container hidden">
+<h2>Pagamento</h2>
+<label><input type="radio" name="op"> M-Pesa</label><br>
+<label><input type="radio" name="op"> e-Mola</label><br>
+<label><input type="radio" name="op"> M-Kesh</label>
+<input type="tel" placeholder="Número de telefone">
+<input type="file">
+<button>Enviar comprovativo</button>
+</section>
+
+<!-- AJUDA -->
+<section class="container ajuda">
+<h3>Precisa de ajuda?</h3>
+<p>📞 Marcia – 85 233 5151</p>
+<p>📞 Lourenço – 86 486 9286</p>
+</section>
+
+<!-- FLOATING CARD -->
+<div class="floating-card" id="floatingCard"></div>
+
+<!-- CONTACT FLOAT -->
+<div class="contact-float">
+📞<br>
+Marcia<br>85 233 5151<br><br>
+Lourenço<br>86 486 9286
 </div>
 
-<nav>
-  <a href="#simulador">Simular</a>
-  <a href="#como">Como Funciona</a>
-  <a href="#vantagens">Vantagens</a>
-  <a href="#contactos">Contactos</a>
-</nav>
-
-<section id="simulador">
-  <div class="box">
-    <h2>Simulador Inteligente</h2>
-    <select id="valor">
-      <option value="0">Escolha o valor</option>
-      <option value="5000">5.000 MZN</option>
-      <option value="10000">10.000 MZN</option>
-      <option value="50000">50.000 MZN</option>
-      <option value="200000">200.000 MZN</option>
-    </select>
-    <button onclick="calcular()">Calcular Agora</button>
-    <div id="resultado" class="result" style="display:none;"></div>
-  </div>
-</section>
-
-<section id="como">
-  <div class="box">
-    <h2>Como Funciona</h2>
-    <div class="grid">
-      <div class="step">1️⃣ Simule o valor desejado</div>
-      <div class="step">2️⃣ Envie sua solicitação</div>
-      <div class="step">3️⃣ Confirme a taxa</div>
-      <div class="step">4️⃣ Receba o valor</div>
-    </div>
-  </div>
-</section>
-
-<section id="vantagens">
-  <div class="box">
-    <h2>Vantagens TXENECA</h2>
-    <div class="grid">
-      <div class="card">Aprovação Imediata</div>
-      <div class="card">Processo 100% Digital</div>
-      <div class="card">Taxas Claras</div>
-      <div class="card">Atendimento Humanizado</div>
-    </div>
-  </div>
-</section>
-
-<section id="contactos">
-  <div class="box">
-    <h2>Fale Conosco</h2>
-
-    <div class="contact">
-      📞 86 486 9286<br>
-      Assistente Lourenço<br>
-      <a href="https://wa.me/258864869286" target="_blank">WhatsApp</a>
-    </div>
-
-    <br>
-
-    <div class="contact">
-      📞 85 233 5151<br>
-      Assistente Márcia<br>
-      <a href="https://wa.me/258852335151" target="_blank">WhatsApp</a>
-    </div>
-  </div>
-</section>
-
-<a class="whatsapp" href="https://wa.me/258864869286" target="_blank">💬</a>
-
-<footer>
-  <p>© 2026 TXENECA • Todos os direitos reservados</p>
-</footer>
-
 <script>
-function calcular(){
-  const v = Number(document.getElementById("valor").value);
-  let taxa = 0;
+// CADASTRO
+document.getElementById("cadastroForm").addEventListener("submit",function(e){
+  e.preventDefault();
+  document.getElementById("cadastro").style.display="none";
+  document.querySelectorAll(".hidden").forEach(el=>el.style.display="block");
+});
 
-  if(v===5000) taxa=399;
-  else if(v===10000) taxa=599;
-  else if(v===50000) taxa=1299;
-  else if(v===200000) taxa=2050;
+// SLIDER
+let slides=document.querySelectorAll(".slide");
+let s=0;
+setInterval(()=>{
+  slides.forEach(sl=>sl.classList.remove("active"));
+  s=(s+1)%slides.length;
+  slides[s].classList.add("active");
+},3000);
 
-  if(v===0){ alert("Escolha um valor"); return; }
-
-  document.getElementById("resultado").style.display="block";
-  document.getElementById("resultado").innerHTML =
-    "Valor solicitado: <b>"+v.toLocaleString()+" MZN</b><br>Taxa de inscrição: <b>"+taxa+" MZN</b>";
+// SIMULADOR
+function simular(){
+  let v=Number(document.getElementById("valor").value);
+  let p=document.getElementById("prazo").value;
+  let juros=v*0.1;
+  document.getElementById("resultado").innerText=
+  `Total a pagar: ${(v+juros).toFixed(2)} MZN em ${p} meses`;
 }
+
+// FLOATING VALUES
+const msgs=[
+  "💰 Cliente recebeu 15.000 MZN",
+  "💰 Cliente recebeu 8.500 MZN",
+  "💰 Cliente recebeu 22.000 MZN"
+];
+let i=0;
+setInterval(()=>{
+  document.getElementById("floatingCard").innerText=msgs[i];
+  i=(i+1)%msgs.length;
+},3000);
 </script>
 
 </body>
-    </html>
+  </html>
