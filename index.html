@@ -25,24 +25,26 @@ header{
 
 input,select,button{
   width:100%;
-  padding:10px;
-  margin:8px 0;
+  padding:12px;
+  margin:10px 0;
+  font-size:15px;
 }
 
 button{
   background:#0a7cff;
   color:#fff;
   border:none;
-  border-radius:5px;
+  border-radius:6px;
 }
 
 /* SLIDER */
 .slider{
   background:#0a7cff;
   color:#fff;
-  padding:30px;
+  padding:35px;
   margin:20px;
-  border-radius:8px;
+  border-radius:10px;
+  min-height:120px;
 }
 .slide{display:none;font-size:18px}
 .slide.active{display:block}
@@ -52,36 +54,36 @@ button{
   display:flex;
   justify-content:space-between;
   align-items:center;
-  padding:12px;
+  padding:14px;
   border-bottom:1px solid #ddd;
 }
-.loan button{
-  width:auto;
-  padding:6px 12px;
-}
+.loan span{font-weight:bold}
+.loan button{width:auto;padding:8px 16px}
 
-/* FLOATING RECEBIMENTOS */
+/* FLOATING */
 .floating-card{
   position:fixed;
   left:10px;
-  bottom:100px;
+  bottom:120px;
   background:#fff;
-  padding:10px;
+  padding:10px 14px;
   border-radius:8px;
-  box-shadow:0 0 10px rgba(0,0,0,.2);
+  box-shadow:0 0 10px rgba(0,0,0,.25);
+  font-size:14px;
+  z-index:10;
 }
 
-/* ASSISTENTES */
 .assist-float{
   position:fixed;
   right:10px;
   bottom:10px;
   background:#0a7cff;
   color:#fff;
-  padding:12px;
-  border-radius:12px;
+  padding:14px;
+  border-radius:14px;
   font-size:12px;
   text-align:center;
+  z-index:10;
 }
 </style>
 </head>
@@ -89,25 +91,43 @@ button{
 <body>
 
 <header>
-<strong>TXENECA-MZ – Empréstimos Confiáveis</strong>
+<strong>TXENECA-MZ – Plataforma de Empréstimos</strong>
 </header>
 
-<!-- PÁGINA 1 – CADASTRO -->
+<!-- CADASTRO -->
 <section class="container" id="cadastro">
 <h2>Cadastro Obrigatório</h2>
 <form id="cadastroForm">
 <input required placeholder="Nome completo">
+
 <select required>
 <option value="">Género</option>
 <option>Masculino</option>
 <option>Feminino</option>
 <option>Outro</option>
 </select>
+
 <input required placeholder="Província">
-<input required placeholder="Área de trabalho">
+
+<select required>
+<option value="">Área de trabalho</option>
+<option>Professor</option>
+<option>Médico</option>
+<option>Enfermeiro</option>
+<option>Polícia</option>
+<option>Militar</option>
+<option>Comerciante</option>
+<option>Motorista</option>
+<option>Funcionário público</option>
+<option>Estudante</option>
+<option>Empresário</option>
+<option>Outro</option>
+</select>
+
 <input required placeholder="Telefone">
 <input type="email" required placeholder="Email">
 <input type="password" required placeholder="Senha">
+
 <button>Criar conta e entrar</button>
 </form>
 </section>
@@ -118,68 +138,65 @@ button{
 <!-- SLIDER -->
 <section class="slider">
 <div class="slide active">Empréstimos de 5.000 MZN a 200.000 MZN</div>
-<div class="slide">Taxas de inscrição acessíveis e progressivas</div>
-<div class="slide">Pagamento seguro via M-Pesa, e-Mola e M-Kesh</div>
+<div class="slide">Taxas de inscrição a partir de 59 MT</div>
+<div class="slide">Valores aumentam de 2.000 em 2.000 MZN</div>
+<div class="slide">Pagamento via M-Pesa, e-Mola e M-Kesh</div>
+<div class="slide">Processo simples, rápido e seguro</div>
 </section>
 
 <!-- CONFIANÇA -->
 <section class="container">
 <h3>Por que confiar na TXENECA?</h3>
 <p>
-A TXENECA oferece soluções financeiras rápidas, transparentes e acessíveis,
-com processos claros, atendimento humano e taxas ajustadas ao valor solicitado.
-Trabalhamos para facilitar o acesso ao crédito de forma simples e segura.
+A TXENECA oferece soluções financeiras acessíveis, com critérios claros,
+taxas transparentes e atendimento humano. Nosso objetivo é facilitar o
+acesso ao crédito de forma simples, organizada e segura.
 </p>
 </section>
 
-<!-- LISTA DE EMPRÉSTIMOS -->
+<!-- EMPRÉSTIMOS -->
 <section class="container">
 <h2>Escolha o valor do empréstimo</h2>
 
-<div class="loan">
-<span>5.000 – 6.000 MZN</span>
-<button onclick="selecionar(59)">Solicitar</button>
-</div>
+<div class="loan"><span>5.000 – 6.000 MZN</span><button onclick="selecionar(59)">Solicitar</button></div>
+<div class="loan"><span>6.000 – 8.000 MZN</span><button onclick="selecionar(199)">Solicitar</button></div>
+<div class="loan"><span>8.000 – 10.000 MZN</span><button onclick="selecionar(299)">Solicitar</button></div>
+<div class="loan"><span>10.000 – 12.000 MZN</span><button onclick="selecionar(399)">Solicitar</button></div>
+<div class="loan"><span>12.000 – 14.000 MZN</span><button onclick="selecionar(499)">Solicitar</button></div>
+<div class="loan"><span>14.000 – 16.000 MZN</span><button onclick="selecionar(599)">Solicitar</button></div>
+<div class="loan"><span>16.000 – 18.000 MZN</span><button onclick="selecionar(699)">Solicitar</button></div>
+<div class="loan"><span>18.000 – 20.000 MZN</span><button onclick="selecionar(799)">Solicitar</button></div>
 
-<div class="loan">
-<span>6.000 – 8.000 MZN</span>
-<button onclick="selecionar(199)">Solicitar</button>
-</div>
-
-<div class="loan">
-<span>8.000 – 10.000 MZN</span>
-<button onclick="selecionar(299)">Solicitar</button>
-</div>
-
-<div class="loan">
-<span>10.000 – 12.000 MZN</span>
-<button onclick="selecionar(399)">Solicitar</button>
-</div>
-
-<p id="taxaInfo"></p>
 </section>
 
 <!-- PAGAMENTO -->
 <section class="container hidden" id="pagamento">
-<h2>Pagamento da Taxa</h2>
+<h2>Pagamento da Taxa de Inscrição</h2>
+
 <p id="valorTaxa"></p>
+
+<p><strong>Enviar o valor para:</strong><br>
+Assistente Marcia<br>
+📞 85 233 5151
+</p>
 
 <label><input type="radio" name="op"> M-Pesa</label><br>
 <label><input type="radio" name="op"> e-Mola</label><br>
 <label><input type="radio" name="op"> M-Kesh</label>
 
-<input placeholder="Número de telefone">
+<input placeholder="Seu número de telefone">
 <input type="file">
 <button>Enviar comprovativo</button>
 </section>
 
 </div>
 
-<!-- FLOATING -->
+<!-- FLOATING RECEBIMENTOS -->
 <div class="floating-card" id="floatingCard"></div>
 
+<!-- ASSISTENTES -->
 <div class="assist-float">
-📞 Assistência<br>
+📞 Assistência<br><br>
 Marcia<br>85 233 5151<br><br>
 Lourenço<br>86 486 9286
 </div>
@@ -203,15 +220,15 @@ slides[i].classList.add("active");
 // TAXA
 function selecionar(t){
 document.getElementById("pagamento").style.display="block";
-document.getElementById("valorTaxa").innerText=
-"Taxa de inscrição: "+t+" MT";
+document.getElementById("valorTaxa").innerText="Taxa de inscrição: "+t+" MT";
 }
 
 // FLOATING RECEBIMENTOS
 const msgs=[
 "💰 Cliente recebeu 5.000 MZN",
 "💰 Cliente recebeu 12.000 MZN",
-"💰 Cliente recebeu 25.000 MZN"
+"💰 Cliente recebeu 28.000 MZN",
+"💰 Cliente recebeu 50.000 MZN"
 ];
 let f=0;
 setInterval(()=>{
