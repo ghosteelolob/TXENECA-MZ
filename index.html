@@ -2,125 +2,114 @@
 <html lang="pt">
 <head>
 <meta charset="UTF-8">
-<title>Tcheneca</title>
+<title>Txeneca – Empréstimos rápidos e seguros</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
-body {
-    margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
-    background: #f4f6f8;
-    color: #222;
+body{
+    margin:0;
+    font-family:Arial, Helvetica, sans-serif;
+    background:#f4f6f8;
+    color:#222;
 }
-
-/* MENU */
-nav {
-    display: flex;
-    justify-content: center;
-    gap: 25px;
-    background: #111;
-    padding: 12px;
+nav{
+    background:#111;
+    display:flex;
+    justify-content:center;
+    gap:25px;
+    padding:12px;
 }
-nav a {
-    color: #fff;
-    text-decoration: none;
-    font-weight: bold;
+nav a{
+    color:#fff;
+    text-decoration:none;
+    font-weight:bold;
 }
-
-/* TÍTULO */
-header {
-    text-align: center;
-    padding: 30px 15px;
+header{
+    text-align:center;
+    padding:30px 15px;
 }
-header h1 {
-    font-size: 40px;
-    color: #0a7cff;
+header h1{
+    font-size:40px;
+    color:#0a7cff;
 }
-
-/* SEÇÕES */
-section {
-    background: #fff;
-    margin: 20px auto;
-    padding: 20px;
-    width: 95%;
-    max-width: 900px;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+header p{
+    font-size:16px;
+    color:#555;
 }
-
-/* FORMULÁRIOS */
-input, select, button {
-    width: 100%;
-    padding: 10px;
-    margin: 8px 0;
-    border-radius: 6px;
-    border: 1px solid #ccc;
+section{
+    background:#fff;
+    margin:20px auto;
+    padding:20px;
+    width:95%;
+    max-width:900px;
+    border-radius:10px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.1);
 }
-button {
-    background: #0a7cff;
-    color: #fff;
-    border: none;
-    font-size: 16px;
+input, select, button{
+    width:100%;
+    padding:10px;
+    margin:8px 0;
+    border-radius:6px;
+    border:1px solid #ccc;
 }
-
-/* QUADRADOS */
-.boxes {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(140px,1fr));
-    gap: 15px;
+button{
+    background:#0a7cff;
+    color:#fff;
+    border:none;
+    font-size:16px;
 }
-.box {
-    background: #0a7cff;
-    color: white;
-    padding: 20px;
-    text-align: center;
-    border-radius: 10px;
-    font-weight: bold;
+.boxes{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+    gap:15px;
 }
-
-/* LISTA */
-.listas {
-    display: flex;
-    justify-content: space-between;
+.box{
+    background:#0a7cff;
+    color:#fff;
+    padding:20px;
+    text-align:center;
+    border-radius:10px;
+    font-weight:bold;
 }
-ul {
-    list-style: none;
-    padding: 0;
+.listas{
+    display:flex;
+    justify-content:space-between;
+    gap:20px;
 }
-
-/* SLIDER */
-.slider-value {
-    text-align: center;
-    font-size: 22px;
-    font-weight: bold;
-    margin-top: 10px;
+ul{
+    list-style:none;
+    padding:0;
 }
-
-/* DISCURSO */
-.discurso {
-    background: #eef5ff;
-    padding: 15px;
-    border-left: 5px solid #0a7cff;
-    margin: 10px 0;
+.slider-value{
+    text-align:center;
+    font-size:22px;
+    font-weight:bold;
 }
-
-/* MENSAGEM FLUTUANTE */
-#floating {
-    position: fixed;
-    top: 20px;
-    right: -300px;
-    background: #0a7cff;
-    color: #fff;
-    padding: 12px 18px;
-    border-radius: 8px;
-    animation: move 8s infinite;
+.discurso{
+    background:#eef5ff;
+    padding:15px;
+    border-left:5px solid #0a7cff;
 }
-
-@keyframes move {
-    0% { right: -300px; top: 20px; }
-    30% { right: 20px; top: 20px; }
-    60% { right: 20px; top: 80%; }
-    100% { right: -300px; top: 80%; }
+.pagamento{
+    background:#f9fafc;
+    padding:15px;
+    border-radius:8px;
+}
+#floating{
+    position:fixed;
+    right:-320px;
+    top:20px;
+    background:#0a7cff;
+    color:#fff;
+    padding:12px 18px;
+    border-radius:8px;
+    animation:mover 8s infinite;
+}
+@keyframes mover{
+    0%{right:-320px;top:20px;}
+    30%{right:20px;top:20px;}
+    60%{right:20px;top:80%;}
+    100%{right:-320px;top:80%;}
 }
 </style>
 </head>
@@ -136,7 +125,8 @@ ul {
 </nav>
 
 <header>
-<h1>TCHENECA</h1>
+<h1>Txeneca</h1>
+<p>Empréstimos rápidos e seguros</p>
 </header>
 
 <section>
@@ -154,4 +144,84 @@ ul {
 </section>
 
 <section class="boxes">
-<div class="box">Flexibilidade</div
+<div class="box">Flexibilidade</div>
+<div class="box">Rapidez</div>
+<div class="box">Atendimento</div>
+<div class="box">Legitimidade</div>
+</section>
+
+<section>
+<h2>Valores e Taxas</h2>
+<div class="listas">
+<ul>
+<li>5.000 MZN</li>
+<li>10.000 MZN</li>
+<li>20.000 MZN</li>
+<li>50.000 MZN</li>
+<li>100.000 MZN</li>
+<li>200.000 MZN</li>
+</ul>
+<ul>
+<li>299 MZN</li>
+<li>399 MZN</li>
+<li>499 MZN</li>
+<li>599 MZN</li>
+<li>699 MZN</li>
+<li>799 MZN</li>
+</ul>
+</div>
+</section>
+
+<section>
+<h2>Selecionar valor</h2>
+<input type="range" min="5000" max="200000" step="5000"
+oninput="valor.innerText=this.value+' MZN'">
+<div class="slider-value" id="valor">5.000 MZN</div>
+</section>
+
+<section class="discurso">
+<p>
+A Txeneca atua com transparência, rapidez e compromisso.
+Nosso objetivo é ajudar você a resolver suas necessidades financeiras
+com segurança e confiança.
+</p>
+</section>
+
+<section>
+<h2>Forma de pagamento</h2>
+<select>
+<option>Escolher método</option>
+<option>E-MOLA</option>
+<option>M-PESA</option>
+<option>M-KESH</option>
+</select>
+
+<div class="pagamento">
+<p><strong>Números de pagamento:</strong></p>
+<p>📱 85 233 5151 – Assistente Márcia</p>
+<p>📱 86 486 9286 – Assistente Lourenço</p>
+</div>
+</section>
+
+<section>
+<h2>Enviar comprovativo</h2>
+<p>Mande o comprovativo após o pagamento:</p>
+<input type="file">
+<button>Enviar comprovativo</button>
+</section>
+
+<section class="discurso">
+<p>
+Txeneca é confiança, seriedade e apoio financeiro.
+Estamos prontos para atender você.
+</p>
+</section>
+
+<section class="pagamento">
+<p><strong>Pagamento:</strong></p>
+<p>📱 85 233 5151 – Assistente Márcia</p>
+<p>📱 86 486 9286 – Assistente Lourenço</p>
+</section>
+
+</body>
+    </html>
