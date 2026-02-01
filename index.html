@@ -7,13 +7,12 @@
 
 <style>
 *{box-sizing:border-box;font-family:Arial,sans-serif}
-body{margin:0;background:#f2f2f2}
+body{margin:0;background:#f3f3f3}
 
 header{
   background:#111;color:#fff;
-  padding:10px;text-align:center;
+  padding:12px;text-align:center;
 }
-header a{color:#00ff88;text-decoration:none}
 
 .container{
   background:#fff;
@@ -22,6 +21,8 @@ header a{color:#00ff88;text-decoration:none}
   border-radius:8px;
 }
 
+.hidden{display:none}
+
 input,select,button{
   width:100%;
   padding:10px;
@@ -29,63 +30,69 @@ input,select,button{
 }
 
 button{
-  background:#007bff;
+  background:#0a7cff;
   color:#fff;
   border:none;
   border-radius:5px;
 }
 
-.hidden{display:none}
-
 /* SLIDER */
 .slider{
-  background:#007bff;
+  background:#0a7cff;
   color:#fff;
-  margin:20px;
   padding:30px;
+  margin:20px;
   border-radius:8px;
-  text-align:center;
 }
 .slide{display:none;font-size:18px}
 .slide.active{display:block}
 
-/* FLOATS */
+/* LISTA DE EMPRÉSTIMOS */
+.loan{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:12px;
+  border-bottom:1px solid #ddd;
+}
+.loan button{
+  width:auto;
+  padding:6px 12px;
+}
+
+/* FLOATING RECEBIMENTOS */
 .floating-card{
   position:fixed;
-  bottom:100px;
   left:10px;
+  bottom:100px;
   background:#fff;
   padding:10px;
   border-radius:8px;
   box-shadow:0 0 10px rgba(0,0,0,.2);
-  font-size:14px;
 }
 
-.contact-float{
+/* ASSISTENTES */
+.assist-float{
   position:fixed;
-  bottom:10px;
   right:10px;
-  background:#007bff;
+  bottom:10px;
+  background:#0a7cff;
   color:#fff;
   padding:12px;
   border-radius:12px;
   font-size:12px;
   text-align:center;
 }
-
-.ajuda{background:#eee}
 </style>
 </head>
 
 <body>
 
 <header>
-<strong>Assistência TXENECA</strong><br>
-Marcia: <a href="tel:852335151">85 233 5151</a> |
-Lourenço: <a href="tel:864869286">86 486 9286</a>
+<strong>TXENECA-MZ – Empréstimos Confiáveis</strong>
 </header>
 
-<!-- CADASTRO -->
+<!-- PÁGINA 1 – CADASTRO -->
 <section class="container" id="cadastro">
 <h2>Cadastro Obrigatório</h2>
 <form id="cadastroForm">
@@ -101,101 +108,115 @@ Lourenço: <a href="tel:864869286">86 486 9286</a>
 <input required placeholder="Telefone">
 <input type="email" required placeholder="Email">
 <input type="password" required placeholder="Senha">
-<button>Criar conta e continuar</button>
+<button>Criar conta e entrar</button>
 </form>
 </section>
 
+<!-- PÁGINA 2 -->
+<div id="pagina2" class="hidden">
+
 <!-- SLIDER -->
-<section class="slider hidden">
-<div class="slide active">Cadastro simples e rápido</div>
-<div class="slide">Taxa de inscrição acessível</div>
-<div class="slide">Empréstimos de 5.000 a 200.000 MZN</div>
-<div class="slide">Pagamento via M-Pesa, e-Mola e M-Kesh</div>
+<section class="slider">
+<div class="slide active">Empréstimos de 5.000 MZN a 200.000 MZN</div>
+<div class="slide">Taxas de inscrição acessíveis e progressivas</div>
+<div class="slide">Pagamento seguro via M-Pesa, e-Mola e M-Kesh</div>
 </section>
 
-<!-- TAXA -->
-<section class="container hidden">
-<h2>Taxa de Inscrição</h2>
-<select id="taxa" onchange="mostrarEmprestimo()">
-<option value="">Escolha a taxa</option>
-<option value="99">99 MT</option>
-<option value="199">199 MT</option>
-<option value="299">299 MT</option>
-<option value="399">399 MT</option>
-<option value="499">499 MT</option>
-<option value="999">999 MT</option>
-<option value="1999">1999 MT</option>
-</select>
-<p id="limite"></p>
+<!-- CONFIANÇA -->
+<section class="container">
+<h3>Por que confiar na TXENECA?</h3>
+<p>
+A TXENECA oferece soluções financeiras rápidas, transparentes e acessíveis,
+com processos claros, atendimento humano e taxas ajustadas ao valor solicitado.
+Trabalhamos para facilitar o acesso ao crédito de forma simples e segura.
+</p>
 </section>
 
-<!-- SIMULADOR -->
-<section class="container hidden">
-<h2>Simulador</h2>
-<input id="valor" placeholder="Valor do empréstimo">
-<input id="prazo" placeholder="Prazo (meses)">
-<button onclick="simular()">Simular</button>
-<p id="resultado"></p>
+<!-- LISTA DE EMPRÉSTIMOS -->
+<section class="container">
+<h2>Escolha o valor do empréstimo</h2>
+
+<div class="loan">
+<span>5.000 – 6.000 MZN</span>
+<button onclick="selecionar(59)">Solicitar</button>
+</div>
+
+<div class="loan">
+<span>6.000 – 8.000 MZN</span>
+<button onclick="selecionar(199)">Solicitar</button>
+</div>
+
+<div class="loan">
+<span>8.000 – 10.000 MZN</span>
+<button onclick="selecionar(299)">Solicitar</button>
+</div>
+
+<div class="loan">
+<span>10.000 – 12.000 MZN</span>
+<button onclick="selecionar(399)">Solicitar</button>
+</div>
+
+<p id="taxaInfo"></p>
 </section>
 
 <!-- PAGAMENTO -->
-<section class="container hidden">
+<section class="container hidden" id="pagamento">
 <h2>Pagamento da Taxa</h2>
+<p id="valorTaxa"></p>
+
 <label><input type="radio" name="op"> M-Pesa</label><br>
 <label><input type="radio" name="op"> e-Mola</label><br>
 <label><input type="radio" name="op"> M-Kesh</label>
+
 <input placeholder="Número de telefone">
 <input type="file">
 <button>Enviar comprovativo</button>
 </section>
 
-<section class="container ajuda">
-<h3>Precisa de ajuda?</h3>
-<p>📞 Marcia – 85 233 5151</p>
-<p>📞 Lourenço – 86 486 9286</p>
-</section>
+</div>
 
+<!-- FLOATING -->
 <div class="floating-card" id="floatingCard"></div>
 
-<div class="contact-float">
-📞<br>Marcia<br>85 233 5151<br><br>Lourenço<br>86 486 9286
+<div class="assist-float">
+📞 Assistência<br>
+Marcia<br>85 233 5151<br><br>
+Lourenço<br>86 486 9286
 </div>
 
 <script>
-document.getElementById("cadastroForm").onsubmit=e=>{
+// TRANSIÇÃO
+cadastroForm.onsubmit=e=>{
 e.preventDefault();
-document.getElementById("cadastro").style.display="none";
-document.querySelectorAll(".hidden").forEach(x=>x.style.display="block");
+cadastro.style.display="none";
+pagina2.style.display="block";
 };
 
-let slides=document.querySelectorAll(".slide"),s=0;
+// SLIDER
+let slides=document.querySelectorAll(".slide"),i=0;
 setInterval(()=>{
-slides.forEach(x=>x.classList.remove("active"));
-s=(s+1)%slides.length;
-slides[s].classList.add("active");
+slides.forEach(s=>s.classList.remove("active"));
+i=(i+1)%slides.length;
+slides[i].classList.add("active");
 },3000);
 
-function mostrarEmprestimo(){
-let t=Number(document.getElementById("taxa").value);
-let max=Math.min(200000,5000 + t*100);
-document.getElementById("limite").innerText=
-`Com esta taxa pode solicitar até ${max.toLocaleString()} MZN`;
+// TAXA
+function selecionar(t){
+document.getElementById("pagamento").style.display="block";
+document.getElementById("valorTaxa").innerText=
+"Taxa de inscrição: "+t+" MT";
 }
 
-function simular(){
-let v=Number(valor.value),j=v*0.1;
-resultado.innerText=`Total a pagar: ${(v+j).toFixed(2)} MZN`;
-}
-
+// FLOATING RECEBIMENTOS
 const msgs=[
-"💰 Cliente recebeu 15.000 MZN",
-"💰 Cliente recebeu 8.500 MZN",
-"💰 Cliente recebeu 22.000 MZN"
+"💰 Cliente recebeu 5.000 MZN",
+"💰 Cliente recebeu 12.000 MZN",
+"💰 Cliente recebeu 25.000 MZN"
 ];
-let i=0;
+let f=0;
 setInterval(()=>{
-floatingCard.innerText=msgs[i];
-i=(i+1)%msgs.length;
+floatingCard.innerText=msgs[f];
+f=(f+1)%msgs.length;
 },3000);
 </script>
 
