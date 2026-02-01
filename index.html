@@ -2,255 +2,156 @@
 <html lang="pt">
 <head>
 <meta charset="UTF-8">
+<title>Tcheneca</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Txeneca | Empréstimos Rápidos</title>
 
 <style>
-:root{
-    --vermelho:#c40000;
-    --preto:#111;
-    --cinza:#f5f5f5;
-}
-
-*{box-sizing:border-box;font-family:Arial,Helvetica,sans-serif;}
-
-body{
-    margin:0;
-    background:var(--cinza);
-    color:#222;
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f4f6f8;
+    color: #222;
 }
 
 /* MENU */
-header{
-    background:var(--preto);
-    color:white;
-    padding:15px 20px;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    position:sticky;
-    top:0;
-    z-index:1000;
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    background: #111;
+    padding: 12px;
+}
+nav a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
 }
 
-header h1{
-    margin:0;
-    color:var(--vermelho);
+/* TÍTULO */
+header {
+    text-align: center;
+    padding: 30px 15px;
 }
-
-nav a{
-    color:white;
-    margin-left:15px;
-    text-decoration:none;
-    font-weight:bold;
+header h1 {
+    font-size: 40px;
+    color: #0a7cff;
 }
-
-nav a:hover{color:var(--vermelho);}
 
 /* SEÇÕES */
-section{
-    padding:40px 20px;
-    max-width:1100px;
-    margin:auto;
+section {
+    background: #fff;
+    margin: 20px auto;
+    padding: 20px;
+    width: 95%;
+    max-width: 900px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* FORMULÁRIOS */
+input, select, button {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+button {
+    background: #0a7cff;
+    color: #fff;
+    border: none;
+    font-size: 16px;
 }
 
 /* QUADRADOS */
-.quadrados{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-    gap:15px;
+.boxes {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px,1fr));
+    gap: 15px;
+}
+.box {
+    background: #0a7cff;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
+    font-weight: bold;
 }
 
-.quadro{
-    background:white;
-    padding:25px;
-    text-align:center;
-    border-radius:10px;
-    border-top:5px solid var(--vermelho);
-    font-weight:bold;
+/* LISTA */
+.listas {
+    display: flex;
+    justify-content: space-between;
 }
-
-/* LISTA EMPRESTIMOS */
-.lista{
-    background:white;
-    padding:20px;
-    border-radius:10px;
-}
-
-.lista li{
-    margin:10px 0;
-    font-weight:bold;
+ul {
+    list-style: none;
+    padding: 0;
 }
 
 /* SLIDER */
-.slider{
-    background:white;
-    padding:30px;
-    border-radius:10px;
-    text-align:center;
+.slider-value {
+    text-align: center;
+    font-size: 22px;
+    font-weight: bold;
+    margin-top: 10px;
 }
 
-input[type=range]{
-    width:100%;
+/* DISCURSO */
+.discurso {
+    background: #eef5ff;
+    padding: 15px;
+    border-left: 5px solid #0a7cff;
+    margin: 10px 0;
 }
 
-/* FORMULÁRIO */
-form{
-    background:white;
-    padding:25px;
-    border-radius:10px;
+/* MENSAGEM FLUTUANTE */
+#floating {
+    position: fixed;
+    top: 20px;
+    right: -300px;
+    background: #0a7cff;
+    color: #fff;
+    padding: 12px 18px;
+    border-radius: 8px;
+    animation: move 8s infinite;
 }
 
-form input, form select{
-    width:100%;
-    padding:10px;
-    margin:8px 0;
-}
-
-button{
-    background:var(--vermelho);
-    color:white;
-    border:none;
-    padding:12px;
-    width:100%;
-    font-size:16px;
-    border-radius:5px;
-    cursor:pointer;
-}
-
-button:hover{opacity:0.9;}
-
-/* BOTÃO FLUTUANTE */
-.floating{
-    position:fixed;
-    bottom:20px;
-    left:20px;
-    background:var(--vermelho);
-    color:white;
-    padding:12px 18px;
-    border-radius:30px;
-    font-weight:bold;
-    box-shadow:0 0 10px rgba(0,0,0,0.4);
-}
-
-/* RODAPÉ */
-footer{
-    background:var(--preto);
-    color:#ccc;
-    text-align:center;
-    padding:15px;
+@keyframes move {
+    0% { right: -300px; top: 20px; }
+    30% { right: 20px; top: 20px; }
+    60% { right: 20px; top: 80%; }
+    100% { right: -300px; top: 80%; }
 }
 </style>
 </head>
 
 <body>
 
+<div id="floating">Joana recebeu 5.000 MZN agora</div>
+
+<nav>
+<a href="#">Início</a>
+<a href="#">Empréstimos</a>
+<a href="#">Pagamentos</a>
+</nav>
+
 <header>
-    <h1>TXENECA</h1>
-    <nav>
-        <a href="#cadastro">Cadastro</a>
-        <a href="#emprestimos">Empréstimos</a>
-        <a href="#simulador">Simular</a>
-        <a href="#contacto">Contacto</a>
-    </nav>
+<h1>TCHENECA</h1>
 </header>
 
 <section>
-    <div class="quadrados">
-        <div class="quadro">Flexibilidade</div>
-        <div class="quadro">Atendimento</div>
-        <div class="quadro">Organização</div>
-        <div class="quadro">Taxa Anabólica</div>
-    </div>
+<h2>Cadastro</h2>
+<input placeholder="Nome completo">
+<input placeholder="Telefone">
+<input placeholder="Número da casa">
+<select>
+<option>Género</option>
+<option>Masculino</option>
+<option>Feminino</option>
+</select>
+<input placeholder="Província">
+<button>Cadastrar</button>
 </section>
 
-<section id="emprestimos">
-    <h2>Empréstimos & Taxas</h2>
-    <ul class="lista">
-        <li>💰 Taxa: 399 MZN – 2050 MZN</li>
-        <li>💳 Valores disponíveis: 5.000 MZN – 200.000 MZN</li>
-    </ul>
-</section>
-
-<section id="simulador">
-    <div class="slider">
-        <h2>Escolha o valor do empréstimo</h2>
-        <p id="valor">5.000 MZN</p>
-        <input type="range" min="5000" max="200000" step="5000" oninput="mostrarValor(this.value)">
-    </div>
-</section>
-
-<section id="cadastro">
-    <h2>Cadastro</h2>
-    <form>
-        <input type="email" placeholder="E-mail" required>
-        <input type="tel" placeholder="Telefone" required>
-
-        <select required>
-            <option value="">Género</option>
-            <option>Masculino</option>
-            <option>Feminino</option>
-        </select>
-
-        <select required>
-            <option value="">Província</option>
-            <option>Maputo</option>
-            <option>Gaza</option>
-            <option>Sofala</option>
-            <option>Nampula</option>
-            <option>Zambézia</option>
-        </select>
-
-        <select>
-            <option>Forma de pagamento</option>
-            <option>E-Mola</option>
-            <option>M-Pesa</option>
-            <option>M-Kash</option>
-        </select>
-
-        <input type="file" required>
-
-        <button type="submit">Processar Empréstimo</button>
-    </form>
-</section>
-
-<section>
-    <h2>Por que confiar na Txeneca?</h2>
-    <p>
-        A Txeneca oferece transparência, rapidez no processamento,
-        taxas acessíveis e atendimento humano. Trabalhamos com os
-        meios de pagamento mais usados em Moçambique e garantimos
-        segurança em todas as etapas.
-    </p>
-</section>
-
-<section id="contacto">
-    <h2>Contacto</h2>
-    <p>📞 <strong>85 233 5151</strong> — Marcia</p>
-</section>
-
-<footer>
-    © 2026 Txeneca | Todos os direitos reservados
-</footer>
-
-<div class="floating" id="floating">Joana recebeu 50.000 MZN</div>
-
-<script>
-function mostrarValor(v){
-    document.getElementById("valor").innerText =
-    Number(v).toLocaleString("pt-MZ")+" MZN";
-}
-
-const nomes=["Joana","Carlos","Maria","Paulo","Ana","Rosa"];
-const valores=["50.000","75.000","120.000","30.000","200.000"];
-
-setInterval(()=>{
-    const nome=nomes[Math.floor(Math.random()*nomes.length)];
-    const valor=valores[Math.floor(Math.random()*valores.length)];
-    document.getElementById("floating").innerText=
-    nome+" recebeu "+valor+" MZN";
-},3000);
-</script>
-
-</body>
-  </html>
+<section class="boxes">
+<div class="box">Flexibilidade</div
