@@ -3,217 +3,240 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>TXENECA | Soluções Financeiras</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+<title>TXENECA | Plataforma Financeira</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
-body{font-family:'Inter',sans-serif;background:#f8f9fb;color:#1a1a1a;}
-header{
-background:#0f172a;
-color:white;
-padding:20px 40px;
-display:flex;
-justify-content:space-between;
-align-items:center;
-position:sticky;
-top:0;
-z-index:999;
+body{
+font-family:'Inter',sans-serif;
+background:#070b14;
+color:#fff;
+overflow-x:hidden;
 }
-header h1{font-size:20px;font-weight:700;}
-nav a{
-color:white;
-text-decoration:none;
-margin-left:20px;
-font-size:14px;
-opacity:0.8;
-}
-nav a:hover{opacity:1;}
 
-.hero{
-background:linear-gradient(120deg,#b30000,#7a0000);
-color:white;
-padding:80px 20px;
-text-align:center;
+/* TRANSIÇÃO SUAVE */
+section{
+min-height:100vh;
+padding:60px 20px;
+display:none;
+opacity:0;
+transform:translateX(30px);
+transition:0.5s ease;
 }
-.hero h2{font-size:32px;margin-bottom:15px;}
-.hero p{opacity:0.9;font-size:16px;}
+
+section.active{
+display:block;
+opacity:1;
+transform:translateX(0);
+}
 
 .container{
-max-width:1100px;
+max-width:700px;
 margin:auto;
-padding:40px 20px;
 }
 
-.card{
-background:white;
-padding:30px;
-border-radius:16px;
-box-shadow:0 10px 30px rgba(0,0,0,0.05);
-margin-bottom:40px;
+h1{
+font-size:30px;
+margin-bottom:10px;
 }
 
-h3{
+h2{
 margin-bottom:20px;
-color:#0f172a;
+font-size:22px;
 }
 
-input, select{
-width:100%;
-padding:14px;
-margin-bottom:15px;
+.progress-bar{
+height:6px;
+background:#1f2937;
 border-radius:10px;
-border:1px solid #ddd;
-font-size:14px;
+margin-bottom:30px;
+overflow:hidden;
 }
 
-input[type="file"]{
-padding:10px;
+.progress{
+height:100%;
+width:50%;
+background:linear-gradient(90deg,#b30000,#ff0000);
+}
+
+input,select{
+width:100%;
+padding:16px;
+margin-bottom:15px;
+border-radius:12px;
+border:1px solid #222;
+background:#111827;
+color:#fff;
+font-size:14px;
 }
 
 button{
-background:#b30000;
-color:white;
+width:100%;
+padding:16px;
 border:none;
-padding:14px;
-border-radius:10px;
-font-weight:600;
+border-radius:12px;
+background:linear-gradient(90deg,#b30000,#ff0000);
+color:white;
+font-weight:700;
 cursor:pointer;
 transition:0.3s;
 }
-button:hover{background:#900000;}
 
-.slider-box{text-align:center;}
-.slider-box input{margin:20px 0;}
+button:hover{
+transform:scale(1.03);
+}
+
+.slider-box{text-align:center;margin-top:30px;}
 .slider-value{
-font-size:20px;
-font-weight:600;
-color:#b30000;
+font-size:26px;
+font-weight:800;
+color:#ff4d4d;
+margin-top:10px;
 }
 
 table{
 width:100%;
+margin-top:30px;
 border-collapse:collapse;
 font-size:14px;
 }
-th{
-background:#0f172a;
-color:white;
+
+th,td{
 padding:12px;
-}
-td{
-padding:12px;
-border-bottom:1px solid #eee;
 text-align:center;
+border-bottom:1px solid #222;
 }
 
-.info-note{
-background:#fff3cd;
-padding:15px;
-border-radius:10px;
-font-size:13px;
-margin-top:15px;
+th{background:#7a0000;}
+
+.note{
+background:#111827;
+padding:20px;
+border-radius:14px;
+margin-top:20px;
+border:1px solid #7a0000;
 }
 
 .grid{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:20px;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:15px;
+margin-top:20px;
 }
 
 .feature{
-background:#f1f5f9;
+background:#111827;
 padding:20px;
-border-radius:12px;
+border-radius:14px;
 text-align:center;
-font-size:14px;
+border:1px solid #222;
 }
 
-.contact-box{
-background:#0f172a;
-color:white;
+.contact{
+margin-top:30px;
+background:linear-gradient(135deg,#7a0000,#b30000);
 padding:25px;
 border-radius:16px;
+text-align:center;
+font-weight:600;
+}
+
+.steps{
+margin-top:30px;
+}
+
+.step{
+background:#0f172a;
+padding:20px;
+border-radius:14px;
+margin-bottom:15px;
 }
 
 .float-whatsapp{
 position:fixed;
-bottom:25px;
-right:25px;
+bottom:20px;
+right:20px;
 background:#25D366;
-color:white;
-padding:14px 18px;
+padding:16px 22px;
 border-radius:50px;
-font-weight:600;
+color:white;
 text-decoration:none;
-box-shadow:0 8px 20px rgba(0,0,0,0.2);
-font-size:14px;
+font-weight:700;
+box-shadow:0 10px 30px rgba(0,0,0,0.4);
 }
 
-footer{
-background:#0f172a;
-color:white;
-text-align:center;
-padding:20px;
+.float-receber{
+position:fixed;
+bottom:90px;
+right:20px;
+background:#111827;
+padding:14px 20px;
+border-radius:50px;
 font-size:13px;
-margin-top:40px;
+animation:fade 2s infinite alternate;
+}
+
+@keyframes fade{
+from{opacity:0.4;}
+to{opacity:1;}
 }
 </style>
 </head>
-
 <body>
 
-<header>
-<h1>TXENECA</h1>
-<nav>
-<a href="#">Início</a>
-<a href="#">Cadastro</a>
-<a href="#">Taxas</a>
-<a href="#">Contacto</a>
-</nav>
-</header>
-
-<section class="hero">
-<h2>Empréstimos Rápidos e Seguros</h2>
-<p>Solução financeira moderna para Moçambique</p>
-</section>
-
+<!-- CADASTRO -->
+<section id="cadastro" class="active">
 <div class="container">
+<h1>Cadastro Completo</h1>
 
-<div class="card">
-<h3>1ª Etapa — Cadastro Completo</h3>
-
-<input type="text" placeholder="Nome Completo">
-<input type="number" placeholder="Telefone">
-<input type="text" placeholder="Número do BI">
-
-<label>BI Frente</label>
-<input type="file">
-
-<label>BI Verso</label>
-<input type="file">
-
-<button>Enviar Cadastro</button>
+<div class="progress-bar">
+<div class="progress"></div>
 </div>
 
-<div class="card slider-box">
-<h3>Simule o Seu Empréstimo</h3>
+<input type="text" placeholder="Nome Completo" required>
+<input type="text" placeholder="Número da Casa" required>
+<input type="text" placeholder="Bairro" required>
 
+<select required>
+<option>Selecionar Idade</option>
+<script>
+for(let i=18;i<=90;i++){
+document.write("<option>"+i+"</option>");
+}
+</script>
+</select>
+
+<select required>
+<option>Selecionar Sexo</option>
+<option>Masculino</option>
+<option>Feminino</option>
+</select>
+
+<label>BI Frente</label>
+<input type="file" required>
+
+<label>BI Verso</label>
+<input type="file" required>
+
+<button onclick="liberar()">Enviar Cadastro</button>
+</div>
+</section>
+
+<!-- SIMULADOR -->
+<section id="simulador">
+<div class="container">
+<h1>Simule Seu Empréstimo</h1>
+
+<div class="slider-box">
 <input type="range" min="2000" max="200000" step="500" id="rangeValor">
 <div class="slider-value">
 <span id="valor">2.000</span> MT
 </div>
 </div>
 
-<div class="card">
-<h3>Tabela de Taxa de Inscrição</h3>
-
 <table>
-<tr>
-<th>Taxa (MT)</th>
-<th>Valor do Empréstimo (MT)</th>
-</tr>
-
+<tr><th>Taxa (MT)</th><th>Valor do Empréstimo (MT)</th></tr>
 <tr><td>99</td><td>2.500 – 3.000</td></tr>
 <tr><td>199</td><td>5.000 – 8.000</td></tr>
 <tr><td>299</td><td>10.000 – 15.000</td></tr>
@@ -223,53 +246,66 @@ margin-top:40px;
 <tr><td>899</td><td>90.000 – 120.000</td></tr>
 <tr><td>1.099</td><td>130.000 – 160.000</td></tr>
 <tr><td>1.299</td><td>170.000 – 200.000</td></tr>
-
 </table>
 
-<div class="info-note">
-A taxa de inscrição é cobrada apenas para utilizadores de primeiro uso.
-Após o primeiro empréstimo, não há nova taxa de inscrição.
+<div class="note">
+A taxa de inscrição é cobrada apenas no primeiro empréstimo.
+Após o primeiro uso, não há nova taxa.
 </div>
 
+<div class="steps">
+<h2>Como Funciona</h2>
+<div class="step">1️⃣ Faça o cadastro completo</div>
+<div class="step">2️⃣ Escolha o valor desejado</div>
+<div class="step">3️⃣ Fale com a assistente oficial</div>
 </div>
 
-<div class="card">
-<h3>Por Que Confiar no TXENECA?</h3>
+<h2 style="margin-top:40px;">Por Que Confiar no TXENECA?</h2>
 
 <div class="grid">
 <div class="feature">✔ Atendimento humano verificado</div>
 <div class="feature">✔ Processamento rápido</div>
 <div class="feature">✔ Proteção de dados</div>
 <div class="feature">✔ Transparência total</div>
-<div class="feature">✔ Assistente dedicada</div>
-<div class="feature">✔ Plataforma moderna</div>
+</div>
+
+<div class="contact">
+Márcia ASSIST.<br><br>
+85 233 5151 - M-Pesa<br>
+86 773 4541 - E-Mola
 </div>
 
 </div>
-
-<div class="contact-box">
-<h3>Assistente Oficial</h3>
-<p><strong>Márcia ASSIST. (E-MOLA)</strong><br>867734541</p>
-<br>
-<p><strong>Márcia ASSIST. (M-PESA)</strong><br>85 233 5151</p>
-</div>
-
-</div>
+</section>
 
 <a class="float-whatsapp" href="https://wa.me/258867734541">
 WhatsApp
 </a>
 
-<footer>
-© 2026 TXENECA — Plataforma Financeira Digital
-</footer>
+<div class="float-receber" id="notify">
+João recebeu 50.000 MT
+</div>
 
 <script>
+function liberar(){
+document.getElementById("cadastro").classList.remove("active");
+document.getElementById("simulador").classList.add("active");
+}
+
 const slider = document.getElementById("rangeValor");
 const output = document.getElementById("valor");
 slider.oninput = function(){
 output.innerHTML = parseInt(this.value).toLocaleString();
 }
+
+/* NOTIFICAÇÃO ROTATIVA */
+const nomes=["João","Maria","Carlos","Ana","Paulo"];
+setInterval(()=>{
+let nome=nomes[Math.floor(Math.random()*nomes.length)];
+let valor=(Math.floor(Math.random()*90)+10)*1000;
+document.getElementById("notify").innerHTML=
+nome+" recebeu "+valor.toLocaleString()+" MT";
+},4000);
 </script>
 
 </body>
