@@ -3,87 +3,160 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>TXENECA-MZ</title>
+<title>TXENECA | Soluções Financeiras</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
-*{box-sizing:border-box;font-family:Arial,sans-serif}
-body{margin:0;background:#f3f3f3}
-
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Inter',sans-serif;background:#f8f9fb;color:#1a1a1a;}
 header{
-  background:#111;color:#fff;
-  padding:12px;text-align:center;
+background:#0f172a;
+color:white;
+padding:20px 40px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+position:sticky;
+top:0;
+z-index:999;
 }
+header h1{font-size:20px;font-weight:700;}
+nav a{
+color:white;
+text-decoration:none;
+margin-left:20px;
+font-size:14px;
+opacity:0.8;
+}
+nav a:hover{opacity:1;}
+
+.hero{
+background:linear-gradient(120deg,#b30000,#7a0000);
+color:white;
+padding:80px 20px;
+text-align:center;
+}
+.hero h2{font-size:32px;margin-bottom:15px;}
+.hero p{opacity:0.9;font-size:16px;}
 
 .container{
-  background:#fff;
-  margin:20px;
-  padding:20px;
-  border-radius:8px;
+max-width:1100px;
+margin:auto;
+padding:40px 20px;
 }
 
-.hidden{display:none}
+.card{
+background:white;
+padding:30px;
+border-radius:16px;
+box-shadow:0 10px 30px rgba(0,0,0,0.05);
+margin-bottom:40px;
+}
 
-input,select,button{
-  width:100%;
-  padding:12px;
-  margin:10px 0;
-  font-size:15px;
+h3{
+margin-bottom:20px;
+color:#0f172a;
+}
+
+input, select{
+width:100%;
+padding:14px;
+margin-bottom:15px;
+border-radius:10px;
+border:1px solid #ddd;
+font-size:14px;
+}
+
+input[type="file"]{
+padding:10px;
 }
 
 button{
-  background:#0a7cff;
-  color:#fff;
-  border:none;
-  border-radius:6px;
+background:#b30000;
+color:white;
+border:none;
+padding:14px;
+border-radius:10px;
+font-weight:600;
+cursor:pointer;
+transition:0.3s;
+}
+button:hover{background:#900000;}
+
+.slider-box{text-align:center;}
+.slider-box input{margin:20px 0;}
+.slider-value{
+font-size:20px;
+font-weight:600;
+color:#b30000;
 }
 
-/* SLIDER */
-.slider{
-  background:#0a7cff;
-  color:#fff;
-  padding:35px;
-  margin:20px;
-  border-radius:10px;
-  min-height:120px;
+table{
+width:100%;
+border-collapse:collapse;
+font-size:14px;
 }
-.slide{display:none;font-size:18px}
-.slide.active{display:block}
-
-/* LISTA DE EMPRÉSTIMOS */
-.loan{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:14px;
-  border-bottom:1px solid #ddd;
+th{
+background:#0f172a;
+color:white;
+padding:12px;
 }
-.loan span{font-weight:bold}
-.loan button{width:auto;padding:8px 16px}
-
-/* FLOATING */
-.floating-card{
-  position:fixed;
-  left:10px;
-  bottom:120px;
-  background:#fff;
-  padding:10px 14px;
-  border-radius:8px;
-  box-shadow:0 0 10px rgba(0,0,0,.25);
-  font-size:14px;
-  z-index:10;
+td{
+padding:12px;
+border-bottom:1px solid #eee;
+text-align:center;
 }
 
-.assist-float{
-  position:fixed;
-  right:10px;
-  bottom:10px;
-  background:#0a7cff;
-  color:#fff;
-  padding:14px;
-  border-radius:14px;
-  font-size:12px;
-  text-align:center;
-  z-index:10;
+.info-note{
+background:#fff3cd;
+padding:15px;
+border-radius:10px;
+font-size:13px;
+margin-top:15px;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
+}
+
+.feature{
+background:#f1f5f9;
+padding:20px;
+border-radius:12px;
+text-align:center;
+font-size:14px;
+}
+
+.contact-box{
+background:#0f172a;
+color:white;
+padding:25px;
+border-radius:16px;
+}
+
+.float-whatsapp{
+position:fixed;
+bottom:25px;
+right:25px;
+background:#25D366;
+color:white;
+padding:14px 18px;
+border-radius:50px;
+font-weight:600;
+text-decoration:none;
+box-shadow:0 8px 20px rgba(0,0,0,0.2);
+font-size:14px;
+}
+
+footer{
+background:#0f172a;
+color:white;
+text-align:center;
+padding:20px;
+font-size:13px;
+margin-top:40px;
 }
 </style>
 </head>
@@ -91,150 +164,112 @@ button{
 <body>
 
 <header>
-<strong>TXENECA-MZ – Plataforma de Empréstimos</strong>
+<h1>TXENECA</h1>
+<nav>
+<a href="#">Início</a>
+<a href="#">Cadastro</a>
+<a href="#">Taxas</a>
+<a href="#">Contacto</a>
+</nav>
 </header>
 
-<!-- CADASTRO -->
-<section class="container" id="cadastro">
-<h2>Cadastro Obrigatório</h2>
-<form id="cadastroForm">
-<input required placeholder="Nome completo">
-
-<select required>
-<option value="">Género</option>
-<option>Masculino</option>
-<option>Feminino</option>
-<option>Outro</option>
-</select>
-
-<input required placeholder="Província">
-
-<select required>
-<option value="">Área de trabalho</option>
-<option>Professor</option>
-<option>Médico</option>
-<option>Enfermeiro</option>
-<option>Polícia</option>
-<option>Militar</option>
-<option>Comerciante</option>
-<option>Motorista</option>
-<option>Funcionário público</option>
-<option>Estudante</option>
-<option>Empresário</option>
-<option>Outro</option>
-</select>
-
-<input required placeholder="Telefone">
-<input type="email" required placeholder="Email">
-<input type="password" required placeholder="Senha">
-
-<button>Criar conta e entrar</button>
-</form>
+<section class="hero">
+<h2>Empréstimos Rápidos e Seguros</h2>
+<p>Solução financeira moderna para Moçambique</p>
 </section>
 
-<!-- PÁGINA 2 -->
-<div id="pagina2" class="hidden">
+<div class="container">
 
-<!-- SLIDER -->
-<section class="slider">
-<div class="slide active">Empréstimos de 5.000 MZN a 200.000 MZN</div>
-<div class="slide">Taxas de inscrição a partir de 59 MT</div>
-<div class="slide">Valores aumentam de 2.000 em 2.000 MZN</div>
-<div class="slide">Pagamento via M-Pesa, e-Mola e M-Kesh</div>
-<div class="slide">Processo simples, rápido e seguro</div>
-</section>
+<div class="card">
+<h3>1ª Etapa — Cadastro Completo</h3>
 
-<!-- CONFIANÇA -->
-<section class="container">
-<h3>Por que confiar na TXENECA?</h3>
-<p>
-A TXENECA oferece soluções financeiras acessíveis, com critérios claros,
-taxas transparentes e atendimento humano. Nosso objetivo é facilitar o
-acesso ao crédito de forma simples, organizada e segura.
-</p>
-</section>
+<input type="text" placeholder="Nome Completo">
+<input type="number" placeholder="Telefone">
+<input type="text" placeholder="Número do BI">
 
-<!-- EMPRÉSTIMOS -->
-<section class="container">
-<h2>Escolha o valor do empréstimo</h2>
-
-<div class="loan"><span>5.000 – 6.000 MZN</span><button onclick="selecionar(59)">Solicitar</button></div>
-<div class="loan"><span>6.000 – 8.000 MZN</span><button onclick="selecionar(199)">Solicitar</button></div>
-<div class="loan"><span>8.000 – 10.000 MZN</span><button onclick="selecionar(299)">Solicitar</button></div>
-<div class="loan"><span>10.000 – 12.000 MZN</span><button onclick="selecionar(399)">Solicitar</button></div>
-<div class="loan"><span>12.000 – 14.000 MZN</span><button onclick="selecionar(499)">Solicitar</button></div>
-<div class="loan"><span>14.000 – 16.000 MZN</span><button onclick="selecionar(599)">Solicitar</button></div>
-<div class="loan"><span>16.000 – 18.000 MZN</span><button onclick="selecionar(699)">Solicitar</button></div>
-<div class="loan"><span>18.000 – 20.000 MZN</span><button onclick="selecionar(799)">Solicitar</button></div>
-
-</section>
-
-<!-- PAGAMENTO -->
-<section class="container hidden" id="pagamento">
-<h2>Pagamento da Taxa de Inscrição</h2>
-
-<p id="valorTaxa"></p>
-
-<p><strong>Enviar o valor para:</strong><br>
-Assistente Marcia<br>
-📞 85 233 5151
-</p>
-
-<label><input type="radio" name="op"> M-Pesa</label><br>
-<label><input type="radio" name="op"> e-Mola</label><br>
-<label><input type="radio" name="op"> M-Kesh</label>
-
-<input placeholder="Seu número de telefone">
+<label>BI Frente</label>
 <input type="file">
-<button>Enviar comprovativo</button>
-</section>
+
+<label>BI Verso</label>
+<input type="file">
+
+<button>Enviar Cadastro</button>
+</div>
+
+<div class="card slider-box">
+<h3>Simule o Seu Empréstimo</h3>
+
+<input type="range" min="2000" max="200000" step="500" id="rangeValor">
+<div class="slider-value">
+<span id="valor">2.000</span> MT
+</div>
+</div>
+
+<div class="card">
+<h3>Tabela de Taxa de Inscrição</h3>
+
+<table>
+<tr>
+<th>Taxa (MT)</th>
+<th>Valor do Empréstimo (MT)</th>
+</tr>
+
+<tr><td>99</td><td>2.500 – 3.000</td></tr>
+<tr><td>199</td><td>5.000 – 8.000</td></tr>
+<tr><td>299</td><td>10.000 – 15.000</td></tr>
+<tr><td>399</td><td>20.000 – 30.000</td></tr>
+<tr><td>499</td><td>40.000 – 50.000</td></tr>
+<tr><td>699</td><td>60.000 – 80.000</td></tr>
+<tr><td>899</td><td>90.000 – 120.000</td></tr>
+<tr><td>1.099</td><td>130.000 – 160.000</td></tr>
+<tr><td>1.299</td><td>170.000 – 200.000</td></tr>
+
+</table>
+
+<div class="info-note">
+A taxa de inscrição é cobrada apenas para utilizadores de primeiro uso.
+Após o primeiro empréstimo, não há nova taxa de inscrição.
+</div>
 
 </div>
 
-<!-- FLOATING RECEBIMENTOS -->
-<div class="floating-card" id="floatingCard"></div>
+<div class="card">
+<h3>Por Que Confiar no TXENECA?</h3>
 
-<!-- ASSISTENTES -->
-<div class="assist-float">
-📞 Assistência<br><br>
-Marcia<br>85 233 5151<br><br>
-Lourenço<br>86 486 9286
+<div class="grid">
+<div class="feature">✔ Atendimento humano verificado</div>
+<div class="feature">✔ Processamento rápido</div>
+<div class="feature">✔ Proteção de dados</div>
+<div class="feature">✔ Transparência total</div>
+<div class="feature">✔ Assistente dedicada</div>
+<div class="feature">✔ Plataforma moderna</div>
 </div>
+
+</div>
+
+<div class="contact-box">
+<h3>Assistente Oficial</h3>
+<p><strong>Márcia ASSIST. (E-MOLA)</strong><br>867734541</p>
+<br>
+<p><strong>Márcia ASSIST. (M-PESA)</strong><br>85 233 5151</p>
+</div>
+
+</div>
+
+<a class="float-whatsapp" href="https://wa.me/258867734541">
+WhatsApp
+</a>
+
+<footer>
+© 2026 TXENECA — Plataforma Financeira Digital
+</footer>
 
 <script>
-// TRANSIÇÃO
-cadastroForm.onsubmit=e=>{
-e.preventDefault();
-cadastro.style.display="none";
-pagina2.style.display="block";
-};
-
-// SLIDER
-let slides=document.querySelectorAll(".slide"),i=0;
-setInterval(()=>{
-slides.forEach(s=>s.classList.remove("active"));
-i=(i+1)%slides.length;
-slides[i].classList.add("active");
-},3000);
-
-// TAXA
-function selecionar(t){
-document.getElementById("pagamento").style.display="block";
-document.getElementById("valorTaxa").innerText="Taxa de inscrição: "+t+" MT";
+const slider = document.getElementById("rangeValor");
+const output = document.getElementById("valor");
+slider.oninput = function(){
+output.innerHTML = parseInt(this.value).toLocaleString();
 }
-
-// FLOATING RECEBIMENTOS
-const msgs=[
-"💰 Cliente recebeu 5.000 MZN",
-"💰 Cliente recebeu 12.000 MZN",
-"💰 Cliente recebeu 28.000 MZN",
-"💰 Cliente recebeu 50.000 MZN"
-];
-let f=0;
-setInterval(()=>{
-floatingCard.innerText=msgs[f];
-f=(f+1)%msgs.length;
-},3000);
 </script>
 
 </body>
