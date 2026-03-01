@@ -3,15 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>TXENECA MZ - Empréstimos Ultra</title>
+<title>TXENECA MZ - Hospedagem Premium</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
-/* RESET E BASE */
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif;}
 body{background:#f5f5f5;color:#333;line-height:1.6;}
 header{background:#0d6efd;color:#fff;padding:25px;text-align:center;position:relative;}
 header h1{font-size:2.2rem;}
-.container{width:90%;max-width:1300px;margin:20px auto;}
+.container{width:90%;max-width:1400px;margin:20px auto;}
 section{background:#fff;padding:25px;margin-bottom:20px;border-radius:10px;box-shadow:0 4px 10px rgba(0,0,0,0.1);}
 h2{margin-bottom:15px;color:#0d6efd;}
 form{display:flex;flex-direction:column;gap:15px;}
@@ -19,59 +18,59 @@ input,select{padding:12px;border-radius:5px;border:1px solid #ccc;font-size:1rem
 input[type="file"]{padding:5px;}
 button{padding:12px;background:#0d6efd;color:#fff;border:none;border-radius:5px;cursor:pointer;font-weight:600;transition:0.3s;}
 button:hover{background:#0b5ed7;}
-.loans{display:flex;flex-wrap:wrap;gap:15px;}
-.loan{flex:1 1 150px;background:#e7f1ff;padding:20px;border-radius:10px;text-align:center;cursor:pointer;transition:0.3s;}
-.loan:hover{background:#cfe0ff;}
-.popup{display:none;position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:#fff;padding:30px;border-radius:10px;box-shadow:0 6px 20px rgba(0,0,0,0.2);z-index:100;width:90%;max-width:500px;text-align:center;}
+.room{flex:1 1 250px;background:#e7f1ff;padding:20px;border-radius:10px;text-align:center;cursor:pointer;transition:0.3s;margin:10px;}
+.room:hover{background:#cfe0ff;}
+.rooms{display:flex;flex-wrap:wrap;}
+.popup{display:none;position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:#fff;padding:30px;border-radius:10px;box-shadow:0 6px 20px rgba(0,0,0,0.2);z-index:100;width:90%;max-width:600px;text-align:center;}
 .popup.active{display:block;}
 .popup button{margin-top:15px;background:#dc3545;}
 .floating-btn{position:fixed;bottom:20px;right:20px;background:#198754;color:#fff;padding:15px 20px;border-radius:50px;box-shadow:0 4px 12px rgba(0,0,0,0.2);cursor:pointer;z-index:50;transition:0.3s;}
 .floating-btn:hover{background:#157347;}
-ul{list-style:inside disc;}
-footer{text-align:center;padding:15px;font-size:0.9rem;color:#666;}
-a{color:#0d6efd;text-decoration:none;}
-a:hover{text-decoration:underline;}
 .step-indicator{margin-bottom:20px;display:flex;gap:10px;flex-wrap:wrap;}
 .step{flex:1;background:#e9ecef;padding:10px;border-radius:5px;text-align:center;font-weight:600;}
 .step.active{background:#0d6efd;color:#fff;}
 .graph-container{margin-top:15px;}
 canvas{width:100%;}
-.notification{background:#fff3cd;border:1px solid #ffeeba;padding:10px;border-radius:5px;margin-bottom:10px;}
+ul{list-style:inside disc;}
 .tooltip{position:relative;display:inline-block;cursor:pointer;}
-.tooltip .tooltiptext{visibility:hidden;width:200px;background-color:#333;color:#fff;text-align:center;border-radius:6px;padding:5px;position:absolute;z-index:1;bottom:125%;left:50%;margin-left:-100px;opacity:0;transition:0.3s;}
+.tooltip .tooltiptext{visibility:hidden;width:220px;background-color:#333;color:#fff;text-align:center;border-radius:6px;padding:5px;position:absolute;z-index:1;bottom:125%;left:50%;margin-left:-110px;opacity:0;transition:0.3s;}
 .tooltip:hover .tooltiptext{visibility:visible;opacity:1;}
-@media(max-width:600px){.loans{flex-direction:column;}}
+@media(max-width:768px){.rooms{flex-direction:column;}}
 </style>
 </head>
 <body>
 
 <header>
-<h1>TXENECA MZ - Empréstimos Ultra</h1>
+<h1>TXENECA MZ - Hospedagem Premium</h1>
 </header>
 
 <div class="container">
 
-<!-- ETAPA 1 -->
+<!-- PASSO A PASSO -->
 <div class="step-indicator">
-  <div class="step active" id="step1">Cadastro</div>
-  <div class="step" id="step2">Escolher Empréstimo</div>
-  <div class="step" id="step3">Confirmar</div>
+<div class="step active" id="step1">Cadastro</div>
+<div class="step" id="step2">Escolher Hospedagem</div>
+<div class="step" id="step3">Resumo e Confirmação</div>
 </div>
 
+<!-- ETAPA 1: CADASTRO -->
 <section id="cadastro">
 <h2>Cadastro Completo</h2>
 <form id="formCadastro">
-<label for="nome">Nome Completo</label>
-<input type="text" id="nome" required placeholder="Seu nome">
+<label>Nome Completo</label>
+<input type="text" required placeholder="Seu nome">
 
-<label for="telefone">Telefone</label>
-<input type="tel" id="telefone" required placeholder="+258 8XX XXX XXX">
+<label>Telefone</label>
+<input type="tel" required placeholder="+258 8XX XXX XXX">
 
-<label for="email">Email</label>
-<input type="email" id="email" required placeholder="email@exemplo.com">
+<label>Email</label>
+<input type="email" required placeholder="email@exemplo.com">
 
-<label for="provincia">Província</label>
-<select id="provincia" required>
+<label>Upload B.I. Frente e Verso</label>
+<input type="file" accept="image/*" required>
+
+<label>Selecione a Província</label>
+<select required>
 <option value="">Selecione</option>
 <option>Maputo Cidade</option>
 <option>Maputo Provincia</option>
@@ -86,46 +85,39 @@ canvas{width:100%;}
 <option>Niassa</option>
 </select>
 
-<label>Upload B.I. Frente e Verso</label>
-<input type="file" accept="image/*" required>
-
 <button type="submit">Enviar Cadastro</button>
 </form>
 </section>
 
-<!-- ETAPA 2: EMPRÉSTIMOS -->
-<section id="taxas">
-<h2>Escolha seu Empréstimo</h2>
-<div class="loans">
-<div class="loan" data-number="+258841234567" data-value="5000">5.000 MZN</div>
-<div class="loan" data-number="+258842345678" data-value="10000">10.000 MZN</div>
-<div class="loan" data-number="+258843456789" data-value="20000">20.000 MZN</div>
-<div class="loan" data-number="+258844567890" data-value="50000">50.000 MZN</div>
-<div class="loan" data-number="+258845678901" data-value="100000">100.000 MZN</div>
-<div class="loan" data-number="+258846789012" data-value="185000">185.000 MZN</div>
+<!-- ETAPA 2: ESCOLHA DE HOSPEDAGEM -->
+<section id="hospedagem">
+<h2>Escolha sua Hospedagem</h2>
+<div class="rooms">
+<div class="room" data-price="2000" data-name="Quarto Standard">Quarto Standard - 2.000 MZN</div>
+<div class="room" data-price="3500" data-name="Quarto Deluxe">Quarto Deluxe - 3.500 MZN</div>
+<div class="room" data-price="5000" data-name="Suíte Executiva">Suíte Executiva - 5.000 MZN</div>
+<div class="room" data-price="8000" data-name="Suíte Master">Suíte Master - 8.000 MZN</div>
 </div>
 
-<h3>Informe o número para receber o empréstimo (Func. 41)</h3>
+<h3>Informe o número para receber confirmação</h3>
 <input type="tel" id="numeroRecebimento" placeholder="+258 8XX XXX XXX">
 
-<h3>Envie comprovativo da taxa de inscrição (Func. 42)</h3>
-<input type="file" id="comprovativoTaxa" accept="image/*">
+<h3>Envie comprovativo de pagamento</h3>
+<input type="file" id="comprovativoPagamento" accept="image/*">
 
-<h3>Escolha a operadora de pagamento da taxa (Func. 43)</h3>
-<select id="operadoraTaxa">
+<h3>Escolha a operadora de pagamento</h3>
+<select id="operadoraPagamento">
 <option value="">Selecione</option>
 <option value="M-PESA">M-PESA</option>
 <option value="E-MOLA">E-MOLA</option>
 <option value="M-KASH">M-KASH</option>
 </select>
-
 <p id="contatosOperadora" style="margin-top:10px;font-weight:600;"></p>
 </section>
 
-<!-- POP-UP MÁRCIA ASSIST -->
-<div class="popup" id="popup">
-<p>Para este empréstimo, entre em contacto com Márcia ASSIST:</p>
-<p id="numeroAssist" style="font-weight:600;font-size:1.2rem;"></p>
+<!-- POP-UP DETALHES DA HOSPEDAGEM -->
+<div class="popup" id="popupRoom">
+<p id="infoRoom" style="font-weight:600;font-size:1.2rem;"></p>
 <button onclick="fecharPopup()">Fechar</button>
 </div>
 
@@ -134,34 +126,34 @@ canvas{width:100%;}
 <h2>Porquê Confiar no TXENECA?</h2>
 <ul>
 <li>Processo rápido e transparente</li>
-<li>Equipe de atendimento disponível via WhatsApp</li>
-<li>Proteção dos seus dados pessoais</li>
-<li>Feedback positivo de milhares de clientes</li>
-<li>Simulações detalhadas antes de qualquer pagamento</li>
-<li>Histórico completo de empréstimos e notificações</li>
+<li>Equipe de atendimento via WhatsApp</li>
+<li>Proteção dos dados pessoais</li>
+<li>Feedback positivo de clientes</li>
+<li>Histórico completo de reservas</li>
+<li>Simulação detalhada antes de confirmar</li>
 </ul>
 </section>
 
 <!-- POLÍTICA DE DADOS -->
 <section id="politica">
 <h2>Política de Dados</h2>
-<p>Seus dados são coletados apenas para processar empréstimos. Não compartilhamos informações pessoais com terceiros. Armazenamento seguro e protegido.</p>
+<p>Seus dados são coletados apenas para processar reservas. Não compartilhamos informações pessoais com terceiros. Armazenamento seguro e protegido.</p>
 </section>
 
 <!-- FAQ -->
 <section id="faq">
 <h2>Perguntas Frequentes</h2>
 <ul>
-<li>Quanto tempo para receber o empréstimo? - Normalmente 24h após confirmação.</li>
-<li>Quais documentos são obrigatórios? - B.I. e comprovante de residência.</li>
-<li>Posso pagar em parcelas? - Sim, escolha o prazo na simulação.</li>
-<li>Como confirmar meu pagamento? - Via Márcia ASSIST no WhatsApp.</li>
+<li>Quanto tempo para confirmar a reserva? Normalmente 24h após envio do comprovativo.</li>
+<li>Quais documentos são obrigatórios? B.I. e comprovante de pagamento.</li>
+<li>Posso cancelar a reserva? Sim, consulte política de cancelamento.</li>
+<li>Como receber suporte? Via chat ou WhatsApp da equipe TXENECA.</li>
 </ul>
 </section>
 
-<!-- GRÁFICO DE PARCELAS -->
+<!-- GRÁFICO DE PREÇO/DIAS -->
 <section id="grafico">
-<h2>Visualização das Parcelas</h2>
+<h2>Visualização do Valor das Parcelas</h2>
 <div class="graph-container">
 <canvas id="parcelasChart"></canvas>
 </div>
@@ -170,7 +162,7 @@ canvas{width:100%;}
 </div>
 
 <!-- BOTÃO FLUTUANTE -->
-<div class="floating-btn" onclick="alert('Últimas notificações: João recebeu 20.000 MZN, Maria recebeu 50.000 MZN!')">Últimas Notificações</div>
+<div class="floating-btn" onclick="alert('Últimas notificações: João reservou Suíte Executiva, Maria reservou Quarto Deluxe!')">Últimas Notificações</div>
 
 <footer>
 &copy; 2026 TXENECA MZ | <a href="#politica">Política de Dados</a> | Site Seguro SSL
@@ -182,44 +174,44 @@ canvas{width:100%;}
 const steps = document.querySelectorAll('.step');
 function setStep(index){steps.forEach(s=>s.classList.remove('active'));if(steps[index]) steps[index].classList.add('active');}
 
-// Pop-up Márcia ASSIST
-const loans = document.querySelectorAll('.loan');
-const popup = document.getElementById('popup');
-const numeroAssist = document.getElementById('numeroAssist');
-loans.forEach(loan=>{
-loan.addEventListener('click',()=>{
-numeroAssist.textContent = loan.dataset.number + ' | Valor: '+loan.dataset.value+' MZN';
+// Popup da hospedagem
+const rooms = document.querySelectorAll('.room');
+const popup = document.getElementById('popupRoom');
+const infoRoom = document.getElementById('infoRoom');
+rooms.forEach(room=>{
+room.addEventListener('click',()=>{
+infoRoom.textContent = room.dataset.name + ' | Valor: '+room.dataset.price+' MZN';
 popup.classList.add('active');
 setStep(1);
-gerarGrafico(loan.dataset.value);
+gerarGrafico(room.dataset.price);
 });
 });
-function fecharPopup(){ popup.classList.remove('active');setStep(0);}
+function fecharPopup(){ popup.classList.remove('active'); setStep(0);}
 
 // Cadastro
 const form = document.getElementById('formCadastro');
 form.addEventListener('submit',e=>{
 e.preventDefault();
-alert('Cadastro enviado com sucesso! Márcia ASSIST entrará em contacto.');
+alert('Cadastro enviado com sucesso! Equipe TXENECA entrará em contacto.');
 form.reset();
 setStep(1);
 });
 
-// Gráfico de parcelas
+// Gráfico
 function gerarGrafico(valor){
 const ctx = document.getElementById('parcelasChart').getContext('2d');
 if(window.parcelasChart) window.parcelasChart.destroy();
-const parcelas = 6; const juros = 0.05; const dados=[];
-for(let i=1;i<=parcelas;i++){dados.push((valor/parcelas)*(1+juros));}
+const dias = 6; const dados=[];
+for(let i=1;i<=dias;i++){dados.push((valor/dias));}
 window.parcelasChart = new Chart(ctx,{
 type:'bar',
-data:{labels:['Mês 1','Mês 2','Mês 3','Mês 4','Mês 5','Mês 6'],datasets:[{label:'Valor da Parcela (MZN)',data:dados,backgroundColor:'#0d6efd'}]},
+data:{labels:['Dia 1','Dia 2','Dia 3','Dia 4','Dia 5','Dia 6'],datasets:[{label:'Valor por Dia (MZN)',data:dados,backgroundColor:'#0d6efd'}]},
 options:{responsive:true,plugins:{legend:{display:false}}}
 });
 }
 
-// Operadora e contatos
-const operadora = document.getElementById('operadoraTaxa');
+// Operadora
+const operadora = document.getElementById('operadoraPagamento');
 const contatos = document.getElementById('contatosOperadora');
 operadora.addEventListener('change',()=>{
 if(operadora.value==='M-PESA'){contatos.textContent='85 233 5151 - M-PESA';}
@@ -228,5 +220,6 @@ else if(operadora.value==='M-KASH'){contatos.textContent='86 486 9286 - M-KASH';
 else{contatos.textContent='';}
 });
 </script>
+
 </body>
   </html>
