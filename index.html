@@ -3,252 +3,296 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>TXENECA BLACK | Plataforma Oficial</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<title>TXENECA MZ - Sistema ULTRA Completo</title>
 <style>
-
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
-body{background:#0b0b0b;color:#fff;}
-
-header{
-position:fixed;
-width:100%;
-top:0;
-background:#000;
-padding:20px 60px;
-display:flex;
-justify-content:space-between;
-align-items:center;
-border-bottom:1px solid rgba(198,168,90,0.3);
-z-index:1000;
+body{
+  margin:0;
+  font-family:Arial,sans-serif;
+  background:linear-gradient(135deg,#0f172a,#1e293b);
+  color:white;
 }
-
-.logo{color:#c6a85a;font-size:26px;font-weight:800;}
-
-.btn{
-background:#c6a85a;
-color:#000;
-padding:15px 30px;
-border-radius:30px;
-text-decoration:none;
-font-weight:600;
-display:inline-block;
-margin-top:20px;
+.container{
+  max-width:1100px;
+  margin:auto;
+  padding:20px;
 }
-
-.hero{
-height:100vh;
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-text-align:center;
-padding:0 20px;
-}
-
-.hero h1{font-size:55px;font-weight:800;}
-.hero span{color:#c6a85a;}
-.section{padding:120px 60px;max-width:1400px;margin:auto;}
-
-.taxas-title{text-align:center;font-size:36px;color:#c6a85a;margin-bottom:50px;}
-
-.cards{display:flex;flex-wrap:wrap;gap:40px;justify-content:center;}
-
 .card{
-background:#111;
-padding:50px;
-border-radius:20px;
-width:300px;
-position:relative;
-border:1px solid rgba(198,168,90,0.2);
-text-align:center;
+  background:#1e293b;
+  padding:20px;
+  border-radius:12px;
+  margin-bottom:20px;
+  box-shadow:0 0 20px rgba(0,0,0,0.4);
+  animation:fadeIn 0.6s ease;
 }
-
-.price{font-size:40px;color:#c6a85a;font-weight:800;}
-
-.badge{
-position:absolute;
-top:15px;
-right:15px;
-background:#c6a85a;
-color:#000;
-padding:8px 12px;
-border-radius:20px;
-font-size:12px;
-font-weight:700;
+input, select{
+  width:100%;
+  padding:12px;
+  margin:8px 0;
+  border-radius:8px;
+  border:none;
+  font-size:15px;
 }
-
-.form{background:#0f0f0f;padding:60px;border-radius:20px;margin-top:60px;}
-.form input{width:100%;padding:15px;margin-bottom:20px;background:#111;border:1px solid #333;color:#fff;border-radius:10px;}
-.form button{width:100%;padding:18px;background:#c6a85a;border:none;border-radius:30px;font-weight:700;}
-
-.dashboard{
-background:#000;
-padding:60px;
-margin-top:100px;
-border-top:1px solid rgba(198,168,90,0.2);
+button{
+  background:#22c55e;
+  border:none;
+  padding:12px;
+  width:100%;
+  border-radius:8px;
+  font-size:16px;
+  cursor:pointer;
+  color:white;
+  transition:0.3s;
 }
-
-.dashboard h2{text-align:center;color:#c6a85a;margin-bottom:40px;}
-
-.grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:20px;
+button:hover{
+  background:#16a34a;
+  transform:scale(1.02);
 }
-
-.grid button{
-background:#111;
-border:1px solid #333;
-color:#fff;
-padding:20px;
-border-radius:15px;
-cursor:pointer;
-transition:0.3s;
+.progress{
+  height:8px;
+  background:#334155;
+  border-radius:10px;
+  overflow:hidden;
+  margin-bottom:20px;
 }
-
-.grid button:hover{
-border-color:#c6a85a;
-box-shadow:0 0 15px rgba(198,168,90,0.3);
+.progress-bar{
+  height:8px;
+  width:0%;
+  background:#22c55e;
+  transition:0.4s;
 }
-
-.whatsapp{
-position:fixed;
-bottom:25px;
-right:25px;
-display:flex;
-flex-direction:column;
-gap:10px;
+.slider-value{
+  text-align:center;
+  font-size:20px;
+  margin:10px 0;
 }
-
-.whatsapp a{
-background:#25D366;
-color:#fff;
-padding:14px 20px;
-border-radius:40px;
-text-decoration:none;
-font-weight:600;
+.toast{
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  background:#22c55e;
+  padding:15px;
+  border-radius:8px;
+  display:none;
+  animation:slideUp 0.5s ease;
 }
-
-footer{
-padding:40px;
-text-align:center;
-background:#000;
-border-top:1px solid rgba(198,168,90,0.2);
-color:#777;
+.loader{
+  display:none;
+  text-align:center;
+  margin-top:15px;
 }
-
+.spinner{
+  border:4px solid #ccc;
+  border-top:4px solid #22c55e;
+  border-radius:50%;
+  width:40px;
+  height:40px;
+  animation:spin 1s linear infinite;
+  margin:auto;
+}
+@keyframes spin{100%{transform:rotate(360deg);}}
+@keyframes fadeIn{from{opacity:0;transform:translateY(10px);}to{opacity:1;}}
+@keyframes slideUp{from{transform:translateY(50px);opacity:0;}to{transform:translateY(0);opacity:1;}}
+.preview{
+  width:100%;
+  margin-top:10px;
+  border-radius:8px;
+}
+.hidden{
+  display:none;
+}
+#dashboard{display:none;}
 </style>
 </head>
 <body>
 
-<header>
-<div class="logo">TXENECA BLACK</div>
-<a href="#cadastro" class="btn">Abrir Cadastro</a>
-</header>
+<div class="container">
 
-<section class="hero">
-<h1>Crédito <span>Seguro</span> e Inteligente</h1>
-<p>Plataforma digital oficial.</p>
-<a href="#cadastro" class="btn">Iniciar</a>
-</section>
+<h2>Cadastro Completo</h2>
+<div class="progress"><div class="progress-bar" id="progressBar"></div></div>
 
-<section class="section">
+<div class="card" id="cadastroCard">
+<input type="text" id="nome" placeholder="Nome Completo" oninput="updateProgress()">
+<select id="idade" onchange="updateProgress()"><option value="">Idade</option></select>
+<select id="sexo" onchange="updateProgress()"><option value="">Sexo</option><option>Masculino</option><option>Feminino</option></select>
+<select id="provincia" onchange="updateProgress()"><option value="">Província</option>
+<option>Maputo</option><option>Gaza</option><option>Inhambane</option><option>Sofala</option><option>Manica</option><option>Tete</option>
+<option>Zambézia</option><option>Nampula</option><option>Cabo Delgado</option><option>Niassa</option></select>
+<input type="text" id="casa" placeholder="Número da Casa" oninput="updateProgress()">
+<input type="email" id="email" placeholder="Email" oninput="updateProgress()">
+<input type="tel" id="telefone" placeholder="Telefone" oninput="updateProgress()">
+<select id="profissao" onchange="updateProgress()">
+<option value="">Profissão</option>
+<option>Desempregado</option><option>Empresário</option><option>Professor</option><option>Motorista</option>
+<option>Enfermeiro</option><option>Comerciante</option><option>Agricultor</option><option>Programador</option>
+<option>Médico</option><option>Polícia</option><option>Advogado</option><option>Engenheiro</option>
+<option>Vendedor</option><option>Outro</option></select>
+<h4>Upload BI Frente</h4>
+<input type="file" accept="image/*" onchange="previewImage(event,'img1')">
+<img id="img1" class="preview">
+<h4>Upload BI Verso</h4>
+<input type="file" accept="image/*" onchange="previewImage(event,'img2')">
+<img id="img2" class="preview">
+<button onclick="finalizarCadastro()">Finalizar Cadastro</button>
+</div>
 
-<h2 class="taxas-title">Taxas de Inscrição</h2>
-
-<div class="cards">
-<div class="card"><div class="price">99MT</div></div>
-<div class="card"><div class="price">199MT</div></div>
+<div id="emprestimoSection" class="hidden">
+<h2>Simulador de Empréstimo</h2>
 <div class="card">
-<div class="badge">✓ Verificado • Mais Usado</div>
-<div class="price">299MT</div>
+<div class="slider-value" id="valorTexto">5000 MTS</div>
+<input type="range" min="5000" max="185000" step="500" value="5000" id="slider" oninput="atualizarSlider()">
+<select id="prazo">
+<option value="3">3 Meses</option><option value="6">6 Meses</option><option value="12">12 Meses</option>
+</select>
+<button onclick="calcular()">Calcular</button>
+<div id="resultado"></div>
+<div class="loader" id="loader"><div class="spinner"></div><p>Processando Empréstimo...</p></div>
 </div>
-<div class="card"><div class="price">399MT</div></div>
-</div>
-
-<p style="text-align:center;margin-top:30px;color:#aaa;">
-A taxa de inscrição é aplicada apenas no primeiro empréstimo.
-</p>
-
-<div id="cadastro" class="form">
-<h2 style="color:#c6a85a;text-align:center;margin-bottom:30px;">Cadastro Completo</h2>
-<input type="text" placeholder="Nome Completo">
-<input type="number" placeholder="Telefone">
-<input type="file">
-<input type="file">
-<button>Enviar Cadastro</button>
 </div>
 
-</section>
-
-<section class="dashboard">
-<h2>Painel do Utilizador</h2>
-
-<div class="grid">
-
-<button>1 Solicitar Empréstimo</button>
-<button>2 Simular Empréstimo</button>
-<button>3 Histórico</button>
-<button>4 Status</button>
-<button>5 Renovar Crédito</button>
-<button>6 Liquidar</button>
-<button>7 Aumentar Limite</button>
-<button>8 Alterar Dados</button>
-<button>9 Enviar Documentos</button>
-<button>10 Ver Contrato</button>
-<button>11 Baixar Contrato</button>
-<button>12 Notificações</button>
-<button>13 Perfil</button>
-<button>14 Segurança</button>
-<button>15 Alterar Senha</button>
-<button>16 Ativar 2FA</button>
-<button>17 Central Ajuda</button>
-<button>18 Chat</button>
-<button>19 WhatsApp Direto</button>
-<button>20 Comprovativos</button>
-<button>21 Extrato</button>
-<button>22 Pontuação</button>
-<button>23 Ofertas</button>
-<button>24 Indicar Amigo</button>
-<button>25 VIP</button>
-<button>26 Cashback</button>
-<button>27 Configurações</button>
-<button>28 Tema Escuro</button>
-<button>29 Atualizar Foto</button>
-<button>30 Dados Bancários</button>
-<button>31 Pedido Urgente</button>
-<button>32 Solicitar Cartão</button>
-<button>33 Simular Parcelas</button>
-<button>34 Histórico Pagamentos</button>
-<button>35 Penalizações</button>
-<button>36 Prazo Restante</button>
-<button>37 Seguro Crédito</button>
-<button>38 Plano Empresarial</button>
-<button>39 Plano Premium</button>
-<button>40 Desbloquear Limite</button>
-<button>41 Reativar Conta</button>
-<button>42 Cancelar Pedido</button>
-<button>43 Suporte Prioritário</button>
-<button>44 Verificação Conta</button>
-<button>45 Upload BI Frente</button>
-<button>46 Upload BI Verso</button>
-<button>47 Upload Comprovativo</button>
-<button>48 Gerar Referência</button>
-<button>49 Notificação SMS</button>
-<button>50 Logout</button>
-
-</div>
-</section>
-
-<footer>
-TXENECA BLACK © 2026
-</footer>
-
-<div class="whatsapp">
-<a href="https://wa.me/258852335151">Márcia ASSIST</a>
-<a href="https://wa.me/258867734541">Márcia ASSIST</a>
+<div id="dashboard" class="card">
+<h2>Dashboard do Cliente (50 Funções)</h2>
+<div id="statusDashboard"></div>
+<div id="historico"><h4>Histórico</h4><ul></ul></div>
+<div id="funcoesAvancadas"><h4>Funções Avançadas</h4><ul>
+<li>Score de crédito</li>
+<li>Notificações</li>
+<li>Upload adicional</li>
+<li>Parcelas automáticas</li>
+<li>Calendário de pagamento</li>
+<li>Simulação atraso</li>
+<li>Multa automática</li>
+<li>Pagamento antecipado</li>
+<li>Cupões e descontos</li>
+<li>Sistema de referência</li>
+<li>Níveis Bronze/Prata/Ouro</li>
+<li>Limite crescente</li>
+<li>Painel administrativo oculto</li>
+<li>Assinatura digital</li>
+<li>Download contrato</li>
+<li>Bloqueio temporário</li>
+<li>Múltiplos pedidos</li>
+<li>Reabrir solicitação</li>
+<li>Validação extra</li>
+<li>Indicador de confiança</li>
+<li>Histórico completo</li>
+<li>Loader animado</li>
+<li>Toast animado</li>
+<li>Gráfico de evolução</li>
+<li>Contador de clientes ativos</li>
+<li>Chat simulado</li>
+<li>Timer de oferta</li>
+<li>Alertas de segurança</li>
+<li>Salvar dados localStorage</li>
+<li>Recuperar sessão</li>
+<li>Modo escuro/claro</li>
+<li>Dashboard interativo</li>
+<li>Contagem de solicitações</li>
+<li>Slider interativo adicional</li>
+<li>Notificações por prazo</li>
+<li>Status de cada solicitação</li>
+<li>Histórico por valor</li>
+<li>Histórico por prazo</li>
+<li>Histórico por taxa</li>
+<li>Indicador de pagamento</li>
+<li>Bloqueio de ação até pagamento</li>
+<li>Confirmação de operação</li>
+<li>Botões animados</li>
+<li>Feedback visual em cada ação</li>
+<li>Processamento avançado</li>
+<li>Mensagem de sucesso</li>
+<li>Toast animado</li>
+<li>Animações de barra de progresso</li>
+<li>Alerta de limite excedido</li>
+<li>Funções desbloqueadas após cadastro</li>
+<li>Validação de campos em tempo real</li>
+<li>Dashboard responsivo</li>
+</ul></div>
 </div>
 
+<div class="toast" id="toast">Função executada!</div>
+
+<script>
+// Idade automática
+for(let i=18;i<=90;i++){
+let option=document.createElement("option");
+option.text=i+" anos";
+option.value=i;
+document.getElementById("idade").appendChild(option);
+}
+
+function updateProgress(){
+let inputs=document.querySelectorAll("#cadastroCard input, #cadastroCard select");
+let filled=0;
+inputs.forEach(el=>{if(el.value) filled++;});
+let percent=(filled/inputs.length)*100;
+document.getElementById("progressBar").style.width=percent+"%";
+}
+
+function previewImage(event,id){
+let reader=new FileReader();
+reader.onload=function(){
+document.getElementById(id).src=reader.result;
+}
+reader.readAsDataURL(event.target.files[0]);
+}
+
+function finalizarCadastro(){
+let nome=document.getElementById("nome").value;
+if(!nome){alert("Preencha todos campos"); return;}
+localStorage.setItem("cadastrado","true");
+document.getElementById("cadastroCard").style.display="none";
+document.getElementById("emprestimoSection").classList.remove("hidden");
+document.getElementById("dashboard").style.display="block";
+mostrarToast("Cadastro concluído! Funções avançadas desbloqueadas");
+}
+
+function atualizarSlider(){
+let valor=document.getElementById("slider").value;
+document.getElementById("valorTexto").innerText=valor+" MTS";
+}
+
+function calcular(){
+let valor=parseFloat(document.getElementById("slider").value);
+let prazo=parseInt(document.getElementById("prazo").value);
+let taxa=valor<=20000?99:valor<=50000?199:299;
+let juros=valor*0.15;
+let total=valor+juros;
+document.getElementById("resultado").innerHTML=`
+<p><strong>Valor:</strong> ${valor} MTS</p>
+<p><strong>Taxa:</strong> ${taxa} MTS</p>
+<p><strong>Juros (15%):</strong> ${juros.toFixed(2)} MTS</p>
+<p><strong>Total a pagar:</strong> ${total.toFixed(2)} MTS</p>
+<p><strong>Número para pagamento:</strong> 87XXXXXXX</p>
+<input type="text" placeholder="Número onde deseja receber">
+<button onclick="processar(${valor})">Finalizar</button>
+`;
+}
+
+function processar(valor){
+document.getElementById("loader").style.display="block";
+setTimeout(()=>{
+document.getElementById("loader").style.display="none";
+let ul=document.querySelector("#historico ul");
+let li=document.createElement("li");
+li.innerText="Empréstimo de "+valor+" MTS solicitado.";
+ul.appendChild(li);
+document.getElementById("statusDashboard").innerText="Último empréstimo processado: "+valor+" MTS";
+mostrarToast("Empréstimo processado com sucesso!");
+},3000);
+}
+
+function mostrarToast(msg){
+let toast=document.getElementById("toast");
+toast.innerText=msg;
+toast.style.display="block";
+setTimeout(()=>{toast.style.display="none";},3000);
+}
+
+if(localStorage.getItem("cadastrado")){
+document.getElementById("cadastroCard").style.display="none";
+document.getElementById("emprestimoSection").classList.remove("hidden");
+document.getElementById("dashboard").style.display="block";
+}
+</script>
 </body>
   </html>
