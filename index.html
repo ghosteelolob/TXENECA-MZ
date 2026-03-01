@@ -1,225 +1,254 @@
 <!DOCTYPE html>
-<html lang="pt-MZ">
+<html lang="pt">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>TXENECA MZ - Hospedagem Premium</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<title>TXENECA BLACK | Plataforma Oficial</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif;}
-body{background:#f5f5f5;color:#333;line-height:1.6;}
-header{background:#0d6efd;color:#fff;padding:25px;text-align:center;position:relative;}
-header h1{font-size:2.2rem;}
-.container{width:90%;max-width:1400px;margin:20px auto;}
-section{background:#fff;padding:25px;margin-bottom:20px;border-radius:10px;box-shadow:0 4px 10px rgba(0,0,0,0.1);}
-h2{margin-bottom:15px;color:#0d6efd;}
-form{display:flex;flex-direction:column;gap:15px;}
-input,select{padding:12px;border-radius:5px;border:1px solid #ccc;font-size:1rem;}
-input[type="file"]{padding:5px;}
-button{padding:12px;background:#0d6efd;color:#fff;border:none;border-radius:5px;cursor:pointer;font-weight:600;transition:0.3s;}
-button:hover{background:#0b5ed7;}
-.room{flex:1 1 250px;background:#e7f1ff;padding:20px;border-radius:10px;text-align:center;cursor:pointer;transition:0.3s;margin:10px;}
-.room:hover{background:#cfe0ff;}
-.rooms{display:flex;flex-wrap:wrap;}
-.popup{display:none;position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:#fff;padding:30px;border-radius:10px;box-shadow:0 6px 20px rgba(0,0,0,0.2);z-index:100;width:90%;max-width:600px;text-align:center;}
-.popup.active{display:block;}
-.popup button{margin-top:15px;background:#dc3545;}
-.floating-btn{position:fixed;bottom:20px;right:20px;background:#198754;color:#fff;padding:15px 20px;border-radius:50px;box-shadow:0 4px 12px rgba(0,0,0,0.2);cursor:pointer;z-index:50;transition:0.3s;}
-.floating-btn:hover{background:#157347;}
-.step-indicator{margin-bottom:20px;display:flex;gap:10px;flex-wrap:wrap;}
-.step{flex:1;background:#e9ecef;padding:10px;border-radius:5px;text-align:center;font-weight:600;}
-.step.active{background:#0d6efd;color:#fff;}
-.graph-container{margin-top:15px;}
-canvas{width:100%;}
-ul{list-style:inside disc;}
-.tooltip{position:relative;display:inline-block;cursor:pointer;}
-.tooltip .tooltiptext{visibility:hidden;width:220px;background-color:#333;color:#fff;text-align:center;border-radius:6px;padding:5px;position:absolute;z-index:1;bottom:125%;left:50%;margin-left:-110px;opacity:0;transition:0.3s;}
-.tooltip:hover .tooltiptext{visibility:visible;opacity:1;}
-@media(max-width:768px){.rooms{flex-direction:column;}}
+
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+body{background:#0b0b0b;color:#fff;}
+
+header{
+position:fixed;
+width:100%;
+top:0;
+background:#000;
+padding:20px 60px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+border-bottom:1px solid rgba(198,168,90,0.3);
+z-index:1000;
+}
+
+.logo{color:#c6a85a;font-size:26px;font-weight:800;}
+
+.btn{
+background:#c6a85a;
+color:#000;
+padding:15px 30px;
+border-radius:30px;
+text-decoration:none;
+font-weight:600;
+display:inline-block;
+margin-top:20px;
+}
+
+.hero{
+height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:0 20px;
+}
+
+.hero h1{font-size:55px;font-weight:800;}
+.hero span{color:#c6a85a;}
+.section{padding:120px 60px;max-width:1400px;margin:auto;}
+
+.taxas-title{text-align:center;font-size:36px;color:#c6a85a;margin-bottom:50px;}
+
+.cards{display:flex;flex-wrap:wrap;gap:40px;justify-content:center;}
+
+.card{
+background:#111;
+padding:50px;
+border-radius:20px;
+width:300px;
+position:relative;
+border:1px solid rgba(198,168,90,0.2);
+text-align:center;
+}
+
+.price{font-size:40px;color:#c6a85a;font-weight:800;}
+
+.badge{
+position:absolute;
+top:15px;
+right:15px;
+background:#c6a85a;
+color:#000;
+padding:8px 12px;
+border-radius:20px;
+font-size:12px;
+font-weight:700;
+}
+
+.form{background:#0f0f0f;padding:60px;border-radius:20px;margin-top:60px;}
+.form input{width:100%;padding:15px;margin-bottom:20px;background:#111;border:1px solid #333;color:#fff;border-radius:10px;}
+.form button{width:100%;padding:18px;background:#c6a85a;border:none;border-radius:30px;font-weight:700;}
+
+.dashboard{
+background:#000;
+padding:60px;
+margin-top:100px;
+border-top:1px solid rgba(198,168,90,0.2);
+}
+
+.dashboard h2{text-align:center;color:#c6a85a;margin-bottom:40px;}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
+}
+
+.grid button{
+background:#111;
+border:1px solid #333;
+color:#fff;
+padding:20px;
+border-radius:15px;
+cursor:pointer;
+transition:0.3s;
+}
+
+.grid button:hover{
+border-color:#c6a85a;
+box-shadow:0 0 15px rgba(198,168,90,0.3);
+}
+
+.whatsapp{
+position:fixed;
+bottom:25px;
+right:25px;
+display:flex;
+flex-direction:column;
+gap:10px;
+}
+
+.whatsapp a{
+background:#25D366;
+color:#fff;
+padding:14px 20px;
+border-radius:40px;
+text-decoration:none;
+font-weight:600;
+}
+
+footer{
+padding:40px;
+text-align:center;
+background:#000;
+border-top:1px solid rgba(198,168,90,0.2);
+color:#777;
+}
+
 </style>
 </head>
 <body>
 
 <header>
-<h1>TXENECA MZ - Hospedagem Premium</h1>
+<div class="logo">TXENECA BLACK</div>
+<a href="#cadastro" class="btn">Abrir Cadastro</a>
 </header>
 
-<div class="container">
+<section class="hero">
+<h1>Crédito <span>Seguro</span> e Inteligente</h1>
+<p>Plataforma digital oficial.</p>
+<a href="#cadastro" class="btn">Iniciar</a>
+</section>
 
-<!-- PASSO A PASSO -->
-<div class="step-indicator">
-<div class="step active" id="step1">Cadastro</div>
-<div class="step" id="step2">Escolher Hospedagem</div>
-<div class="step" id="step3">Resumo e Confirmação</div>
+<section class="section">
+
+<h2 class="taxas-title">Taxas de Inscrição</h2>
+
+<div class="cards">
+<div class="card"><div class="price">99MT</div></div>
+<div class="card"><div class="price">199MT</div></div>
+<div class="card">
+<div class="badge">✓ Verificado • Mais Usado</div>
+<div class="price">299MT</div>
+</div>
+<div class="card"><div class="price">399MT</div></div>
 </div>
 
-<!-- ETAPA 1: CADASTRO -->
-<section id="cadastro">
-<h2>Cadastro Completo</h2>
-<form id="formCadastro">
-<label>Nome Completo</label>
-<input type="text" required placeholder="Seu nome">
+<p style="text-align:center;margin-top:30px;color:#aaa;">
+A taxa de inscrição é aplicada apenas no primeiro empréstimo.
+</p>
 
-<label>Telefone</label>
-<input type="tel" required placeholder="+258 8XX XXX XXX">
-
-<label>Email</label>
-<input type="email" required placeholder="email@exemplo.com">
-
-<label>Upload B.I. Frente e Verso</label>
-<input type="file" accept="image/*" required>
-
-<label>Selecione a Província</label>
-<select required>
-<option value="">Selecione</option>
-<option>Maputo Cidade</option>
-<option>Maputo Provincia</option>
-<option>Gaza</option>
-<option>Inhambane</option>
-<option>Sofala</option>
-<option>Manica</option>
-<option>Tete</option>
-<option>Zambézia</option>
-<option>Nampula</option>
-<option>Cabo Delgado</option>
-<option>Niassa</option>
-</select>
-
-<button type="submit">Enviar Cadastro</button>
-</form>
-</section>
-
-<!-- ETAPA 2: ESCOLHA DE HOSPEDAGEM -->
-<section id="hospedagem">
-<h2>Escolha sua Hospedagem</h2>
-<div class="rooms">
-<div class="room" data-price="2000" data-name="Quarto Standard">Quarto Standard - 2.000 MZN</div>
-<div class="room" data-price="3500" data-name="Quarto Deluxe">Quarto Deluxe - 3.500 MZN</div>
-<div class="room" data-price="5000" data-name="Suíte Executiva">Suíte Executiva - 5.000 MZN</div>
-<div class="room" data-price="8000" data-name="Suíte Master">Suíte Master - 8.000 MZN</div>
+<div id="cadastro" class="form">
+<h2 style="color:#c6a85a;text-align:center;margin-bottom:30px;">Cadastro Completo</h2>
+<input type="text" placeholder="Nome Completo">
+<input type="number" placeholder="Telefone">
+<input type="file">
+<input type="file">
+<button>Enviar Cadastro</button>
 </div>
 
-<h3>Informe o número para receber confirmação</h3>
-<input type="tel" id="numeroRecebimento" placeholder="+258 8XX XXX XXX">
-
-<h3>Envie comprovativo de pagamento</h3>
-<input type="file" id="comprovativoPagamento" accept="image/*">
-
-<h3>Escolha a operadora de pagamento</h3>
-<select id="operadoraPagamento">
-<option value="">Selecione</option>
-<option value="M-PESA">M-PESA</option>
-<option value="E-MOLA">E-MOLA</option>
-<option value="M-KASH">M-KASH</option>
-</select>
-<p id="contatosOperadora" style="margin-top:10px;font-weight:600;"></p>
 </section>
 
-<!-- POP-UP DETALHES DA HOSPEDAGEM -->
-<div class="popup" id="popupRoom">
-<p id="infoRoom" style="font-weight:600;font-size:1.2rem;"></p>
-<button onclick="fecharPopup()">Fechar</button>
-</div>
+<section class="dashboard">
+<h2>Painel do Utilizador</h2>
 
-<!-- CONFIANÇA -->
-<section id="confianca">
-<h2>Porquê Confiar no TXENECA?</h2>
-<ul>
-<li>Processo rápido e transparente</li>
-<li>Equipe de atendimento via WhatsApp</li>
-<li>Proteção dos dados pessoais</li>
-<li>Feedback positivo de clientes</li>
-<li>Histórico completo de reservas</li>
-<li>Simulação detalhada antes de confirmar</li>
-</ul>
-</section>
+<div class="grid">
 
-<!-- POLÍTICA DE DADOS -->
-<section id="politica">
-<h2>Política de Dados</h2>
-<p>Seus dados são coletados apenas para processar reservas. Não compartilhamos informações pessoais com terceiros. Armazenamento seguro e protegido.</p>
-</section>
-
-<!-- FAQ -->
-<section id="faq">
-<h2>Perguntas Frequentes</h2>
-<ul>
-<li>Quanto tempo para confirmar a reserva? Normalmente 24h após envio do comprovativo.</li>
-<li>Quais documentos são obrigatórios? B.I. e comprovante de pagamento.</li>
-<li>Posso cancelar a reserva? Sim, consulte política de cancelamento.</li>
-<li>Como receber suporte? Via chat ou WhatsApp da equipe TXENECA.</li>
-</ul>
-</section>
-
-<!-- GRÁFICO DE PREÇO/DIAS -->
-<section id="grafico">
-<h2>Visualização do Valor das Parcelas</h2>
-<div class="graph-container">
-<canvas id="parcelasChart"></canvas>
-</div>
-</section>
+<button>1 Solicitar Empréstimo</button>
+<button>2 Simular Empréstimo</button>
+<button>3 Histórico</button>
+<button>4 Status</button>
+<button>5 Renovar Crédito</button>
+<button>6 Liquidar</button>
+<button>7 Aumentar Limite</button>
+<button>8 Alterar Dados</button>
+<button>9 Enviar Documentos</button>
+<button>10 Ver Contrato</button>
+<button>11 Baixar Contrato</button>
+<button>12 Notificações</button>
+<button>13 Perfil</button>
+<button>14 Segurança</button>
+<button>15 Alterar Senha</button>
+<button>16 Ativar 2FA</button>
+<button>17 Central Ajuda</button>
+<button>18 Chat</button>
+<button>19 WhatsApp Direto</button>
+<button>20 Comprovativos</button>
+<button>21 Extrato</button>
+<button>22 Pontuação</button>
+<button>23 Ofertas</button>
+<button>24 Indicar Amigo</button>
+<button>25 VIP</button>
+<button>26 Cashback</button>
+<button>27 Configurações</button>
+<button>28 Tema Escuro</button>
+<button>29 Atualizar Foto</button>
+<button>30 Dados Bancários</button>
+<button>31 Pedido Urgente</button>
+<button>32 Solicitar Cartão</button>
+<button>33 Simular Parcelas</button>
+<button>34 Histórico Pagamentos</button>
+<button>35 Penalizações</button>
+<button>36 Prazo Restante</button>
+<button>37 Seguro Crédito</button>
+<button>38 Plano Empresarial</button>
+<button>39 Plano Premium</button>
+<button>40 Desbloquear Limite</button>
+<button>41 Reativar Conta</button>
+<button>42 Cancelar Pedido</button>
+<button>43 Suporte Prioritário</button>
+<button>44 Verificação Conta</button>
+<button>45 Upload BI Frente</button>
+<button>46 Upload BI Verso</button>
+<button>47 Upload Comprovativo</button>
+<button>48 Gerar Referência</button>
+<button>49 Notificação SMS</button>
+<button>50 Logout</button>
 
 </div>
-
-<!-- BOTÃO FLUTUANTE -->
-<div class="floating-btn" onclick="alert('Últimas notificações: João reservou Suíte Executiva, Maria reservou Quarto Deluxe!')">Últimas Notificações</div>
+</section>
 
 <footer>
-&copy; 2026 TXENECA MZ | <a href="#politica">Política de Dados</a> | Site Seguro SSL
+TXENECA BLACK © 2026
 </footer>
 
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script>
-// Passo a passo
-const steps = document.querySelectorAll('.step');
-function setStep(index){steps.forEach(s=>s.classList.remove('active'));if(steps[index]) steps[index].classList.add('active');}
-
-// Popup da hospedagem
-const rooms = document.querySelectorAll('.room');
-const popup = document.getElementById('popupRoom');
-const infoRoom = document.getElementById('infoRoom');
-rooms.forEach(room=>{
-room.addEventListener('click',()=>{
-infoRoom.textContent = room.dataset.name + ' | Valor: '+room.dataset.price+' MZN';
-popup.classList.add('active');
-setStep(1);
-gerarGrafico(room.dataset.price);
-});
-});
-function fecharPopup(){ popup.classList.remove('active'); setStep(0);}
-
-// Cadastro
-const form = document.getElementById('formCadastro');
-form.addEventListener('submit',e=>{
-e.preventDefault();
-alert('Cadastro enviado com sucesso! Equipe TXENECA entrará em contacto.');
-form.reset();
-setStep(1);
-});
-
-// Gráfico
-function gerarGrafico(valor){
-const ctx = document.getElementById('parcelasChart').getContext('2d');
-if(window.parcelasChart) window.parcelasChart.destroy();
-const dias = 6; const dados=[];
-for(let i=1;i<=dias;i++){dados.push((valor/dias));}
-window.parcelasChart = new Chart(ctx,{
-type:'bar',
-data:{labels:['Dia 1','Dia 2','Dia 3','Dia 4','Dia 5','Dia 6'],datasets:[{label:'Valor por Dia (MZN)',data:dados,backgroundColor:'#0d6efd'}]},
-options:{responsive:true,plugins:{legend:{display:false}}}
-});
-}
-
-// Operadora
-const operadora = document.getElementById('operadoraPagamento');
-const contatos = document.getElementById('contatosOperadora');
-operadora.addEventListener('change',()=>{
-if(operadora.value==='M-PESA'){contatos.textContent='85 233 5151 - M-PESA';}
-else if(operadora.value==='E-MOLA'){contatos.textContent='86 773 4541 - E-MOLA';}
-else if(operadora.value==='M-KASH'){contatos.textContent='86 486 9286 - M-KASH';}
-else{contatos.textContent='';}
-});
-</script>
+<div class="whatsapp">
+<a href="https://wa.me/258852335151">Márcia ASSIST</a>
+<a href="https://wa.me/258867734541">Márcia ASSIST</a>
+</div>
 
 </body>
   </html>
