@@ -1,187 +1,194 @@
 <!DOCTYPE html>
 <html lang="pt-MZ">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MOLA FÁCIL</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-  <style>
-    /* Reset e estilo base */
-    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Roboto', sans-serif; }
-    body { background: #000; color: #fff; overflow-x: hidden; }
-    a { text-decoration: none; color: inherit; }
-
-    /* Header */
-    header { position: fixed; top: 0; width: 100%; background: rgba(0,0,0,0.9); display: flex; justify-content: space-between; align-items: center; padding: 15px 30px; z-index: 1000; }
-    header h1 { font-size: 28px; color: #00bfff; }
-    nav a { margin-left: 25px; font-weight: bold; transition: 0.3s; }
-    nav a:hover { color: #00ffff; }
-
-    /* Hero / Slider */
-    .hero { padding-top: 100px; text-align: center; }
-    .slider { position: relative; max-width: 800px; margin: 30px auto; overflow: hidden; border: 2px solid #00bfff; border-radius: 12px; }
-    .slides { display: flex; transition: 0.5s ease-in-out; }
-    .slide { min-width: 100%; padding: 50px 20px; background: #111; }
-    .slide h2 { color: #00bfff; margin-bottom: 10px; }
-    .slide p { font-size: 18px; }
-
-    /* Botões do slider */
-    .slider-btn { position: absolute; top: 50%; transform: translateY(-50%); background: #00bfff; border: none; padding: 10px 15px; cursor: pointer; font-weight: bold; color: #000; border-radius: 6px; }
-    .prev { left: 10px; }
-    .next { right: 10px; }
-
-    /* Seção Formulário */
-    .form-section { padding: 50px 20px; max-width: 700px; margin: auto; background: #111; border-radius: 12px; box-shadow: 0 0 20px #00bfff; margin-top: 50px; }
-    .form-section h2 { color: #00bfff; margin-bottom: 20px; text-align: center; }
-    .form-section label { display: block; margin: 15px 0 5px; }
-    .form-section input, .form-section select { width: 100%; padding: 10px; border-radius: 6px; border: none; outline: none; }
-    .form-section button { margin-top: 20px; width: 100%; padding: 12px; background: #00bfff; color: #000; font-weight: bold; border: none; border-radius: 6px; cursor: pointer; transition: 0.3s; }
-    .form-section button:hover { background: #00ffff; }
-
-    /* Taxa explicação */
-    .taxa { background: #222; padding: 15px; border-radius: 6px; margin-top: 10px; font-size: 16px; color: #00ffff; }
-
-    /* Depoimentos */
-    .depoimentos { padding: 50px 20px; text-align: center; }
-    .depoimentos h2 { color: #00bfff; margin-bottom: 30px; }
-    .depoimento { margin-bottom: 20px; background: #111; padding: 20px; border-radius: 12px; box-shadow: 0 0 10px #00bfff; }
-
-    /* WhatsApp flutuante */
-    .whatsapp { position: fixed; bottom: 20px; right: 20px; background: #25d366; color: #000; padding: 15px; border-radius: 50%; font-size: 24px; cursor: pointer; display: flex; align-items: center; justify-content: center; z-index: 1000; transition: 0.3s; }
-    .whatsapp:hover { background: #00ff7f; }
-
-    /* Footer */
-    footer { padding: 30px; text-align: center; background: #111; margin-top: 50px; border-top: 2px solid #00bfff; }
-    footer p { color: #00bfff; }
-
-    /* Animações e efeitos */
-    .fade-in { opacity: 0; transform: translateY(20px); animation: fadeIn 1s forwards; }
-    @keyframes fadeIn { to { opacity: 1; transform: translateY(0); } }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MOLA FÁCIL - Ultra Premium</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Roboto',sans-serif;}
+body{background:#000;color:#fff;overflow-x:hidden;}
+a{text-decoration:none;color:inherit;}
+header{position:fixed;top:0;width:100%;background:rgba(0,0,0,0.95);display:flex;justify-content:space-between;align-items:center;padding:15px 30px;z-index:1000;box-shadow:0 0 15px #00bfff;}
+header h1{font-size:28px;color:#00bfff;}
+nav a{margin-left:25px;font-weight:bold;transition:0.3s;}
+nav a:hover{color:#00ffff;}
+.hero{padding-top:100px;text-align:center;position:relative;}
+.slider{position:relative;max-width:900px;margin:40px auto;overflow:hidden;border-radius:12px;border:2px solid #00bfff;}
+.slides{display:flex;transition:0.5s ease-in-out;}
+.slide{min-width:100%;padding:60px 30px;background:linear-gradient(45deg,#111,#222);border-radius:12px;box-shadow:0 0 20px #00bfff;}
+.slide h2{color:#00bfff;margin-bottom:15px;font-size:32px;}
+.slide p{font-size:18px;}
+.slider-btn{position:absolute;top:50%;transform:translateY(-50%);background:#00bfff;border:none;padding:12px 18px;cursor:pointer;font-weight:bold;color:#000;border-radius:8px;transition:0.3s;}
+.prev{left:10px;} .next{right:10px;}
+.slider-btn:hover{background:#00ffff;}
+.form-section{padding:60px 25px;max-width:750px;margin:auto;background:#111;border-radius:12px;box-shadow:0 0 25px #00bfff;margin-top:50px;animation:fadeIn 1s;}
+.form-section h2{color:#00bfff;margin-bottom:25px;text-align:center;font-size:28px;}
+.form-section label{display:block;margin:15px 0 5px;}
+.form-section input, .form-section select{width:100%;padding:12px;border-radius:6px;border:none;outline:none;font-size:16px;}
+.form-section button{margin-top:25px;width:100%;padding:14px;background:#00bfff;color:#000;font-weight:bold;border:none;border-radius:8px;cursor:pointer;transition:0.3s;font-size:18px;}
+.form-section button:hover{background:#00ffff;}
+.taxa{background:#222;padding:15px;border-radius:6px;margin-top:10px;font-size:16px;color:#00ffff;font-weight:bold;}
+.progress-bar{width:100%;background:#222;border-radius:6px;margin-bottom:20px;overflow:hidden;height:12px;}
+.progress{height:100%;width:0%;background:#00bfff;border-radius:6px;transition:0.3s;}
+.depoimentos{padding:60px 25px;text-align:center;}
+.depoimentos h2{color:#00bfff;margin-bottom:40px;font-size:28px;}
+.depoimento{margin-bottom:25px;background:#111;padding:25px;border-radius:12px;box-shadow:0 0 15px #00bfff;animation:fadeIn 1s;}
+.contadores{display:flex;justify-content:space-around;flex-wrap:wrap;margin:50px 0;text-align:center;}
+.contador{margin:20px;color:#00ffff;}
+.contador h3{font-size:36px;margin-bottom:10px;}
+.contador p{font-size:18px;}
+.dashboard{max-width:900px;margin:40px auto;padding:20px;background:#111;border-radius:12px;box-shadow:0 0 25px #00bfff;}
+canvas{background:#000;border-radius:12px;}
+.whatsapp{position:fixed;bottom:20px;right:20px;background:#25d366;color:#000;padding:18px;border-radius:50%;font-size:28px;cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:1000;transition:0.3s;}
+.whatsapp:hover{background:#00ff7f;transform:scale(1.1);}
+footer{padding:35px;text-align:center;background:#111;margin-top:50px;border-top:2px solid #00bfff;}
+footer p{color:#00bfff;}
+.fadeIn{opacity:0;transform:translateY(20px);animation:fadeIn 1s forwards;}
+@keyframes fadeIn{to{opacity:1;transform:translateY(0);}}
+</style>
 </head>
 <body>
 
-  <!-- Header -->
-  <header>
-    <h1>MOLA FÁCIL</h1>
-    <nav>
-      <a href="#hero">Home</a>
-      <a href="#form">Empréstimos</a>
-      <a href="#taxas">Taxas</a>
-      <a href="#faq">Explicações</a>
-      <a href="#contact">Contato</a>
-    </nav>
-  </header>
+<header>
+<h1>MOLA FÁCIL</h1>
+<nav>
+<a href="#hero">Home</a>
+<a href="#form">Empréstimos</a>
+<a href="#dashboard">Dashboard</a>
+<a href="#taxas">Taxas</a>
+<a href="#faq">Explicações</a>
+<a href="#contact">Contato</a>
+</nav>
+</header>
 
-  <!-- Hero Slider -->
-  <section class="hero" id="hero">
-    <div class="slider">
-      <div class="slides">
-        <div class="slide fade-in">
-          <h2>Empréstimo Rápido</h2>
-          <p>Solicite agora e receba aprovação em até 24h. Primeira taxa apenas no primeiro empréstimo.</p>
-        </div>
-        <div class="slide fade-in">
-          <h2>Mais Aderido</h2>
-          <p>Plano popular com aprovação garantida e pagamento seguro via M-PESA.</p>
-        </div>
-        <div class="slide fade-in">
-          <h2>Suporte Exclusivo</h2>
-          <p>Atendimento via WhatsApp disponível 24/7 para todas as suas dúvidas.</p>
-        </div>
-      </div>
-      <button class="slider-btn prev">&#10094;</button>
-      <button class="slider-btn next">&#10095;</button>
-    </div>
-  </section>
+<section class="hero" id="hero">
+<div class="slider">
+<div class="slides">
+<div class="slide fadeIn"><h2>Empréstimo Rápido</h2><p>Receba aprovação em até 24h. Primeira taxa apenas no primeiro empréstimo.</p></div>
+<div class="slide fadeIn"><h2>Mais Aderido</h2><p>Plano popular com aprovação garantida e pagamento seguro via M-PESA.</p></div>
+<div class="slide fadeIn"><h2>Suporte Exclusivo</h2><p>Atendimento via WhatsApp disponível 24/7.</p></div>
+</div>
+<button class="slider-btn prev">&#10094;</button>
+<button class="slider-btn next">&#10095;</button>
+</div>
+</section>
 
-  <!-- Formulário de Solicitação -->
-  <section class="form-section" id="form">
-    <h2>Solicitação de Empréstimo</h2>
-    <form id="loanForm">
-      <label>Nome Completo</label>
-      <input type="text" name="nome" required>
-      
-      <label>Telefone</label>
-      <input type="tel" name="telefone" required>
-      
-      <label>Email</label>
-      <input type="email" name="email" required>
-      
-      <label>Upload B.I. Frente</label>
-      <input type="file" name="biFrente" accept="image/*" required>
-      
-      <label>Upload B.I. Verso</label>
-      <input type="file" name="biVerso" accept="image/*" required>
-      
-      <label>Província</label>
-      <select name="provincia" required>
-        <option value="">Selecione</option>
-        <option value="maputo">Maputo</option>
-        <option value="gaza">Gaza</option>
-        <option value="inhambane">Inhambane</option>
-        <option value="sofala">Sofala</option>
-        <option value="nampula">Nampula</option>
-      </select>
-      
-      <label>Valor do Empréstimo (MZN)</label>
-      <input type="number" name="valor" required>
-      
-      <div class="taxa">A taxa de inscrição é cobrada apenas no primeiro empréstimo.</div>
+<section class="contadores">
+<div class="contador fadeIn"><h3 id="clientes">0</h3><p>Clientes Atendidos</p></div>
+<div class="contador fadeIn"><h3 id="aprovados">0</h3><p>Empréstimos Aprovados</p></div>
+<div class="contador fadeIn"><h3 id="horas">0</h3><p>Resposta em horas</p></div>
+</section>
 
-      <label>Comprovante de Pagamento M-PESA (850515522 – Eunice Rodrigues)</label>
-      <input type="file" name="comprovante" accept="image/*" required>
+<section class="dashboard" id="dashboard">
+<h2 style="color:#00bfff;text-align:center;margin-bottom:20px;">Acompanhamento de Empréstimos</h2>
+<canvas id="loanChart" width="800" height="400"></canvas>
+</section>
 
-      <button type="submit">Enviar Solicitação</button>
-    </form>
-  </section>
+<section class="form-section" id="form">
+<h2>Solicitação de Empréstimo</h2>
+<div class="progress-bar"><div class="progress" id="progress"></div></div>
+<form id="loanForm">
+<label>Nome Completo</label>
+<input type="text" name="nome" required>
+<label>Telefone</label>
+<input type="tel" name="telefone" required>
+<label>Email</label>
+<input type="email" name="email" required>
+<label>Upload B.I. Frente</label>
+<input type="file" name="biFrente" accept="image/*" required>
+<label>Upload B.I. Verso</label>
+<input type="file" name="biVerso" accept="image/*" required>
+<label>Província</label>
+<select name="provincia" required>
+<option value="">Selecione</option>
+<option value="maputo">Maputo</option>
+<option value="gaza">Gaza</option>
+<option value="inhambane">Inhambane</option>
+<option value="sofala">Sofala</option>
+<option value="nampula">Nampula</option>
+</select>
+<label>Valor do Empréstimo (MZN)</label>
+<input type="number" name="valor" required>
+<div class="taxa">Taxa de inscrição cobrada apenas no primeiro empréstimo.</div>
+<label>Comprovante de Pagamento M-PESA (850515522 – Eunice Rodrigues)</label>
+<input type="file" name="comprovante" accept="image/*" required>
+<button type="submit">Enviar Solicitação</button>
+</form>
+</section>
 
-  <!-- Depoimentos -->
-  <section class="depoimentos">
-    <h2>O que dizem nossos clientes</h2>
-    <div class="depoimento fade-in">
-      <p>"A MOLA FÁCIL aprovou meu empréstimo rapidinho! Atendimento excelente!" – João M.</p>
-    </div>
-    <div class="depoimento fade-in">
-      <p>"Serviço confiável e seguro. A taxa só no primeiro empréstimo faz toda diferença." – Maria S.</p>
-    </div>
-    <div class="depoimento fade-in">
-      <p>"Recomendo para todos. WhatsApp rápido e suporte de qualidade!" – Carlos F.</p>
-    </div>
-  </section>
+<section class="depoimentos" id="taxas">
+<h2>O que dizem nossos clientes</h2>
+<div class="depoimento fadeIn">"A MOLA FÁCIL aprovou meu empréstimo rapidinho! Atendimento excelente!" – João M.</div>
+<div class="depoimento fadeIn">"Serviço confiável e seguro. A taxa só no primeiro empréstimo faz toda diferença." – Maria S.</div>
+<div class="depoimento fadeIn">"Recomendo para todos. WhatsApp rápido e suporte de qualidade!" – Carlos F.</div>
+</section>
 
-  <!-- WhatsApp flutuante -->
-  <a href="https://wa.me/852745444?text=Olá,%20quero%20suporte%20sobre%20MOLA%20FÁCIL" class="whatsapp" target="_blank">💬</a>
+<a href="https://wa.me/852745444?text=Olá,%20quero%20suporte%20sobre%20MOLA%20FÁCIL" class="whatsapp" target="_blank">💬</a>
 
-  <!-- Footer -->
-  <footer id="contact">
-    <p>MOLA FÁCIL &copy; 2026 - Atendimento e suporte 24/7</p>
-  </footer>
+<footer id="contact">
+<p>MOLA FÁCIL &copy; 2026 - Atendimento e suporte 24/7</p>
+</footer>
 
-  <!-- Script Slider -->
-  <script>
-    const slides = document.querySelector('.slides');
-    const slide = document.querySelectorAll('.slide');
-    let index = 0;
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+// Slider
+const slides = document.querySelector('.slides');
+const slide = document.querySelectorAll('.slide');
+let index=0;
+document.querySelector('.next').addEventListener('click',()=>{index=(index+1)%slide.length;slides.style.transform=`translateX(${-index*100}%)`;});
+document.querySelector('.prev').addEventListener('click',()=>{index=(index-1+slide.length)%slide.length;slides.style.transform=`translateX(${-index*100}%)`;});
 
-    document.querySelector('.next').addEventListener('click', () => {
-      index = (index + 1) % slide.length;
-      slides.style.transform = `translateX(${-index * 100}%)`;
-    });
+// Contadores animados
+const clientes=document.getElementById('clientes');
+const aprovados=document.getElementById('aprovados');
+const horas=document.getElementById('horas');
+let c=0,a=0,h=0;
+const interval=setInterval(()=>{
+if(c<1500) clientes.innerText=c+=25;
+if(a<1200) aprovados.innerText=a+=20;
+if(h<24) horas.innerText=h+=1;
+if(c>=1500 && a>=1200 && h>=24) clearInterval(interval);
+},50);
 
-    document.querySelector('.prev').addEventListener('click', () => {
-      index = (index - 1 + slide.length) % slide.length;
-      slides.style.transform = `translateX(${-index * 100}%)`;
-    });
+// Formulário com barra de progresso
+const form=document.getElementById('loanForm');
+const progress=document.getElementById('progress');
+form.addEventListener('input',()=>{
+let total=form.elements.length;
+let filled=0;
+for(let el of form.elements){if(el.value) filled++;}
+progress.style.width=`${(filled/total)*100}%`;
+});
+form.addEventListener('submit',(e)=>{
+e.preventDefault();
+alert('Solicitação enviada com sucesso! Nossa equipe entrará em contacto em até 24h.');
+form.reset(); progress.style.width='0%';
+});
 
-    // Form feedback
-    const form = document.getElementById('loanForm');
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      alert('Solicitação enviada com sucesso! Nossa equipe entrará em contacto em até 24h.');
-      form.reset();
-    });
-  </script>
+// Dashboard Chart
+const ctx=document.getElementById('loanChart').getContext('2d');
+const loanChart=new Chart(ctx,{
+type:'line',
+data:{
+labels:['Jan','Feb','Mar','Abr','Mai','Jun'],
+datasets:[{
+label:'Empréstimos Aprovados',
+data:[5,15,10,20,25,35],
+backgroundColor:'rgba(0,191,255,0.2)',
+borderColor:'#00bfff',
+borderWidth:2,
+tension:0.3,
+fill:true
+}]
+},
+options:{
+responsive:true,
+plugins:{legend:{display:false}},
+scales:{y:{beginAtZero:true}}
+}
+});
+</script>
 
 </body>
-          </html>
+                                                      </html>
