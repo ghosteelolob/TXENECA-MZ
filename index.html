@@ -1,133 +1,187 @@
 <!DOCTYPE html>
 <html lang="pt-MZ">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>TXENECA MZ - Empréstimos e Cadastro</title>
-<style>
-    /* RESET BÁSICO */
-    * {margin:0; padding:0; box-sizing:border-box; font-family: Arial, sans-serif;}
-    body {background-color:#0a0a0a; color:#fff;}
-    a {text-decoration:none; color:#00f;}
-    button {cursor:pointer;}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MOLA FÁCIL</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    /* Reset e estilo base */
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Roboto', sans-serif; }
+    body { background: #000; color: #fff; overflow-x: hidden; }
+    a { text-decoration: none; color: inherit; }
 
-    /* CONTAINER PRINCIPAL */
-    .container {max-width:1200px; margin:20px auto; padding:20px;}
+    /* Header */
+    header { position: fixed; top: 0; width: 100%; background: rgba(0,0,0,0.9); display: flex; justify-content: space-between; align-items: center; padding: 15px 30px; z-index: 1000; }
+    header h1 { font-size: 28px; color: #00bfff; }
+    nav a { margin-left: 25px; font-weight: bold; transition: 0.3s; }
+    nav a:hover { color: #00ffff; }
 
-    /* CABEÇALHO */
-    header {display:flex; justify-content:space-between; align-items:center; padding:20px 0;}
-    header h1 {color:#00bfff; font-size:2rem;}
-    header nav a {margin-left:20px; color:#fff; font-weight:bold;}
+    /* Hero / Slider */
+    .hero { padding-top: 100px; text-align: center; }
+    .slider { position: relative; max-width: 800px; margin: 30px auto; overflow: hidden; border: 2px solid #00bfff; border-radius: 12px; }
+    .slides { display: flex; transition: 0.5s ease-in-out; }
+    .slide { min-width: 100%; padding: 50px 20px; background: #111; }
+    .slide h2 { color: #00bfff; margin-bottom: 10px; }
+    .slide p { font-size: 18px; }
 
-    /* FORMULÁRIO */
-    form {background:#111; padding:20px; border-radius:12px; margin-bottom:30px;}
-    form h2 {color:#00bfff; margin-bottom:15px;}
-    form input, form select {width:100%; padding:12px; margin:8px 0; border-radius:8px; border:none;}
-    form input[type="file"] {padding:3px;}
-    form button {background:#00bfff; color:#000; font-weight:bold; border:none; padding:12px 20px; border-radius:8px; transition:0.3s;}
-    form button:hover {background:#009acd; color:#fff;}
+    /* Botões do slider */
+    .slider-btn { position: absolute; top: 50%; transform: translateY(-50%); background: #00bfff; border: none; padding: 10px 15px; cursor: pointer; font-weight: bold; color: #000; border-radius: 6px; }
+    .prev { left: 10px; }
+    .next { right: 10px; }
 
-    /* SEÇÃO DE TAXAS */
-    .taxas {display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:20px; margin-bottom:30px;}
-    .card {background:#111; padding:20px; border-radius:12px; position:relative; border:1px solid #222;}
-    .card h3 {color:#00bfff; margin-bottom:10px;}
-    .card .valor {font-size:1.8rem; font-weight:bold; color:#ffd700;}
-    .card .selo {position:absolute; top:10px; right:10px; background:#28a745; color:#fff; padding:5px 10px; border-radius:6px; font-size:0.9rem;}
-    .card .mais-aderido {position:absolute; top:35px; right:10px; background:#ff4500; color:#fff; padding:5px 10px; border-radius:6px; font-size:0.8rem;}
+    /* Seção Formulário */
+    .form-section { padding: 50px 20px; max-width: 700px; margin: auto; background: #111; border-radius: 12px; box-shadow: 0 0 20px #00bfff; margin-top: 50px; }
+    .form-section h2 { color: #00bfff; margin-bottom: 20px; text-align: center; }
+    .form-section label { display: block; margin: 15px 0 5px; }
+    .form-section input, .form-section select { width: 100%; padding: 10px; border-radius: 6px; border: none; outline: none; }
+    .form-section button { margin-top: 20px; width: 100%; padding: 12px; background: #00bfff; color: #000; font-weight: bold; border: none; border-radius: 6px; cursor: pointer; transition: 0.3s; }
+    .form-section button:hover { background: #00ffff; }
 
-    /* SLIDER */
-    .slider-container {margin-bottom:30px;}
-    .slider-container input[type="range"] {width:100%;}
-    .slider-value {text-align:center; font-size:1.5rem; margin-top:10px; color:#00bfff;}
+    /* Taxa explicação */
+    .taxa { background: #222; padding: 15px; border-radius: 6px; margin-top: 10px; font-size: 16px; color: #00ffff; }
 
-    /* BOTÃO FLUTUANTE */
-    .float-btn {position:fixed; bottom:20px; right:20px; background:#00bfff; color:#000; border:none; padding:15px 20px; border-radius:50px; font-weight:bold; box-shadow:0 5px 15px rgba(0,0,0,0.3); z-index:1000; transition:0.3s;}
-    .float-btn:hover {background:#009acd; color:#fff;}
+    /* Depoimentos */
+    .depoimentos { padding: 50px 20px; text-align: center; }
+    .depoimentos h2 { color: #00bfff; margin-bottom: 30px; }
+    .depoimento { margin-bottom: 20px; background: #111; padding: 20px; border-radius: 12px; box-shadow: 0 0 10px #00bfff; }
 
-    /* FOOTER */
-    footer {text-align:center; padding:20px; border-top:1px solid #222; color:#888;}
-</style>
+    /* WhatsApp flutuante */
+    .whatsapp { position: fixed; bottom: 20px; right: 20px; background: #25d366; color: #000; padding: 15px; border-radius: 50%; font-size: 24px; cursor: pointer; display: flex; align-items: center; justify-content: center; z-index: 1000; transition: 0.3s; }
+    .whatsapp:hover { background: #00ff7f; }
+
+    /* Footer */
+    footer { padding: 30px; text-align: center; background: #111; margin-top: 50px; border-top: 2px solid #00bfff; }
+    footer p { color: #00bfff; }
+
+    /* Animações e efeitos */
+    .fade-in { opacity: 0; transform: translateY(20px); animation: fadeIn 1s forwards; }
+    @keyframes fadeIn { to { opacity: 1; transform: translateY(0); } }
+  </style>
 </head>
 <body>
 
-<div class="container">
+  <!-- Header -->
+  <header>
+    <h1>MOLA FÁCIL</h1>
+    <nav>
+      <a href="#hero">Home</a>
+      <a href="#form">Empréstimos</a>
+      <a href="#taxas">Taxas</a>
+      <a href="#faq">Explicações</a>
+      <a href="#contact">Contato</a>
+    </nav>
+  </header>
 
-    <!-- CABEÇALHO -->
-    <header>
-        <h1>TXENECA MZ</h1>
-        <nav>
-            <a href="#cadastro">Cadastro</a>
-            <a href="#taxas">Taxas</a>
-            <a href="#slider">Simulador</a>
-        </nav>
-    </header>
-
-    <!-- FORMULÁRIO DE CADASTRO -->
-    <form id="cadastro">
-        <h2>Cadastro Completo</h2>
-        <input type="text" placeholder="Nome Completo" required>
-        <input type="text" placeholder="Número de Telefone" required>
-        <input type="email" placeholder="Email" required>
-        <select required>
-            <option value="">Escolha a sua cidade</option>
-            <option>Maputo</option>
-            <option>Matola</option>
-            <option>Beira</option>
-            <option>Nampula</option>
-        </select>
-        <input type="file" accept="image/*" required>
-        <input type="file" accept="image/*" required>
-        <button type="submit">Enviar Cadastro</button>
-    </form>
-
-    <!-- SEÇÃO DE TAXAS DE INSCRIÇÃO -->
-    <section class="taxas" id="taxas">
-        <div class="card">
-            <h3>Inscrição Inicial</h3>
-            <div class="valor">MZN 199</div>
-            <div class="selo">Verificado</div>
-            <div class="mais-aderido">Mais Aderido</div>
+  <!-- Hero Slider -->
+  <section class="hero" id="hero">
+    <div class="slider">
+      <div class="slides">
+        <div class="slide fade-in">
+          <h2>Empréstimo Rápido</h2>
+          <p>Solicite agora e receba aprovação em até 24h. Primeira taxa apenas no primeiro empréstimo.</p>
         </div>
-        <div class="card">
-            <h3>Inscrição Média</h3>
-            <div class="valor">MZN 299</div>
-            <div class="selo">Verificado</div>
+        <div class="slide fade-in">
+          <h2>Mais Aderido</h2>
+          <p>Plano popular com aprovação garantida e pagamento seguro via M-PESA.</p>
         </div>
-        <div class="card">
-            <h3>Inscrição Premium</h3>
-            <div class="valor">MZN 399</div>
-            <div class="selo">Verificado</div>
+        <div class="slide fade-in">
+          <h2>Suporte Exclusivo</h2>
+          <p>Atendimento via WhatsApp disponível 24/7 para todas as suas dúvidas.</p>
         </div>
-    </section>
-
-    <!-- SLIDER DE SIMULAÇÃO -->
-    <div class="slider-container" id="slider">
-        <h2>Simulador de Pagamento</h2>
-        <input type="range" min="100" max="10000" step="50" value="500" id="sliderRange">
-        <div class="slider-value">Valor Selecionado: MZN <span id="sliderOutput">500</span></div>
+      </div>
+      <button class="slider-btn prev">&#10094;</button>
+      <button class="slider-btn next">&#10095;</button>
     </div>
-</div>
+  </section>
 
-<!-- BOTÃO FLUTUANTE -->
-<button class="float-btn">Ajuda / Contato</button>
+  <!-- Formulário de Solicitação -->
+  <section class="form-section" id="form">
+    <h2>Solicitação de Empréstimo</h2>
+    <form id="loanForm">
+      <label>Nome Completo</label>
+      <input type="text" name="nome" required>
+      
+      <label>Telefone</label>
+      <input type="tel" name="telefone" required>
+      
+      <label>Email</label>
+      <input type="email" name="email" required>
+      
+      <label>Upload B.I. Frente</label>
+      <input type="file" name="biFrente" accept="image/*" required>
+      
+      <label>Upload B.I. Verso</label>
+      <input type="file" name="biVerso" accept="image/*" required>
+      
+      <label>Província</label>
+      <select name="provincia" required>
+        <option value="">Selecione</option>
+        <option value="maputo">Maputo</option>
+        <option value="gaza">Gaza</option>
+        <option value="inhambane">Inhambane</option>
+        <option value="sofala">Sofala</option>
+        <option value="nampula">Nampula</option>
+      </select>
+      
+      <label>Valor do Empréstimo (MZN)</label>
+      <input type="number" name="valor" required>
+      
+      <div class="taxa">A taxa de inscrição é cobrada apenas no primeiro empréstimo.</div>
 
-<!-- FOOTER -->
-<footer>
-    TXENECA MZ &copy; 2026 - Todos os direitos reservados
-</footer>
+      <label>Comprovante de Pagamento M-PESA (850515522 – Eunice Rodrigues)</label>
+      <input type="file" name="comprovante" accept="image/*" required>
 
-<script>
-    // Atualiza valor do slider em tempo real
-    const slider = document.getElementById('sliderRange');
-    const output = document.getElementById('sliderOutput');
-    slider.oninput = function() { output.innerText = this.value; }
+      <button type="submit">Enviar Solicitação</button>
+    </form>
+  </section>
 
-    // Placeholder para envio do formulário
-    document.querySelector('form').addEventListener('submit', function(e){
-        e.preventDefault();
-        alert('Cadastro enviado com sucesso!');
+  <!-- Depoimentos -->
+  <section class="depoimentos">
+    <h2>O que dizem nossos clientes</h2>
+    <div class="depoimento fade-in">
+      <p>"A MOLA FÁCIL aprovou meu empréstimo rapidinho! Atendimento excelente!" – João M.</p>
+    </div>
+    <div class="depoimento fade-in">
+      <p>"Serviço confiável e seguro. A taxa só no primeiro empréstimo faz toda diferença." – Maria S.</p>
+    </div>
+    <div class="depoimento fade-in">
+      <p>"Recomendo para todos. WhatsApp rápido e suporte de qualidade!" – Carlos F.</p>
+    </div>
+  </section>
+
+  <!-- WhatsApp flutuante -->
+  <a href="https://wa.me/852745444?text=Olá,%20quero%20suporte%20sobre%20MOLA%20FÁCIL" class="whatsapp" target="_blank">💬</a>
+
+  <!-- Footer -->
+  <footer id="contact">
+    <p>MOLA FÁCIL &copy; 2026 - Atendimento e suporte 24/7</p>
+  </footer>
+
+  <!-- Script Slider -->
+  <script>
+    const slides = document.querySelector('.slides');
+    const slide = document.querySelectorAll('.slide');
+    let index = 0;
+
+    document.querySelector('.next').addEventListener('click', () => {
+      index = (index + 1) % slide.length;
+      slides.style.transform = `translateX(${-index * 100}%)`;
     });
-</script>
+
+    document.querySelector('.prev').addEventListener('click', () => {
+      index = (index - 1 + slide.length) % slide.length;
+      slides.style.transform = `translateX(${-index * 100}%)`;
+    });
+
+    // Form feedback
+    const form = document.getElementById('loanForm');
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      alert('Solicitação enviada com sucesso! Nossa equipe entrará em contacto em até 24h.');
+      form.reset();
+    });
+  </script>
 
 </body>
-  </html>
+          </html>
