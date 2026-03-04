@@ -4,216 +4,116 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>MOLA FÁCIL | Empréstimos Profissionais</title>
-
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
-
 <style>
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Poppins',sans-serif;
-}
+/* Reset básico */
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+body{background:#0a0a0a;color:#fff;overflow-x:hidden;line-height:1.5;}
+a{text-decoration:none;color:inherit;}
 
-body{
-background:linear-gradient(135deg,#050505,#0c1624);
-color:#fff;
-overflow-x:hidden;
+/* Header */
+header{
+position:fixed;top:0;left:0;width:100%;height:70px;
+background:rgba(0,0,0,0.85);backdrop-filter:blur(10px);
+display:flex;justify-content:space-between;align-items:center;padding:0 30px;z-index:1000;
+box-shadow:0 2px 15px rgba(0,0,0,0.6);
 }
-
-/* NAVBAR */
-nav{
-position:fixed;
-top:0;
-width:100%;
-height:70px;
-background:rgba(0,0,0,0.7);
-backdrop-filter:blur(10px);
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:0 40px;
-z-index:1000;
-}
-
-.logo{
-font-size:26px;
-font-weight:800;
-color:#00bfff;
-}
-
-.menu a{
-color:#fff;
-text-decoration:none;
-margin-left:25px;
-font-size:14px;
-transition:0.3s;
-}
-.menu a:hover{
-color:#00bfff;
-}
-
+.logo{font-size:28px;font-weight:800;color:#00bfff;letter-spacing:1px;}
+.menu a{margin-left:25px;font-weight:600;color:#fff;transition:0.3s;}
+.menu a:hover{color:#00ffcc;}
 body{padding-top:80px;}
 
-/* HERO */
+/* Hero */
 .hero{
-height:90vh;
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-text-align:center;
-background:radial-gradient(circle at center,#0f1c30,#050505);
+height:90vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;
+background:radial-gradient(circle at center,#0c111f,#050505);
 animation:fadeIn 1.5s ease-in-out;
 }
-
 .hero h1{
-font-size:48px;
-font-weight:800;
+font-size:48px;font-weight:800;
 background:linear-gradient(90deg,#00bfff,#00ffcc);
--webkit-background-clip:text;
--webkit-text-fill-color:transparent;
+-webkit-background-clip:text;-webkit-text-fill-color:transparent;
 }
-
-.hero p{
-margin-top:15px;
-color:#ccc;
-}
-
+.hero p{margin-top:15px;color:#ccc;font-size:18px;}
 .cta{
-margin-top:30px;
-padding:15px 40px;
-border:none;
-background:linear-gradient(90deg,#00bfff,#00ffcc);
-color:#000;
-font-weight:700;
-border-radius:30px;
-cursor:pointer;
+margin-top:25px;padding:15px 50px;background:linear-gradient(90deg,#00bfff,#00ffcc);
+border:none;color:#000;font-weight:700;border-radius:30px;cursor:pointer;
 transition:0.4s;
 }
-.cta:hover{
-transform:scale(1.1);
-}
+.cta:hover{transform:scale(1.05);}
 
-/* STATS */
-.stats{
-display:flex;
-justify-content:center;
-gap:80px;
-padding:60px 0;
-flex-wrap:wrap;
-}
-.stat{
-text-align:center;
-}
-.stat h2{
-font-size:40px;
-color:#00ffcc;
-}
+/* Stats */
+.stats{display:flex;justify-content:center;gap:60px;padding:50px 20px;flex-wrap:wrap;}
+.stat{text-align:center;}
+.stat h2{font-size:40px;color:#00ffcc;}
 
-/* CARDS */
-.section-title{
-text-align:center;
-font-size:28px;
-margin:40px 0;
-color:#00bfff;
-}
+/* Mensagens animadas */
+.recebimentos{text-align:center;font-size:22px;font-weight:bold;color:#00ff99;margin:30px 0;height:30px;}
 
-.cards{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-gap:30px;
-padding:40px;
-}
-
+/* Cards de planos */
+.section-title{text-align:center;font-size:28px;margin:40px 0;color:#00bfff;}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:25px;padding:0 30px 60px 30px;}
 .card{
-background:rgba(255,255,255,0.05);
-border-radius:20px;
-padding:25px;
-text-align:center;
-transition:0.4s;
-border:1px solid rgba(255,255,255,0.1);
+background:rgba(255,255,255,0.05);border-radius:20px;padding:25px;text-align:center;position:relative;
+border:1px solid rgba(255,255,255,0.1);transition:0.3s;
+}
+.card:hover{transform:translateY(-10px);box-shadow:0 0 25px rgba(0,191,255,0.4);}
+.card h3{margin-bottom:15px;font-size:22px;}
+.valor{font-size:20px;font-weight:700;margin:10px 0;}
+.taxa{color:#00ff99;font-weight:600;margin-top:10px;}
+.beneficiario{margin-top:10px;font-size:14px;color:#ccc;}
+.badge{
+position:absolute;top:10px;right:10px;background:#00ffcc;color:#000;padding:5px 10px;border-radius:15px;font-weight:700;font-size:12px;
 }
 
-.card:hover{
-transform:translateY(-10px);
-box-shadow:0 0 25px rgba(0,191,255,0.4);
+/* Campo do cliente */
+.form-section{
+max-width:500px;margin:0 auto 60px auto;background:#111;padding:30px;border-radius:15px;text-align:center;
 }
-
-.taxa{
-font-size:22px;
-color:#00ff99;
-font-weight:700;
-margin:15px 0;
+.form-section input{
+width:100%;padding:15px;margin-bottom:15px;border:none;border-radius:8px;font-size:16px;
 }
+.form-section button{
+width:100%;padding:15px;background:#00bfff;color:#000;border:none;font-weight:700;border-radius:10px;cursor:pointer;
+transition:0.3s;
+}
+.form-section button:hover{transform:scale(1.03);}
 
-/* SIMULADOR */
+/* Simulador de empréstimo */
 .simulador{
-background:#0b111b;
-padding:50px;
-margin:50px;
-border-radius:20px;
-text-align:center;
+background:#0b111b;padding:50px;margin:50px auto;border-radius:20px;text-align:center;
+max-width:700px;
 }
-
 .simulador input{
-padding:15px;
-width:60%;
-border-radius:10px;
-border:none;
-margin-top:15px;
+padding:15px;width:60%;border-radius:10px;border:none;margin-top:15px;
 }
-
 .resultado{
-margin-top:20px;
-font-size:18px;
-color:#00ffcc;
+margin-top:20px;font-size:18px;color:#00ffcc;
 }
 
-/* BOTÃO FLUTUANTE */
-.whatsapp{
-position:fixed;
-bottom:20px;
-right:20px;
-background:#00ff99;
-color:#000;
-padding:15px 20px;
-border-radius:50px;
-font-weight:700;
-cursor:pointer;
-box-shadow:0 0 20px rgba(0,255,153,0.6);
-}
+/* Footer */
+footer{text-align:center;padding:30px;background:#000;margin-top:60px;color:#aaa;font-size:14px;}
 
-footer{
-text-align:center;
-padding:30px;
-background:#000;
-margin-top:60px;
-color:#aaa;
-}
-
-@keyframes fadeIn{
-from{opacity:0;transform:translateY(20px);}
-to{opacity:1;transform:translateY(0);}
-}
+/* Animações */
+@keyframes fadeIn{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
 </style>
 </head>
 
 <body>
 
-<nav>
-<div class="logo">MOLA FÁCIL ✔</div>
+<header>
+<div class="logo">MOLA FÁCIL</div>
 <div class="menu">
 <a href="#">Início</a>
-<a href="#">Planos</a>
-<a href="#">Simular</a>
-<a href="#">Contacto</a>
+<a href="#planos">Planos</a>
+<a href="#simulador">Simular</a>
+<a href="#formulario">Recepção</a>
 </div>
-</nav>
+</header>
 
 <section class="hero">
-<h1>Empréstimos Rápidos & Seguros</h1>
-<p>Aprovação profissional com análise transparente</p>
+<h1>Empréstimos Rápidos com Análise Profissional</h1>
+<p>Transparência, confiança e aprovação ágil para você</p>
 <button class="cta">Solicitar Agora</button>
 </section>
 
@@ -228,72 +128,125 @@ to{opacity:1;transform:translateY(0);}
 </div>
 </section>
 
-<h2 class="section-title">Planos Disponíveis</h2>
+<section class="recebimentos" id="recebimentos"></section>
 
+<h2 class="section-title" id="planos">Planos de Empréstimo</h2>
 <section class="cards">
+
 <div class="card">
 <h3>Plano 1️⃣</h3>
-<div class="taxa">597 MT</div>
-<p>5.000 – 8.000 MT</p>
+<p class="valor">5.000 – 8.000 MT</p>
+<p class="taxa">Taxa: 597 MT</p>
+<p class="beneficiario">Beneficiário: Eunice Rodrigues (após solicitação)</p>
 </div>
 
 <div class="card">
 <h3>Plano 2️⃣</h3>
-<div class="taxa">999 MT</div>
-<p>12.000 – 15.000 MT</p>
+<p class="valor">12.000 – 15.000 MT</p>
+<p class="taxa">Taxa: 999 MT</p>
+<p class="beneficiario">Beneficiário: Eunice Rodrigues (após solicitação)</p>
+<div class="badge">Mais Aderido</div>
 </div>
 
 <div class="card">
 <h3>Plano 3️⃣</h3>
-<div class="taxa">1.200 MT</div>
-<p>20.000 – 28.000 MT</p>
+<p class="valor">20.000 – 28.000 MT</p>
+<p class="taxa">Taxa: 1.200 MT</p>
+<p class="beneficiario">Beneficiário: Eunice Rodrigues (após solicitação)</p>
+<div class="badge">Mais Aderido</div>
 </div>
 
 <div class="card">
-<h3>Plano 🔟 Premium</h3>
-<div class="taxa">4.097 MT</div>
-<p>190.000 – 200.000 MT</p>
+<h3>Plano 4️⃣</h3>
+<p class="valor">37.000 – 45.000 MT</p>
+<p class="taxa">Taxa: 1.497 MT</p>
+<p class="beneficiario">Beneficiário: Eunice Rodrigues (após solicitação)</p>
 </div>
+
+<div class="card">
+<h3>Plano 5️⃣</h3>
+<p class="valor">50.000 – 67.000 MT</p>
+<p class="taxa">Taxa: 1.697 MT</p>
+<p class="beneficiario">Beneficiário: Eunice Rodrigues (após solicitação)</p>
+<div class="badge">Mais Aderido</div>
+</div>
+
+<div class="card">
+<h3>Plano 6️⃣</h3>
+<p class="valor">77.000 – 85.000 MT</p>
+<p class="taxa">Taxa: 2.300 MT</p>
+<p class="beneficiario">Beneficiário: Eunice Rodrigues (após solicitação)</p>
+</div>
+
+<div class="card">
+<h3>Plano 7️⃣</h3>
+<p class="valor">100.000 – 135.000 MT</p>
+<p class="taxa">Taxa: 2.647 MT</p>
+<p class="beneficiario">Beneficiário: Eunice Rodrigues (após solicitação)</p>
+<div class="badge">Mais Aderido</div>
+</div>
+
+<div class="card">
+<h3>Plano 8️⃣</h3>
+<p class="valor">136.000 – 167.000 MT</p>
+<p class="taxa">Taxa: 2.999 MT</p>
+<p class="beneficiario">Beneficiário: Eunice Rodrigues (após solicitação)</p>
+</div>
+
+<div class="card">
+<h3>Plano 9️⃣</h3>
+<p class="valor">168.000 – 189.000 MT</p>
+<p class="taxa">Taxa: 3.067 MT</p>
+<p class="beneficiario">Beneficiário: Eunice Rodrigues (após solicitação)</p>
+</div>
+
+<div class="card">
+<h3>Plano 🔟</h3>
+<p class="valor">190.000 – 200.000 MT</p>
+<p class="taxa">Taxa: 4.097 MT</p>
+<p class="beneficiario">Beneficiário: Eunice Rodrigues (após solicitação)</p>
+<div class="badge">Mais Aderido</div>
+</div>
+
 </section>
 
-<section class="simulador">
-<h2>Simulador Automático</h2>
+<section class="form-section" id="formulario">
+<h2>Recepção do Txeneca com Mola Fácil</h2>
+<input type="text" placeholder="Seu número para recepção do Txeneca">
+<button>Enviar Solicitação</button>
+</section>
+
+<section class="simulador" id="simulador">
+<h2>Simulador de Empréstimo</h2>
 <input type="number" id="valor" placeholder="Digite o valor desejado (MT)">
 <div class="resultado" id="resultado"></div>
 </section>
 
-<div class="whatsapp">Atendimento</div>
-
 <footer>
-© 2026 MOLA FÁCIL – Plataforma Profissional
+© 2026 MOLA FÁCIL – Plataforma Profissional de Empréstimos em Moçambique
 </footer>
 
 <script>
+// Contadores animados
 let clientes=1245;
 let aprovados=3892;
+setInterval(()=>{clientes+=Math.floor(Math.random()*3);document.getElementById("clientes").innerText=clientes.toLocaleString();},60000);
+setInterval(()=>{aprovados+=Math.floor(Math.random()*2);document.getElementById("aprovados").innerText=aprovados.toLocaleString();},1000);
 
-setInterval(()=>{
-clientes+=Math.floor(Math.random()*3);
-document.getElementById("clientes").innerText=clientes.toLocaleString();
-},60000);
+// Mensagens animadas
+const nomes=["EMÍLIA RECEBEU 50.000 MT","CARLOS RECEBEU 30.000 MT","ANA RECEBEU 75.000 MT","JOSÉ RECEBEU 20.000 MT","MARIA RECEBEU 100.000 MT","PAULO RECEBEU 15.000 MT","FÁTIMA RECEBEU 60.000 MT","RICARDO RECEBEU 45.000 MT","SANDRA RECEBEU 80.000 MT","MANUEL RECEBEU 25.000 MT","LÚCIA RECEBEU 90.000 MT","BRUNO RECEBEU 55.000 MT","ALICE RECEBEU 40.000 MT","ISABEL RECEBEU 70.000 MT","FERNANDO RECEBEU 35.000 MT"];
+let index=0;
+setInterval(()=>{document.getElementById("recebimentos").innerText=nomes[index];index=(index+1)%nomes.length;},3000);
 
-setInterval(()=>{
-aprovados+=Math.floor(Math.random()*2);
-document.getElementById("aprovados").innerText=aprovados.toLocaleString();
-},1000);
-
+// Simulador
 document.getElementById("valor").addEventListener("input",function(){
 let v=this.value;
 if(v>=5000 && v<=200000){
-let juros=(v*0.15).toFixed(0);
-let total=parseInt(v)+parseInt(juros);
-document.getElementById("resultado").innerText=
-"Taxa estimada: "+juros+" MT | Total a pagar: "+total+" MT";
-}else{
-document.getElementById("resultado").innerText="Valor fora dos limites disponíveis.";
-}
+let taxa=Math.ceil(v*0.15);
+let total=parseInt(v)+taxa;
+document.getElementById("resultado").innerText="Taxa estimada: "+taxa+" MT | Total a pagar: "+total+" MT";
+}else{document.getElementById("resultado").innerText="Valor fora dos limites disponíveis.";}
 });
 </script>
-
 </body>
-  </html>
+                                                  </html>
