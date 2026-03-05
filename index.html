@@ -10,7 +10,12 @@
 
 <style>
 
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
 
 body{
 background:#0a0a0a;
@@ -28,7 +33,7 @@ top:0;
 left:0;
 width:100%;
 height:80px;
-background:#000;
+background:rgba(0,0,0,0.95);
 display:flex;
 justify-content:space-between;
 align-items:center;
@@ -48,6 +53,7 @@ background:linear-gradient(90deg,#00bfff,#00ffcc);
 margin-left:30px;
 color:#fff;
 font-weight:600;
+text-decoration:none;
 }
 
 /* HERO */
@@ -109,7 +115,7 @@ color:#aaa;
 .form-section button{
 width:100%;
 padding:18px;
-background:#00bfff;
+background:linear-gradient(90deg,#00bfff,#00ffcc);
 border:none;
 color:#000;
 font-weight:700;
@@ -131,7 +137,7 @@ text-align:center;
 }
 
 .stat h2{
-font-size:45px;
+font-size:48px;
 color:#00ffcc;
 }
 
@@ -153,7 +159,7 @@ padding:0 40px 80px;
 
 .card{
 background:#111;
-border-radius:25px;
+border-radius:20px;
 padding:30px;
 text-align:center;
 cursor:pointer;
@@ -161,7 +167,8 @@ transition:0.3s;
 }
 
 .card:hover{
-transform:translateY(-10px);
+transform:translateY(-8px);
+box-shadow:0 10px 25px rgba(0,0,0,0.6);
 }
 
 .valor{
@@ -215,13 +222,27 @@ background:#111;
 padding:15px 20px;
 border-radius:10px;
 font-size:14px;
-animation:flutuar 5s infinite;
+animation:flutuar 6s infinite;
 }
 
 @keyframes flutuar{
 0%{transform:translateY(0)}
 50%{transform:translateY(-10px)}
 100%{transform:translateY(0)}
+}
+
+/* WHATSAPP */
+
+.whatsapp{
+position:fixed;
+right:20px;
+bottom:20px;
+background:#25d366;
+color:#fff;
+padding:14px 18px;
+border-radius:50px;
+font-weight:700;
+text-decoration:none;
 }
 
 footer{
@@ -248,14 +269,12 @@ color:#aaa;
 
 </header>
 
-
 <section class="hero">
 
 <h1>Empréstimos Rápidos</h1>
 <p>Análise profissional e aprovação rápida</p>
 
 </section>
-
 
 <!-- CADASTRO -->
 
@@ -278,14 +297,13 @@ color:#aaa;
 <label>Comprovativo de pagamento</label>
 <input type="file">
 
-<input type="tel" placeholder="Número para receber o dinheiro">
+<input type="tel" placeholder="Número M-Pesa para receber dinheiro">
 
 <input type="password" placeholder="Criar senha">
 
 <button>Criar Conta</button>
 
 </section>
-
 
 <!-- STATS -->
 
@@ -303,34 +321,32 @@ color:#aaa;
 
 </section>
 
-
-<h2 class="section-title" id="planos">Planos</h2>
+<h2 class="section-title" id="planos">Planos de Empréstimo</h2>
 
 <section class="cards">
 
 <div class="card" onclick="mostrar(this)">
-<h3>Plano 1</h3>
-<p class="valor">5.000 MT</p>
+<h3>Plano 5.000 MT</h3>
+<p class="valor">Receber: 5.000 MT</p>
 <p class="taxa">Taxa: 199 MT</p>
-<p class="beneficiario">Beneficiário: Eunice Rodrigues</p>
+<p class="beneficiario">Pagamento: Eunice Rodrigues</p>
 </div>
 
 <div class="card" onclick="mostrar(this)">
-<h3>Plano 2</h3>
-<p class="valor">10.000 MT</p>
+<h3>Plano 10.000 MT</h3>
+<p class="valor">Receber: 10.000 MT</p>
 <p class="taxa">Taxa: 399 MT</p>
-<p class="beneficiario">Beneficiário: Eunice Rodrigues</p>
+<p class="beneficiario">Pagamento: Eunice Rodrigues</p>
 </div>
 
 <div class="card" onclick="mostrar(this)">
-<h3>Plano 3</h3>
-<p class="valor">20.000 MT</p>
+<h3>Plano 20.000 MT</h3>
+<p class="valor">Receber: 20.000 MT</p>
 <p class="taxa">Taxa: 699 MT</p>
-<p class="beneficiario">Beneficiário: Eunice Rodrigues</p>
+<p class="beneficiario">Pagamento: Eunice Rodrigues</p>
 </div>
 
 </section>
-
 
 <!-- SIMULADOR -->
 
@@ -338,17 +354,17 @@ color:#aaa;
 
 <h2>Simulador de Empréstimo</h2>
 
-<input type="number" id="valor" placeholder="Digite o valor">
+<input type="number" id="valor" placeholder="Digite o valor desejado">
 
 <div class="resultado" id="resultado"></div>
 
 </section>
 
-
 <div class="live" id="live">
-Maria acaba de receber 10.000 MT
+Maria recebeu 10.000 MT
 </div>
 
+<a class="whatsapp" href="https://wa.me/258850515522">WhatsApp</a>
 
 <footer>
 
@@ -356,8 +372,9 @@ Maria acaba de receber 10.000 MT
 
 </footer>
 
-
 <script>
+
+/* MOSTRAR TAXA */
 
 function mostrar(card){
 
@@ -375,15 +392,17 @@ document.getElementById("valor").addEventListener("input",function(){
 
 let v=this.value;
 
-let taxa=Math.ceil(v*0.15);
+if(v>0){
 
+let taxa=Math.ceil(v*0.15);
 let total=parseInt(v)+taxa;
 
 document.getElementById("resultado").innerText=
-"Taxa estimada: "+taxa+" MT | Total: "+total+" MT";
+"Taxa estimada: "+taxa+" MT | Total a pagar: "+total+" MT";
+850515522-Eunice Rodrigues
+}
 
 });
-
 
 /* NUMEROS SUBINDO */
 
@@ -400,16 +419,18 @@ document.getElementById("aprovados").innerText=aprovados;
 
 },1000);
 
-
 /* CLIENTES FLUTUANTES */
 
 let nomes=[
 "João recebeu 7.000 MT",
 "Paulo recebeu 12.000 MT",
-"Maria recebeu 10.000 MT",
 "Ana recebeu 5.000 MT",
-"Carlos recebeu 20.000 MT"
-];
+"Carlos recebeu 20.000 MT",
+"Maria recebeu 10.000 MT"
+"Lourenço recebeu 25.000 MT"
+ "José recebeu 47.000 MT"
+   "Kito recebeu 60.000Mt"
+     ];
 
 setInterval(()=>{
 
