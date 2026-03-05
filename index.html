@@ -3,444 +3,160 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>MOLA FÁCIL | Empréstimos Profissionais</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+<title>MOLA FÁCIL | Empréstimos Rápidos</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 
 <style>
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Poppins',sans-serif;
-}
-
-body{
-background:#0a0a0a;
-color:#fff;
-line-height:1.5;
-padding-top:90px;
-overflow-x:hidden;
-}
-
-/* HEADER */
-
-header{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:80px;
-background:rgba(0,0,0,0.95);
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:0 40px;
-z-index:1000;
-}
-
-.logo{
-font-size:30px;
-font-weight:800;
-background:linear-gradient(90deg,#00bfff,#00ffcc);
--webkit-background-clip:text;
--webkit-text-fill-color:transparent;
-}
-
-.menu a{
-margin-left:30px;
-color:#fff;
-font-weight:600;
-text-decoration:none;
-}
+*{margin:0;padding:0;box-sizing:border-box;font-family:Poppins;}
+body{background:#050505;color:white;line-height:1.6;overflow-x:hidden;}
+nav{background:#000;padding:15px 20px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #0a2a45;position:sticky;top:0;z-index:100;}
+.logo{font-size:24px;font-weight:700;color:#0a7cff;}
+nav a{color:white;text-decoration:none;margin-left:20px;font-weight:500;transition:0.3s;}
+nav a:hover{color:#0a7cff;}
 
 /* HERO */
+.hero{padding:100px 20px;text-align:center;background:linear-gradient(#000,#02111f);overflow:hidden;}
+.hero h1{font-size:38px;margin-bottom:15px;opacity:0;transform:translateY(50px);animation:fadeSlide 1s forwards;}
+.hero h1 span{color:#0a7cff;}
+.hero p{opacity:0;margin-bottom:30px;font-size:18px;animation:fadeSlide 1s 0.5s forwards;}
+.btn{background:#0a7cff;padding:15px 30px;border-radius:8px;text-decoration:none;color:white;font-weight:600;transition:0.3s;opacity:0;animation:fadeSlide 1s 1s forwards;}
+.btn:hover{background:#095ecc;transform:scale(1.05);cursor:pointer;}
 
-.hero{
-height:80vh;
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-text-align:center;
-background:radial-gradient(circle,#0c111f,#050505);
-}
+/* Animations */
+@keyframes fadeSlide{to{opacity:1;transform:translateY(0);}}
 
-.hero h1{
-font-size:52px;
-font-weight:800;
-background:linear-gradient(90deg,#00bfff,#00ffcc);
--webkit-background-clip:text;
--webkit-text-fill-color:transparent;
-}
+/* SERVIÇOS */
+.servicos{padding:70px 20px;text-align:center;}
+.servicos h2{margin-bottom:40px;font-size:28px;}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:25px;}
+.card{background:#0b0b0b;padding:25px;border-radius:12px;border:1px solid #0a2a45;transition:0.3s;opacity:0;transform:scale(0.8);}
+.card h3{margin-bottom:10px;color:#0a7cff;}
+.card p{opacity:0.8;}
+.card.visible{opacity:1;transform:scale(1);transition:0.5s;}
 
-.hero p{
-margin-top:15px;
-color:#ccc;
-font-size:20px;
-}
+/* TABELA */
+.tabela{padding:70px 20px;}
+table{width:100%;border-collapse:collapse;font-size:16px;}
+th,td{padding:14px;border:1px solid #0a2a45;text-align:center;}
+th{background:#02111f;}
+tr:hover{background:#0a0a0a;}
 
-/* CADASTRO */
+/* FORM */
+.form{padding:70px 20px;max-width:650px;margin:auto;background:#0a0a0a;border-radius:12px;border:1px solid #0a2a45;}
+.form h2{text-align:center;margin-bottom:25px;font-size:26px;}
+input,select{width:100%;padding:14px;margin-bottom:15px;background:#0b0b0b;border:1px solid #0a2a45;color:white;border-radius:6px;}
+input::placeholder{color:#888;}
+button{background:#0a7cff;border:none;padding:15px;width:100%;color:white;font-size:16px;border-radius:8px;cursor:pointer;transition:0.3s;}
+button:hover{background:#095ecc;transform:scale(1.02);}
 
-.form-section{
-max-width:600px;
-margin:40px auto;
-background:#111;
-padding:35px;
-border-radius:18px;
-}
+/* FOOTER */
+footer{background:#000;padding:30px 20px;text-align:center;font-size:14px;border-top:1px solid #0a2a45;opacity:0.9;}
+.whatsapp{position:fixed;bottom:20px;right:20px;background:#25D366;color:white;padding:16px;border-radius:50%;text-decoration:none;font-size:22px;box-shadow:0 3px 10px rgba(0,0,0,0.3);transition:0.3s;}
+.whatsapp:hover{transform:scale(1.1);}
 
-.form-section h2{
-text-align:center;
-margin-bottom:20px;
-color:#00bfff;
-}
-
-.form-section input{
-width:100%;
-padding:16px;
-margin-bottom:15px;
-border:none;
-border-radius:10px;
-font-size:16px;
-}
-
-.form-section label{
-font-size:14px;
-color:#aaa;
-}
-
-.form-section button{
-width:100%;
-padding:18px;
-background:linear-gradient(90deg,#00bfff,#00ffcc);
-border:none;
-color:#000;
-font-weight:700;
-border-radius:12px;
-cursor:pointer;
-}
-
-/* STATS */
-
-.stats{
-display:flex;
-justify-content:center;
-gap:80px;
-padding:50px;
-}
-
-.stat{
-text-align:center;
-}
-
-.stat h2{
-font-size:48px;
-color:#00ffcc;
-}
-
-/* PLANOS */
-
-.section-title{
-text-align:center;
-font-size:32px;
-margin:50px 0;
-color:#00bfff;
-}
-
-.cards{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(270px,1fr));
-gap:30px;
-padding:0 40px 80px;
-}
-
-.card{
-background:#111;
-border-radius:20px;
-padding:30px;
-text-align:center;
-cursor:pointer;
-transition:0.3s;
-}
-
-.card:hover{
-transform:translateY(-8px);
-box-shadow:0 10px 25px rgba(0,0,0,0.6);
-}
-
-.valor{
-font-size:22px;
-font-weight:700;
-margin:10px 0;
-}
-
-.taxa{
-display:none;
-color:#00ff99;
-font-weight:700;
-}
-
-.beneficiario{
-display:none;
-color:#ccc;
-}
-
-/* SIMULADOR */
-
-.simulador{
-background:#0b111b;
-padding:40px;
-max-width:700px;
-margin:0 auto 60px;
-border-radius:25px;
-text-align:center;
-}
-
-.simulador input{
-padding:15px;
-width:70%;
-border:none;
-border-radius:10px;
-}
-
-.resultado{
-margin-top:20px;
-color:#00ffcc;
-font-size:18px;
-}
-
-/* CLIENTES FLUTUANTES */
-
-.live{
-position:fixed;
-bottom:20px;
-left:20px;
-background:#111;
-padding:15px 20px;
-border-radius:10px;
-font-size:14px;
-animation:flutuar 6s infinite;
-}
-
-@keyframes flutuar{
-0%{transform:translateY(0)}
-50%{transform:translateY(-10px)}
-100%{transform:translateY(0)}
-}
-
-/* WHATSAPP */
-
-.whatsapp{
-position:fixed;
-right:20px;
-bottom:20px;
-background:#25d366;
-color:#fff;
-padding:14px 18px;
-border-radius:50px;
-font-weight:700;
-text-decoration:none;
-}
-
-footer{
-text-align:center;
-padding:40px;
-background:#000;
-color:#aaa;
-}
+/* Foto estratégica */
+.hero img{width:250px;border-radius:12px;margin-top:20px;opacity:0;transform:scale(0.8);animation:fadeSlide 1s 1.2s forwards;}
 
 </style>
 </head>
 
 <body>
 
-<header>
-
-<div class="logo">MOLA FÁCIL</div>
-
-<div class="menu">
-<a href="#">Início</a>
-<a href="#planos">Planos</a>
-<a href="#simulador">Simular</a>
-</div>
-
-</header>
+<nav>
+  <div class="logo">MOLA FÁCIL</div>
+  <div>
+    <a href="#">Início</a>
+    <a href="#taxas">Taxas</a>
+    <a href="#form">Solicitar</a>
+  </div>
+</nav>
 
 <section class="hero">
-
-<h1>Empréstimos Rápidos</h1>
-<p>Análise profissional e aprovação rápida</p>
-
+  <h1>Empréstimos <span>Rápidos</span> e Seguros</h1>
+  <p>Solução financeira confiável quando mais precisa. Fácil, rápido e seguro.</p>
+  <a class="btn" href="#form">Solicitar Empréstimo</a>
+  <img src="mr-bow.png" alt="Foto Estratégica Mr Bow">
 </section>
 
-<!-- CADASTRO -->
-
-<section class="form-section">
-
-<h2>Cadastro de Cliente</h2>
-
-<input type="text" placeholder="Nome completo">
-
-<input type="tel" placeholder="Número de telefone">
-
-<input type="text" placeholder="Número do BI">
-
-<label>Foto do BI (Frente)</label>
-<input type="file">
-
-<label>Foto do BI (Verso)</label>
-<input type="file">
-
-<label>Comprovativo de pagamento</label>
-<input type="file">
-
-<input type="tel" placeholder="Número M-Pesa para receber dinheiro">
-
-<input type="password" placeholder="Criar senha">
-
-<button>Criar Conta</button>
-
+<section class="servicos">
+  <h2>Por que escolher o MOLA FÁCIL?</h2>
+  <div class="grid">
+    <div class="card"><h3>Resposta Rápida</h3><p>Seu pedido é analisado rapidamente, sem complicações.</p></div>
+    <div class="card"><h3>Processo Simples</h3><p>Cadastro fácil e envio de documentos em poucos minutos.</p></div>
+    <div class="card"><h3>Seguro</h3><p>Seus dados e informações pessoais são totalmente protegidos.</p></div>
+  </div>
 </section>
 
-<!-- STATS -->
-
-<section class="stats">
-
-<div class="stat">
-<h2 id="clientes">1245</h2>
-<p>Clientes Atendidos</p>
-</div>
-
-<div class="stat">
-<h2 id="aprovados">3892</h2>
-<p>Empréstimos Aprovados</p>
-</div>
-
+<section id="taxas" class="tabela">
+  <h2 style="text-align:center;margin-bottom:20px;">📊 Tabela de Taxa de Inscrição & Valor do Empréstimo</h2>
+  <p style="text-align:center;margin-bottom:30px;font-size:16px;">💬 Escolhe a opção ideal para ti e faz já o pagamento da taxa de inscrição!</p>
+  <table>
+    <tr><th>Opção</th><th>Taxa de Inscrição (MT)</th><th>Valor do Empréstimo (MT)</th></tr>
+    <tr><td>1️⃣</td><td>597</td><td>5.000 - 8.000</td></tr>
+    <tr><td>2️⃣</td><td>999</td><td>12.000 - 15.000</td></tr>
+    <tr><td>3️⃣</td><td>1.200</td><td>20.000 - 28.000</td></tr>
+    <tr><td>4️⃣</td><td>1.497</td><td>37.000 - 45.000</td></tr>
+    <tr><td>5️⃣</td><td>1.697</td><td>50.000 - 67.000</td></tr>
+    <tr><td>6️⃣</td><td>2.300</td><td>77.000 - 85.000</td></tr>
+    <tr><td>7️⃣</td><td>2.647</td><td>100.000 - 135.000</td></tr>
+    <tr><td>8️⃣</td><td>2.999</td><td>136.000 - 167.000</td></tr>
+    <tr><td>9️⃣</td><td>3.067</td><td>168.000 - 189.000</td></tr>
+    <tr><td>🔟</td><td>4.097</td><td>190.000 - 200.000</td></tr>
+  </table>
+  <p style="text-align:center;margin-top:20px;font-size:16px;">Mpesa: <strong>850515522 - Eunice Rodrigues</strong></p>
 </section>
 
-<h2 class="section-title" id="planos">Planos de Empréstimo</h2>
-
-<section class="cards">
-
-<div class="card" onclick="mostrar(this)">
-<h3>Plano 5.000 MT</h3>
-<p class="valor">Receber: 5.000 MT</p>
-<p class="taxa">Taxa: 199 MT</p>
-<p class="beneficiario">Pagamento: Eunice Rodrigues</p>
-</div>
-
-<div class="card" onclick="mostrar(this)">
-<h3>Plano 10.000 MT</h3>
-<p class="valor">Receber: 10.000 MT</p>
-<p class="taxa">Taxa: 399 MT</p>
-<p class="beneficiario">Pagamento: Eunice Rodrigues</p>
-</div>
-
-<div class="card" onclick="mostrar(this)">
-<h3>Plano 20.000 MT</h3>
-<p class="valor">Receber: 20.000 MT</p>
-<p class="taxa">Taxa: 699 MT</p>
-<p class="beneficiario">Pagamento: Eunice Rodrigues</p>
-</div>
-
+<section id="form" class="form">
+  <h2>Solicitar Empréstimo</h2>
+  <form>
+    <input type="text" placeholder="Nome completo" required>
+    <input type="number" placeholder="Telefone" required>
+    <input type="text" placeholder="Número do BI" required>
+    <select id="taxaSelect">
+      <option value="">Escolher taxa de inscrição</option>
+      <option value="5.000 - 8.000">597 MT</option>
+      <option value="12.000 - 15.000">999 MT</option>
+      <option value="20.000 - 28.000">1.200 MT</option>
+      <option value="37.000 - 45.000">1.497 MT</option>
+      <option value="50.000 - 67.000">1.697 MT</option>
+      <option value="77.000 - 85.000">2.300 MT</option>
+      <option value="100.000 - 135.000">2.647 MT</option>
+      <option value="136.000 - 167.000">2.999 MT</option>
+      <option value="168.000 - 189.000">3.067 MT</option>
+      <option value="190.000 - 200.000">4.097 MT</option>
+    </select>
+    <input type="text" id="valorSimulado" placeholder="Valor do empréstimo aparecerá aqui" readonly>
+    <input type="file" accept="image/*">
+    <button>Enviar Solicitação</button>
+  </form>
 </section>
-
-<!-- SIMULADOR -->
-
-<section class="simulador" id="simulador">
-
-<h2>Simulador de Empréstimo</h2>
-
-<input type="number" id="valor" placeholder="Digite o valor desejado">
-
-<div class="resultado" id="resultado"></div>
-
-</section>
-
-<div class="live" id="live">
-Maria recebeu 10.000 MT
-</div>
-
-<a class="whatsapp" href="https://wa.me/258850515522">WhatsApp</a>
 
 <footer>
-
-© 2026 MOLA FÁCIL – Plataforma de empréstimos
-
+  <p>Atendimento: 850515522 - Eunice Rodrigues</p>
+  <p>M-Pesa disponível para pagamento da taxa</p>
 </footer>
 
+<a class="whatsapp" href="https://wa.me/258850515522">W</a>
+
 <script>
+// Animar cards ao rolar
+const cards = document.querySelectorAll('.card');
+const observer = new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      entry.target.classList.add('visible');
+    }
+  });
+},{threshold:0.2});
+cards.forEach(card=>observer.observe(card));
 
-/* MOSTRAR TAXA */
-
-function mostrar(card){
-
-let taxa=card.querySelector(".taxa");
-let ben=card.querySelector(".beneficiario");
-
-taxa.style.display="block";
-ben.style.display="block";
-
-}
-
-/* SIMULADOR */
-
-document.getElementById("valor").addEventListener("input",function(){
-
-let v=this.value;
-
-if(v>0){
-
-let taxa=Math.ceil(v*0.15);
-let total=parseInt(v)+taxa;
-
-document.getElementById("resultado").innerText=
-"Taxa estimada: "+taxa+" MT | Total a pagar: "+total+" MT";
-850515522-Eunice Rodrigues
-}
-
+// Simulador de empréstimo
+const select = document.getElementById('taxaSelect');
+const valor = document.getElementById('valorSimulado');
+select.addEventListener('change',()=>{
+  valor.value = select.value;
 });
-
-/* NUMEROS SUBINDO */
-
-let clientes=1245;
-let aprovados=3892;
-
-setInterval(()=>{
-
-clientes+=Math.floor(Math.random()*3);
-aprovados+=Math.floor(Math.random()*5);
-
-document.getElementById("clientes").innerText=clientes;
-document.getElementById("aprovados").innerText=aprovados;
-
-},1000);
-
-/* CLIENTES FLUTUANTES */
-
-let nomes=[
-"João recebeu 7.000 MT",
-"Paulo recebeu 12.000 MT",
-"Ana recebeu 5.000 MT",
-"Carlos recebeu 20.000 MT",
-"Maria recebeu 10.000 MT"
-"Lourenço recebeu 25.000 MT"
- "José recebeu 47.000 MT"
-   "Kito recebeu 60.000Mt"
-     ];
-
-setInterval(()=>{
-
-let r=Math.floor(Math.random()*nomes.length);
-
-document.getElementById("live").innerText=nomes[r];
-
-},4000);
-
 </script>
 
 </body>
-  </html>
+                                 </html>
