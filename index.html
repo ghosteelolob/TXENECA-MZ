@@ -176,6 +176,19 @@ box-shadow:0 0 15px rgba(0,0,0,0.5)
 100%{transform:scale(1);opacity:1}
 }
 </style></head><body><header>TXUNA MOLA - EMPRÉSTIMOS RÁPIDOS</header><div class="slider" id="slider">APROVAÇÃO RÁPIDA DE EMPRÉSTIMOS</div><section>
+<h2>CRIAR CADASTRO</h2>
+<div style="background:#1e293b;padding:30px;border-radius:14px;max-width:600px;margin:auto;box-shadow:0 0 15px rgba(0,0,0,0.4)">
+<form id="cadastroForm">
+<input type="text" placeholder="Nome completo" required>
+<input type="text" placeholder="Número de telefone" required>
+<input type="text" placeholder="Número do BI" required>
+<input type="text" placeholder="Cidade" required>
+<input type="number" placeholder="Idade" required>
+<button type="submit">FINALIZAR CADASTRO</button>
+</form>
+<p id="cadastroMsg" style="margin-top:15px;font-weight:bold"></p>
+</div>
+</section><section>
 <h2>ESTATÍSTICAS DA PLATAFORMA</h2>
 <div class="stats"><div class="card">
 Clientes Atendidos
@@ -209,8 +222,8 @@ LEMBRETE.<br><br>
 A TAXA DE INSCRIÇÃO É APENAS COBRANÇA DO PRIMEIRO EMPRÉSTIMO, APÓS A APROVAÇÃO DO PRIMEIRO AS ÚNICAS TAXAS SÃO DE JUROS.
 </div><div class="pagamento-box">
 <p><b>PAGAMENTO DA TAXA</b></p>
-<p>M‑PESA: 85 233 5151</p>
-<p>E‑MOLA: 86 773 4541</p>
+<p>M-PESA: 85 233 5151</p>
+<p>E-MOLA: 86 773 4541</p>
 </div><form>
 <input type="text" placeholder="Seu Nome" required>
 <input type="file" required>
@@ -224,7 +237,7 @@ A TAXA DE INSCRIÇÃO É APENAS COBRANÇA DO PRIMEIRO EMPRÉSTIMO, APÓS A APROV
 
 const slides=[
 "APROVAÇÃO RÁPIDA",
-"DINHEIRO VIA M‑PESA",
+"DINHEIRO VIA M-PESA",
 "SIMULAÇÃO AUTOMÁTICA",
 "LEVANTAMENTO IMEDIATO"
 ]
@@ -299,4 +312,4 @@ p=(p+1)%pagamentos.length
 },3000)
 
 </script></body>
-  </html>
+            </html>
