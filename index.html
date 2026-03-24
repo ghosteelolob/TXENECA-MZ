@@ -1,315 +1,147 @@
-<!DOCTYPE html><html lang="pt">
+<!DOCTYPE html>
+<html lang="pt">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>TXUNA MOLA - Empréstimos</title><style>
-body{
-font-family:Arial,Helvetica,sans-serif;
-margin:0;
-background:#0f172a;
-color:white
+<title>Mola Fácil MZN</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f5f5f5;
 }
 
-header{
-background:#020617;
-padding:25px;
-text-align:center;
-font-size:32px;
-font-weight:bold;
-letter-spacing:1px
+/* HEADER */
+header {
+    background: #0a8f3c;
+    color: white;
+    padding: 20px;
+    text-align: center;
 }
 
-.slider{
-height:260px;
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:34px;
-font-weight:bold;
-background:#1e293b;
-animation:fade 6s infinite
+/* HERO */
+.hero {
+    padding: 60px 20px;
+    text-align: center;
+    background: white;
 }
 
-section{
-padding:50px 20px;
-max-width:1200px;
-margin:auto
+.hero h1 {
+    font-size: 32px;
 }
 
-h2{
-text-align:center;
-margin-bottom:25px;
-font-size:28px
+.hero p {
+    color: #555;
 }
 
-.stats{
-display:flex;
-flex-wrap:wrap;
-justify-content:center;
-gap:25px
+/* BOTÃO */
+.btn {
+    background: #0a8f3c;
+    color: white;
+    padding: 15px 25px;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 20px;
+    border-radius: 8px;
 }
 
-.card{
-background:#1e293b;
-padding:30px;
-border-radius:12px;
-width:260px;
-text-align:center;
-font-size:22px;
-box-shadow:0 0 15px rgba(0,0,0,0.4)
+/* SEÇÕES */
+.section {
+    padding: 40px 20px;
+    text-align: center;
 }
 
-.counter{
-font-size:32px;
-font-weight:bold;
-color:#22c55e
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
 }
 
-button{
-background:#22c55e;
-border:none;
-padding:12px 22px;
-border-radius:8px;
-color:white;
-font-weight:bold;
-font-size:16px;
-cursor:pointer;
-transition:0.3s
+.card {
+    background: white;
+    padding: 20px;
+    width: 250px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 
-button:hover{
-transform:scale(1.05)
+/* CONTACTO */
+.contact {
+    background: #0a8f3c;
+    color: white;
+    padding: 30px;
 }
 
-table{
-width:100%;
-border-collapse:collapse;
-margin-top:20px;
-font-size:18px
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 15px;
+    background: #222;
+    color: white;
 }
+</style>
 
-td,th{
-border:1px solid #334155;
-padding:16px;
-text-align:center
-}
+</head>
 
-th{
-background:#020617
-}
+<body>
 
-form{
-margin-top:25px;
-display:flex;
-flex-direction:column;
-gap:12px;
-max-width:420px
-}
+<header>
+    <h2>Mola Fácil MZN</h2>
+</header>
 
-input{
-padding:12px;
-border-radius:8px;
-border:none
-}
+<section class="hero">
+    <h1>Dinheiro rápido e fácil</h1>
+    <p>Receba apoio financeiro sem complicações</p>
+    <a href="#contacto" class="btn">Solicitar Agora</a>
+</section>
 
-.resultado-box{
-background:#1e293b;
-padding:30px;
-border-radius:14px;
-font-size:20px;
-box-shadow:0 0 15px rgba(0,0,0,0.5);
-animation:zoom 1s
-}
+<section class="section">
+    <h2>Como funciona</h2>
+    <div class="cards">
+        <div class="card">
+            <h3>1. Contacta</h3>
+            <p>Fala connosco pelo WhatsApp</p>
+        </div>
+        <div class="card">
+            <h3>2. Solicita</h3>
+            <p>Indica o valor que precisas</p>
+        </div>
+        <div class="card">
+            <h3>3. Recebe</h3>
+            <p>Recebe o dinheiro rapidamente</p>
+        </div>
+    </div>
+</section>
 
-.lembrete{
-margin-top:20px;
-background:#dc2626;
-padding:20px;
-border-radius:12px;
-font-size:20px;
-font-weight:bold;
-line-height:1.5;
-animation:pulse 2s infinite
-}
+<section class="section">
+    <h2>Por que escolher-nos?</h2>
+    <div class="cards">
+        <div class="card">
+            <p>✔ Processo rápido</p>
+        </div>
+        <div class="card">
+            <p>✔ Sem burocracia</p>
+        </div>
+        <div class="card">
+            <p>✔ Atendimento confiável</p>
+        </div>
+    </div>
+</section>
 
-.pagamento-box{
-margin-top:20px;
-background:#020617;
-padding:20px;
-border-radius:12px;
-font-size:20px
-}
+<section id="contacto" class="contact">
+    <h2>Contacto</h2>
+    <p>📞 85 233 5151 - MÁRCIA</p>
+    <p>📞 86 773 4541 - MÁRCIA</p>
 
-.approvals{
-margin-top:30px;
-text-align:center;
-font-size:22px;
-font-weight:bold;
-color:#22c55e
-}
+    <a class="btn" href="https://wa.me/258852335151">WhatsApp 1</a>
+    <a class="btn" href="https://wa.me/258867734541">WhatsApp 2</a>
+</section>
 
-.pagamentos{
-position:fixed;
-bottom:15px;
-right:15px;
-background:#020617;
-padding:16px 22px;
-border-radius:12px;
-font-size:18px;
-box-shadow:0 0 15px rgba(0,0,0,0.5)
-}
+<footer>
+    <p>© 2026 Mola Fácil MZN - Todos os direitos reservados</p>
+</footer>
 
-@keyframes fade{
-0%{opacity:0}
-50%{opacity:1}
-100%{opacity:0}
-}
-
-@keyframes pulse{
-0%{transform:scale(1)}
-50%{transform:scale(1.06)}
-100%{transform:scale(1)}
-}
-
-@keyframes zoom{
-0%{transform:scale(0.8);opacity:0}
-100%{transform:scale(1);opacity:1}
-}
-</style></head><body><header>TXUNA MOLA - EMPRÉSTIMOS RÁPIDOS</header><div class="slider" id="slider">APROVAÇÃO RÁPIDA DE EMPRÉSTIMOS</div><section>
-<h2>CRIAR CADASTRO</h2>
-<div style="background:#1e293b;padding:30px;border-radius:14px;max-width:600px;margin:auto;box-shadow:0 0 15px rgba(0,0,0,0.4)">
-<form id="cadastroForm">
-<input type="text" placeholder="Nome completo" required>
-<input type="text" placeholder="Número de telefone" required>
-<input type="text" placeholder="Número do BI" required>
-<input type="text" placeholder="Cidade" required>
-<input type="number" placeholder="Idade" required>
-<button type="submit">FINALIZAR CADASTRO</button>
-</form>
-<p id="cadastroMsg" style="margin-top:15px;font-weight:bold"></p>
-</div>
-</section><section>
-<h2>ESTATÍSTICAS DA PLATAFORMA</h2>
-<div class="stats"><div class="card">
-Clientes Atendidos
-<div class="counter" id="atendidos">5000000</div>
-</div><div class="card">
-Clientes em Espera
-<div class="counter">1</div>
-</div><div class="card">
-Clientes Recebendo Agora
-<div class="counter" id="recebendo">10000000</div>
-</div></div>
-</section><section>
-<h2>📊 TABELA DE TAXA DE INSCRIÇÃO & VALOR DO EMPRÉSTIMO</h2><table>
-<tr>
-<th>#</th>
-<th>Taxa</th>
-<th>Valor Disponível</th>
-<th></th>
-</tr><tr><td>1️⃣</td><td>199MT</td><td>5.000MT – 8.000MT</td><td><button onclick="solicitar(8000)">SOLICITAR</button></td></tr>
-<tr><td>2️⃣</td><td>279MT (MAIS ADERIDO)</td><td>12.000MT – 15.000MT</td><td><button onclick="solicitar(15000)">SOLICITAR</button></td></tr>
-<tr><td>3️⃣</td><td>560MT (MAIS ADERIDO)</td><td>20.000MT – 28.000MT</td><td><button onclick="solicitar(28000)">SOLICITAR</button></td></tr>
-<tr><td>4️⃣</td><td>799MT</td><td>37.000MT – 45.000MT</td><td><button onclick="solicitar(45000)">SOLICITAR</button></td></tr>
-<tr><td>5️⃣</td><td>907MT</td><td>50.000MT – 67.000MT</td><td><button onclick="solicitar(67000)">SOLICITAR</button></td></tr>
-<tr><td>6️⃣</td><td>999MT</td><td>77.000MT – 85.000MT</td><td><button onclick="solicitar(85000)">SOLICITAR</button></td></tr>
-<tr><td>7️⃣</td><td>1099MT</td><td>100.000MT – 135.000MT</td><td><button onclick="solicitar(135000)">SOLICITAR</button></td></tr>
-<tr><td>8️⃣</td><td>1.199MT</td><td>136.000MT – 167.000MT</td><td><button onclick="solicitar(167000)">SOLICITAR</button></td></tr>
-<tr><td>9️⃣</td><td>2.067MT</td><td>168.000MT – 189.000MT</td><td><button onclick="solicitar(189000)">SOLICITAR</button></td></tr>
-<tr><td>🔟</td><td>3.756MT</td><td>190.000MT – 200.000MT</td><td><button onclick="solicitar(200000)">SOLICITAR</button></td></tr>
-</table></section><section id="resultado" style="display:none"><div class="resultado-box"><h2>SIMULAÇÃO DO EMPRÉSTIMO</h2><p id="calc"></p><div class="lembrete">
-LEMBRETE.<br><br>
-A TAXA DE INSCRIÇÃO É APENAS COBRANÇA DO PRIMEIRO EMPRÉSTIMO, APÓS A APROVAÇÃO DO PRIMEIRO AS ÚNICAS TAXAS SÃO DE JUROS.
-</div><div class="pagamento-box">
-<p><b>PAGAMENTO DA TAXA</b></p>
-<p>M-PESA: 85 233 5151</p>
-<p>E-MOLA: 86 773 4541</p>
-</div><form>
-<input type="text" placeholder="Seu Nome" required>
-<input type="file" required>
-<button>Enviar Comprovativo</button>
-</form></div></section><section>
-<h2>APROVAÇÕES RECENTES</h2>
-<div class="approvals" id="aprovacoes"></div>
-</section><section style="text-align:center">
-<a href="https://wa.me/258852335151"><button>FALAR NO WHATSAPP</button></a>
-</section><div class="pagamentos" id="pagamentos"></div><script>
-
-const slides=[
-"APROVAÇÃO RÁPIDA",
-"DINHEIRO VIA M-PESA",
-"SIMULAÇÃO AUTOMÁTICA",
-"LEVANTAMENTO IMEDIATO"
-]
-
-let s=0
-setInterval(()=>{
-s=(s+1)%slides.length
-document.getElementById("slider").innerText=slides[s]
-},3000)
-
-function solicitar(valor){
-let juros=valor*0.15
-let total=valor+juros
-
-let texto=`Valor solicitado: ${valor} MT | Total com juros: ${total.toFixed(0)} MT`
-
-document.getElementById("resultado").style.display="block"
-document.getElementById("calc").innerText=texto
-
-window.scrollTo({top:document.body.scrollHeight,behavior:"smooth"})
-}
-
-function counter(id,inc){
-let el=document.getElementById(id)
-setInterval(()=>{
-el.innerText=parseInt(el.innerText)+inc
-},1200)
-}
-
-counter("atendidos",3)
-counter("recebendo",5)
-
-const nomes=[
-"MARIA RECEBEU 19.000MT",
-"CARLOS RECEBEU 10.000MT",
-"ANA RECEBEU 7.000MT",
-"JOÃO RECEBEU 12.000MT",
-"PAULO RECEBEU 9.000MT",
-"TERESA RECEBEU 14.000MT",
-"AMÉLIA RECEBEU 8.000MT",
-"LUIS RECEBEU 6.000MT",
-"ROSA RECEBEU 5.000MT",
-"ALBERTO RECEBEU 11.000MT",
-"MARTA RECEBEU 13.000MT",
-"ELSA RECEBEU 4.000MT",
-"SANDRA RECEBEU 9.500MT",
-"NELSON RECEBEU 16.000MT",
-"LUCIA RECEBEU 7.800MT",
-"ANTONIO RECEBEU 6.400MT",
-"BRUNO RECEBEU 8.300MT",
-"CARMEN RECEBEU 15.000MT"
-]
-
-let i=0
-setInterval(()=>{
-document.getElementById("aprovacoes").innerText=nomes[i]
-i=(i+1)%nomes.length
-},2000)
-
-const pagamentos=[
-"Mário pagou taxa de 1.999MT agora",
-"Cláudia pagou taxa de 799MT agora",
-"Nelson pagou taxa de 560MT agora",
-"Paulo pagou taxa de 279MT agora",
-"Sandra pagou taxa de 999MT agora"
-]
-
-let p=0
-setInterval(()=>{
-document.getElementById("pagamentos").innerText=pagamentos[p]
-p=(p+1)%pagamentos.length
-},3000)
-
-</script></body>
-            </html>
+</body>
+</html>
