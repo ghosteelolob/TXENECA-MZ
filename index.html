@@ -1,147 +1,128 @@
-<!DOCTYPE html>
-<html lang="pt">
+<!DOCTYPE html><html lang="pt">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mola Fácil MZN</title>
+<title>Txuna M-Pesa PRO</title><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet"><style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
+body{background:#0f172a;color:#fff}
 
-<style>
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: #f5f5f5;
+header{
+background:linear-gradient(135deg,#00a859,#007a43);
+padding:20px;
+text-align:center;
 }
 
-/* HEADER */
-header {
-    background: #0a8f3c;
-    color: white;
-    padding: 20px;
-    text-align: center;
+.hero{
+padding:40px 20px;
+text-align:center;
+animation:fadeIn 1s ease;
 }
 
-/* HERO */
-.hero {
-    padding: 60px 20px;
-    text-align: center;
-    background: white;
+.hero h1{font-size:28px}
+.hero p{opacity:0.8;margin:10px 0}
+
+.btn{
+background:#00ff88;
+border:none;
+padding:15px 25px;
+border-radius:30px;
+color:#000;
+font-weight:bold;
+cursor:pointer;
+transition:0.3s;
 }
 
-.hero h1 {
-    font-size: 32px;
+.btn:hover{transform:scale(1.05)}
+
+.container{padding:20px}
+
+.card{
+background:#1e293b;
+padding:20px;
+border-radius:20px;
+margin-bottom:20px;
+box-shadow:0 10px 30px rgba(0,0,0,0.3);
+animation:slideUp 0.8s ease;
 }
 
-.hero p {
-    color: #555;
+input{
+width:100%;
+padding:12px;
+border-radius:10px;
+border:none;
+margin-top:10px;
 }
 
-/* BOTÃO */
-.btn {
-    background: #0a8f3c;
-    color: white;
-    padding: 15px 25px;
-    text-decoration: none;
-    display: inline-block;
-    margin-top: 20px;
-    border-radius: 8px;
+.slider{
+display:flex;
+overflow-x:auto;
+gap:15px;
+padding:20px;
 }
 
-/* SEÇÕES */
-.section {
-    padding: 40px 20px;
-    text-align: center;
+.slide{
+min-width:250px;
+background:linear-gradient(135deg,#00a859,#00ff88);
+color:#000;
+padding:20px;
+border-radius:20px;
+font-weight:bold;
 }
 
-.cards {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
+.toast{
+position:fixed;
+top:20px;
+left:50%;
+transform:translateX(-50%);
+background:#00ff88;
+color:#000;
+padding:10px 20px;
+border-radius:20px;
+display:none;
 }
 
-.card {
-    background: white;
-    padding: 20px;
-    width: 250px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+.whatsapp{
+position:fixed;
+bottom:20px;
+right:20px;
+background:#25D366;
+padding:18px;
+border-radius:50%;
+font-size:20px;
 }
 
-/* CONTACTO */
-.contact {
-    background: #0a8f3c;
-    color: white;
-    padding: 30px;
+@keyframes fadeIn{
+from{opacity:0}
+to{opacity:1}
 }
 
-/* FOOTER */
-footer {
-    text-align: center;
-    padding: 15px;
-    background: #222;
-    color: white;
+@keyframes slideUp{
+from{transform:translateY(40px);opacity:0}
+to{transform:translateY(0);opacity:1}
 }
-</style>
-
-</head>
-
-<body>
-
-<header>
-    <h2>Mola Fácil MZN</h2>
-</header>
-
-<section class="hero">
-    <h1>Dinheiro rápido e fácil</h1>
-    <p>Receba apoio financeiro sem complicações</p>
-    <a href="#contacto" class="btn">Solicitar Agora</a>
-</section>
-
-<section class="section">
-    <h2>Como funciona</h2>
-    <div class="cards">
-        <div class="card">
-            <h3>1. Contacta</h3>
-            <p>Fala connosco pelo WhatsApp</p>
-        </div>
-        <div class="card">
-            <h3>2. Solicita</h3>
-            <p>Indica o valor que precisas</p>
-        </div>
-        <div class="card">
-            <h3>3. Recebe</h3>
-            <p>Recebe o dinheiro rapidamente</p>
-        </div>
-    </div>
-</section>
-
-<section class="section">
-    <h2>Por que escolher-nos?</h2>
-    <div class="cards">
-        <div class="card">
-            <p>✔ Processo rápido</p>
-        </div>
-        <div class="card">
-            <p>✔ Sem burocracia</p>
-        </div>
-        <div class="card">
-            <p>✔ Atendimento confiável</p>
-        </div>
-    </div>
-</section>
-
-<section id="contacto" class="contact">
-    <h2>Contacto</h2>
-    <p>📞 85 233 5151 - MÁRCIA</p>
-    <p>📞 86 773 4541 - MÁRCIA</p>
-
-    <a class="btn" href="https://wa.me/258852335151">WhatsApp 1</a>
-    <a class="btn" href="https://wa.me/258867734541">WhatsApp 2</a>
-</section>
-
-<footer>
-    <p>© 2026 Mola Fácil MZN - Todos os direitos reservados</p>
-</footer>
-
-</body>
-</html>
+</style></head><body><header>
+<h2>Txuna M-Pesa</h2>
+<p>Empréstimos rápidos e seguros</p>
+</header><div class="hero">
+<h1>Dinheiro na hora via M-Pesa</h1>
+<p>Aprovação rápida até 4 meses</p>
+<button class="btn" onclick="scrollForm()">Solicitar Agora</button>
+</div><div class="slider">
+<div class="slide">João recebeu 10.000MT agora</div>
+<div class="slide">Maria recebeu 5.000MT</div>
+<div class="slide">Carlos recebeu 20.000MT</div>
+</div><div class="container"><div class="card">
+<h3>Simular empréstimo</h3>
+<input type="number" id="valor" placeholder="Digite o valor">
+<button class="btn" onclick="simular()">Calcular</button>
+<p id="res"></p>
+</div><div class="card" id="form">
+<h3>Cadastro rápido</h3>
+<input placeholder="Nome">
+<input placeholder="Número M-Pesa">
+<button class="btn">Enviar pedido</button>
+</div><div class="card">
+<h3>Planos</h3>
+<p>2.000MT → 99MT</p>
+<p>5.000MT → 199MT</p>
+<p>10.
