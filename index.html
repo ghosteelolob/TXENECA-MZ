@@ -2,15 +2,20 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Txuna M-Pesa PRO</title><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet"><style>
+<title>Txuna M-Pesa</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet"><style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
-body{background:#0f172a;color:#fff}
+body{background:#0b0b0b;color:#fff}
 
 header{
-background:linear-gradient(135deg,#00a859,#007a43);
+background:#111;
 padding:20px;
 text-align:center;
+border-bottom:2px solid red;
 }
+
+header h1{color:red}
+header p{color:#ccc}
 
 .hero{
 padding:40px 20px;
@@ -18,30 +23,28 @@ text-align:center;
 animation:fadeIn 1s ease;
 }
 
-.hero h1{font-size:28px}
-.hero p{opacity:0.8;margin:10px 0}
+.hero h2{font-size:26px}
+.hero p{margin:10px 0;color:#aaa}
 
 .btn{
-background:#00ff88;
-border:none;
+background:red;
+color:#fff;
 padding:15px 25px;
+border:none;
 border-radius:30px;
-color:#000;
-font-weight:bold;
 cursor:pointer;
 transition:0.3s;
 }
-
 .btn:hover{transform:scale(1.05)}
 
 .container{padding:20px}
 
 .card{
-background:#1e293b;
+background:#111;
 padding:20px;
-border-radius:20px;
+border-radius:15px;
 margin-bottom:20px;
-box-shadow:0 10px 30px rgba(0,0,0,0.3);
+border:1px solid #222;
 animation:slideUp 0.8s ease;
 }
 
@@ -51,22 +54,22 @@ padding:12px;
 border-radius:10px;
 border:none;
 margin-top:10px;
+background:#1a1a1a;
+color:#fff;
 }
 
-.slider{
-display:flex;
-overflow-x:auto;
-gap:15px;
+.slider-box{
 padding:20px;
 }
 
-.slide{
-min-width:250px;
-background:linear-gradient(135deg,#00a859,#00ff88);
-color:#000;
-padding:20px;
-border-radius:20px;
+.range{
+width:100%;
+}
+
+.result{
+margin-top:10px;
 font-weight:bold;
+color:red;
 }
 
 .toast{
@@ -74,8 +77,7 @@ position:fixed;
 top:20px;
 left:50%;
 transform:translateX(-50%);
-background:#00ff88;
-color:#000;
+background:red;
 padding:10px 20px;
 border-radius:20px;
 display:none;
@@ -88,41 +90,68 @@ right:20px;
 background:#25D366;
 padding:18px;
 border-radius:50%;
-font-size:20px;
 }
 
-@keyframes fadeIn{
-from{opacity:0}
-to{opacity:1}
-}
-
-@keyframes slideUp{
-from{transform:translateY(40px);opacity:0}
-to{transform:translateY(0);opacity:1}
-}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes slideUp{from{transform:translateY(40px);opacity:0}to{transform:translateY(0);opacity:1}}
 </style></head><body><header>
-<h2>Txuna M-Pesa</h2>
+<h1>Txuna M-Pesa</h1>
 <p>Empréstimos rápidos e seguros</p>
 </header><div class="hero">
-<h1>Dinheiro na hora via M-Pesa</h1>
-<p>Aprovação rápida até 4 meses</p>
-<button class="btn" onclick="scrollForm()">Solicitar Agora</button>
-</div><div class="slider">
-<div class="slide">João recebeu 10.000MT agora</div>
-<div class="slide">Maria recebeu 5.000MT</div>
-<div class="slide">Carlos recebeu 20.000MT</div>
-</div><div class="container"><div class="card">
-<h3>Simular empréstimo</h3>
-<input type="number" id="valor" placeholder="Digite o valor">
-<button class="btn" onclick="simular()">Calcular</button>
-<p id="res"></p>
+<h2>Receba dinheiro direto no M-Pesa</h2>
+<p>Processo rápido • Até 4 meses</p>
+<button class="btn" onclick="scrollForm()">Solicitar agora</button>
+</div><div class="container"><div class="card slider-box">
+<h3>Simulador inteligente</h3>
+<input type="range" min="2000" max="159000" value="2000" class="range" id="range" oninput="calc()">
+<p>Valor: <span id="val">2000</span> MT</p>
+<p class="result" id="res"></p>
 </div><div class="card" id="form">
 <h3>Cadastro rápido</h3>
 <input placeholder="Nome">
 <input placeholder="Número M-Pesa">
 <button class="btn">Enviar pedido</button>
 </div><div class="card">
-<h3>Planos</h3>
+<h3>Taxas e valores</h3>
 <p>2.000MT → 99MT</p>
-<p>5.000MT → 199MT</p>
-<p>10.
+<p>10.000MT → 399MT</p>
+<p>50.000MT → 1499MT</p>
+<p>159.000MT → 1999MT</p>
+</div><div class="card">
+<h3>Taxa de inscrição</h3>
+<p>A partir de 99MT</p>
+<p style="color:#aaa">Esta taxa cobre verificação e liberação do processo.</p>
+<p><b>M-Pesa: 85 233 5151</b></p>
+</div><div class="card">
+<h3>Depoimentos</h3>
+<p>“Recebi rápido no mesmo dia!”</p>
+<p>“Funciona mesmo, recomendo.”</p>
+</div><div class="card">
+<h3>Comprovantes</h3>
+<p>Adicione prints reais aqui</p>
+</div></div><div class="toast" id="toast"></div><a class="whatsapp" href="https://wa.me/258852335151"></a>
+
+<script>
+function calc(){
+let v=document.getElementById('range').value;
+document.getElementById('val').innerText=v;
+let juros=Math.floor(v*0.1);
+document.getElementById('res').innerText="Total a pagar: "+(parseInt(v)+juros)+" MT";
+}
+
+function scrollForm(){
+document.getElementById('form').scrollIntoView({behavior:'smooth'});
+}
+
+setInterval(()=>{
+let nomes=["Carlos","Ana","Paulo","Maria"];
+let valores=["5.000","10.000","20.000"];
+let t=document.getElementById('toast');
+t.innerText=nomes[Math.floor(Math.random()*nomes.length)]+" recebeu "+valores[Math.floor(Math.random()*valores.length)]+"MT";
+t.style.display='block';
+setTimeout(()=>{t.style.display='none'},3000);
+},4000);
+
+calc();
+</script></body>
+  </html>
