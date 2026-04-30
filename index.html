@@ -1,157 +1,313 @@
-<!DOCTYPE html><html lang="pt">
+<!DOCTYPE html>
+<html lang="pt">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Txuna M-Pesa</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet"><style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
-body{background:#0b0b0b;color:#fff}
 
-header{
-background:#111;
-padding:20px;
-text-align:center;
-border-bottom:2px solid red;
+<title>Txuna Finance</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Inter,sans-serif;}
+body{background:#f1f5f9;color:#1e293b;}
+
+/* NAV */
+nav{
+display:flex;justify-content:space-between;align-items:center;
+padding:18px 70px;background:#fff;border-bottom:1px solid #e5e7eb;
+}
+.logo{font-weight:600;font-size:20px;}
+nav ul{display:flex;gap:30px;list-style:none;color:#334155;}
+nav button{
+background:#1e3a8a;color:#fff;padding:10px 18px;border-radius:8px;border:none;
 }
 
-header h1{color:red}
-header p{color:#ccc}
-
+/* HERO */
 .hero{
-padding:40px 20px;
-text-align:center;
-animation:fadeIn 1s ease;
+display:grid;
+grid-template-columns:1.2fr 1fr 1fr;
+gap:40px;
+padding:70px;
+background:linear-gradient(135deg,#0f172a,#1e3a8a);
+color:#fff;
+align-items:center;
 }
 
-.hero h2{font-size:26px}
-.hero p{margin:10px 0;color:#aaa}
+.hero h1{font-size:44px;line-height:1.2;}
+.hero p{margin:20px 0;color:#c7d2fe;}
+
+.btns button{
+padding:12px 20px;border-radius:8px;border:none;margin-right:10px;
+}
+.green{background:#22c55e;color:#fff;}
+.outline{border:1px solid #fff;background:transparent;color:#fff;}
+
+/* PHONE */
+.phone{
+background:#020617;
+border-radius:30px;
+padding:20px;
+height:380px;
+color:#fff;
+box-shadow:0 20px 50px rgba(0,0,0,0.5);
+display:flex;
+flex-direction:column;
+justify-content:center;
+}
+
+/* JAR IMAGE */
+.jar{
+width:100%;
+border-radius:12px;
+}
+
+/* FEATURES */
+.features div{
+display:flex;align-items:center;
+gap:10px;margin-bottom:20px;
+}
+.features i{color:#22c55e;}
+
+/* STATS */
+.stats{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+margin:-40px 70px 20px;
+background:#fff;
+border-radius:12px;
+box-shadow:0 10px 30px rgba(0,0,0,0.05);
+}
+.stats div{
+padding:20px;text-align:center;
+border-right:1px solid #e5e7eb;
+}
+.stats div:last-child{border:none;}
+
+/* MAIN */
+.main{
+display:grid;
+grid-template-columns:260px 1fr;
+gap:20px;
+padding:20px 70px;
+}
+
+/* SIDEBAR */
+.sidebar{
+background:linear-gradient(#020617,#1e293b);
+color:#fff;
+padding:20px;
+border-radius:12px;
+}
+.user{text-align:center;margin-bottom:20px;}
+.user img{width:60px;border-radius:50%;}
+.badge{
+background:#22c55e;
+padding:4px 10px;
+border-radius:20px;
+font-size:12px;
+}
+.sidebar ul{list-style:none;margin-top:20px;}
+.sidebar li{
+padding:12px;
+border-radius:8px;
+}
+.sidebar li:hover{background:rgba(255,255,255,0.1);}
+
+/* CARDS */
+.cards{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:15px;
+margin-bottom:20px;
+}
+.card{
+background:#fff;border-radius:12px;overflow:hidden;
+box-shadow:0 5px 15px rgba(0,0,0,0.05);
+}
+.card-header{
+padding:10px;color:#fff;font-size:14px;
+}
+.card-body{padding:20px;font-weight:600;}
+
+.green-bg{background:#16a34a;}
+.blue{background:#2563eb;}
+.orange{background:#f97316;}
+.purple{background:#7c3aed;}
+
+/* GRID */
+.grid{
+display:grid;
+grid-template-columns:1fr 1fr 1fr;
+gap:20px;
+}
+.box{
+background:#fff;
+padding:20px;
+border-radius:12px;
+box-shadow:0 5px 15px rgba(0,0,0,0.05);
+}
+input,select{
+width:100%;
+padding:10px;
+margin:10px 0;
+border-radius:6px;
+border:1px solid #e5e7eb;
+}
 
 .btn{
-background:red;
-color:#fff;
-padding:15px 25px;
-border:none;
-border-radius:30px;
-cursor:pointer;
-transition:0.3s;
-}
-.btn:hover{transform:scale(1.05)}
-
-.container{padding:20px}
-
-.card{
-background:#111;
-padding:20px;
-border-radius:15px;
-margin-bottom:20px;
-border:1px solid #222;
-animation:slideUp 0.8s ease;
-}
-
-input{
 width:100%;
 padding:12px;
-border-radius:10px;
 border:none;
-margin-top:10px;
-background:#1a1a1a;
+border-radius:8px;
 color:#fff;
 }
+.deposit{background:#16a34a;}
+.loan{background:#2563eb;}
 
-.slider-box{
-padding:20px;
+/* TRANSAÇÕES */
+.transaction{
+display:flex;
+justify-content:space-between;
+padding:10px 0;
+border-bottom:1px solid #e5e7eb;
 }
 
-.range{
-width:100%;
+/* STEPS */
+.steps{
+background:linear-gradient(135deg,#020617,#1e3a8a);
+color:#fff;
+padding:50px;
+margin-top:30px;
 }
-
-.result{
-margin-top:10px;
-font-weight:bold;
-color:red;
+.steps-grid{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+margin-top:20px;
+text-align:center;
 }
+</style>
+</head>
 
-.toast{
-position:fixed;
-top:20px;
-left:50%;
-transform:translateX(-50%);
-background:red;
-padding:10px 20px;
-border-radius:20px;
-display:none;
-}
+<body>
 
-.whatsapp{
-position:fixed;
-bottom:20px;
-right:20px;
-background:#25D366;
-padding:18px;
-border-radius:50%;
-}
+<nav>
+<div class="logo">🏦 Txuna Finance</div>
+<ul>
+<li>Início</li>
+<li>Poupança</li>
+<li>Empréstimos</li>
+<li>Como Funciona</li>
+<li>Sobre Nós</li>
+<li>Contato</li>
+</ul>
+<button><i class="fa fa-user"></i> Área do Cliente</button>
+</nav>
 
-@keyframes fadeIn{from{opacity:0}to{opacity:1}}
-@keyframes slideUp{from{transform:translateY(40px);opacity:0}to{transform:translateY(0);opacity:1}}
-</style></head><body><header>
-<h1>Txuna M-Pesa</h1>
-<p>Empréstimos rápidos e seguros</p>
-</header><div class="hero">
-<h2>Receba dinheiro direto no M-Pesa</h2>
-<p>Processo rápido • Até 4 meses</p>
-<button class="btn" onclick="scrollForm()">Solicitar agora</button>
-</div><div class="container"><div class="card slider-box">
-<h3>Simulador inteligente</h3>
-<input type="range" min="2000" max="159000" value="2000" class="range" id="range" oninput="calc()">
-<p>Valor: <span id="val">2000</span> MT</p>
-<p class="result" id="res"></p>
-</div><div class="card" id="form">
-<h3>Cadastro rápido</h3>
-<input placeholder="Nome">
-<input placeholder="Número M-Pesa">
-<button class="btn">Enviar pedido</button>
-</div><div class="card">
-<h3>Taxas e valores</h3>
-<p>2.000MT → 99MT</p>
-<p>10.000MT → 399MT</p>
-<p>50.000MT → 1499MT</p>
-<p>159.000MT → 1999MT</p>
-</div><div class="card">
-<h3>Taxa de inscrição</h3>
-<p>A partir de 99MT</p>
-<p style="color:#aaa">Esta taxa cobre verificação e liberação do processo.</p>
-<p><b>M-Pesa: 85 233 5151</b></p>
-</div><div class="card">
-<h3>Depoimentos</h3>
-<p>“Recebi rápido no mesmo dia!”</p>
-<p>“Funciona mesmo, recomendo.”</p>
-</div><div class="card">
-<h3>Comprovantes</h3>
-<p>Adicione prints reais aqui</p>
-</div></div><div class="toast" id="toast"></div><a class="whatsapp" href="https://wa.me/258852335151"></a>
+<section class="hero">
 
-<script>
-function calc(){
-let v=document.getElementById('range').value;
-document.getElementById('val').innerText=v;
-let juros=Math.floor(v*0.1);
-document.getElementById('res').innerText="Total a pagar: "+(parseInt(v)+juros)+" MT";
-}
+<div>
+<h1>Poupe hoje, conquiste seus sonhos amanhã</h1>
+<p>A Txuna Finance ajuda você a poupar com segurança e oferece empréstimos justos.</p>
 
-function scrollForm(){
-document.getElementById('form').scrollIntoView({behavior:'smooth'});
-}
+<div class="btns">
+<button class="green">Começar Agora</button>
+<button class="outline">Saiba Mais</button>
+</div>
+</div>
 
-setInterval(()=>{
-let nomes=["Carlos","Ana","Paulo","Maria"];
-let valores=["5.000","10.000","20.000"];
-let t=document.getElementById('toast');
-t.innerText=nomes[Math.floor(Math.random()*nomes.length)]+" recebeu "+valores[Math.floor(Math.random()*valores.length)]+"MT";
-t.style.display='block';
-setTimeout(()=>{t.style.display='none'},3000);
-},4000);
+<div>
+<div class="phone">
+<p>Saldo Total</p>
+<h2>12,450 MZN</h2>
+<p>Poupança: 8,250</p>
+<p>Empréstimos: 4,200</p>
+</div>
+</div>
 
-calc();
-</script></body>
+<div class="features">
+<div><i class="fa fa-shield"></i> 100% Seguro</div>
+<div><i class="fa fa-bolt"></i> Rápido e Fácil</div>
+<div><i class="fa fa-check"></i> Confiança</div>
+</div>
+
+</section>
+
+<section class="stats">
+<div><i class="fa fa-users"></i><h3>1,245+</h3><p>Clientes</p></div>
+<div><i class="fa fa-wallet"></i><h3>2,450,000+</h3><p>Poupanças</p></div>
+<div><i class="fa fa-handshake"></i><h3>980,000+</h3><p>Empréstimos</p></div>
+<div><i class="fa fa-star"></i><h3>98%</h3><p>Satisfação</p></div>
+</section>
+
+<div class="main">
+
+<div class="sidebar">
+<div class="user">
+<img src="https://i.pravatar.cc/60">
+<p>José Manuel</p>
+<div class="badge">Conta Verificada</div>
+</div>
+
+<ul>
+<li>Dashboard</li>
+<li>Minha Poupança</li>
+<li>Meus Empréstimos</li>
+<li>Transações</li>
+<li>Perfil</li>
+<li>Sair</li>
+</ul>
+</div>
+
+<div>
+
+<div class="cards">
+<div class="card"><div class="card-header green-bg">Saldo Atual</div><div class="card-body">8,250 MZN</div></div>
+<div class="card"><div class="card-header blue">Empréstimos Aprovados</div><div class="card-body">4,200 MZN</div></div>
+<div class="card"><div class="card-header orange">Em Análise</div><div class="card-body">1 Pedido</div></div>
+<div class="card"><div class="card-header purple">Última Transação</div><div class="card-body">+500 MZN</div></div>
+</div>
+
+<div class="grid">
+
+<div class="box">
+<h3>Fazer Poupança</h3>
+<input placeholder="Valor">
+<select><option>Método</option></select>
+<input type="file">
+<button class="btn deposit">Enviar Depósito</button>
+</div>
+
+<div class="box">
+<h3>Solicitar Empréstimo</h3>
+<input placeholder="Valor">
+<select><option>Prazo</option></select>
+<p>Você pagará: 2,400 MZN</p>
+<button class="btn loan">Solicitar Empréstimo</button>
+</div>
+
+<div class="box">
+<h3>Transações Recentes</h3>
+<div class="transaction"><span>Depósito</span><span>+500</span></div>
+<div class="transaction"><span>Empréstimo</span><span>-2000</span></div>
+<div class="transaction"><span>Depósito</span><span>+300</span></div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+<section class="steps">
+<h2>Como Funciona?</h2>
+<div class="steps-grid">
+<div>1<br>Cadastro</div>
+<div>2<br>Poupança</div>
+<div>3<br>Empréstimo</div>
+<div>4<br>Pagamento</div>
+</div>
+</section>
+
+</body>
   </html>
