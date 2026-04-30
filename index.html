@@ -3,311 +3,298 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Txuna Finance</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
-
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Inter,sans-serif;}
-body{background:#f1f5f9;color:#1e293b;}
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial;}
 
-/* NAV */
-nav{
-display:flex;justify-content:space-between;align-items:center;
-padding:18px 70px;background:#fff;border-bottom:1px solid #e5e7eb;
+body{background:#f4f6f9;}
+
+/* NAVBAR */
+.nav{
+  display:flex;
+  justify-content:space-between;
+  padding:15px 40px;
+  background:white;
+  align-items:center;
 }
-.logo{font-weight:600;font-size:20px;}
-nav ul{display:flex;gap:30px;list-style:none;color:#334155;}
-nav button{
-background:#1e3a8a;color:#fff;padding:10px 18px;border-radius:8px;border:none;
+
+.logo{font-weight:bold;font-size:22px;color:#0f172a;}
+.logo span{color:#22c55e;}
+
+.nav button{
+  background:#0f172a;
+  color:white;
+  padding:10px 15px;
+  border:none;
+  border-radius:8px;
 }
 
 /* HERO */
 .hero{
-display:grid;
-grid-template-columns:1.2fr 1fr 1fr;
-gap:40px;
-padding:70px;
-background:linear-gradient(135deg,#0f172a,#1e3a8a);
-color:#fff;
-align-items:center;
+  display:flex;
+  justify-content:space-between;
+  padding:60px 40px;
+  background:linear-gradient(135deg,#0f172a,#1e3a8a);
+  color:white;
 }
 
-.hero h1{font-size:44px;line-height:1.2;}
-.hero p{margin:20px 0;color:#c7d2fe;}
+.hero h1{font-size:42px;margin-bottom:15px;}
+.hero p{margin-bottom:20px;}
 
-.btns button{
-padding:12px 20px;border-radius:8px;border:none;margin-right:10px;
-}
-.green{background:#22c55e;color:#fff;}
-.outline{border:1px solid #fff;background:transparent;color:#fff;}
-
-/* PHONE */
-.phone{
-background:#020617;
-border-radius:30px;
-padding:20px;
-height:380px;
-color:#fff;
-box-shadow:0 20px 50px rgba(0,0,0,0.5);
-display:flex;
-flex-direction:column;
-justify-content:center;
+.hero .btns button{
+  margin-right:10px;
+  padding:12px 18px;
+  border-radius:8px;
+  border:none;
 }
 
-/* JAR IMAGE */
-.jar{
-width:100%;
-border-radius:12px;
-}
-
-/* FEATURES */
-.features div{
-display:flex;align-items:center;
-gap:10px;margin-bottom:20px;
-}
-.features i{color:#22c55e;}
+.green{background:#22c55e;color:white;}
+.white{background:white;color:black;}
 
 /* STATS */
 .stats{
-display:grid;
-grid-template-columns:repeat(4,1fr);
-margin:-40px 70px 20px;
-background:#fff;
-border-radius:12px;
-box-shadow:0 10px 30px rgba(0,0,0,0.05);
+  display:flex;
+  justify-content:space-around;
+  background:white;
+  margin:20px;
+  padding:20px;
+  border-radius:12px;
 }
-.stats div{
-padding:20px;text-align:center;
-border-right:1px solid #e5e7eb;
-}
-.stats div:last-child{border:none;}
 
-/* MAIN */
+/* DASHBOARD */
 .main{
-display:grid;
-grid-template-columns:260px 1fr;
-gap:20px;
-padding:20px 70px;
+  display:flex;
+  padding:20px;
 }
 
 /* SIDEBAR */
 .sidebar{
-background:linear-gradient(#020617,#1e293b);
-color:#fff;
-padding:20px;
-border-radius:12px;
+  width:250px;
+  background:#0f172a;
+  color:white;
+  padding:20px;
+  border-radius:12px;
 }
-.user{text-align:center;margin-bottom:20px;}
-.user img{width:60px;border-radius:50%;}
-.badge{
-background:#22c55e;
-padding:4px 10px;
-border-radius:20px;
-font-size:12px;
-}
-.sidebar ul{list-style:none;margin-top:20px;}
-.sidebar li{
-padding:12px;
-border-radius:8px;
-}
-.sidebar li:hover{background:rgba(255,255,255,0.1);}
 
-/* CARDS */
+.sidebar img{width:70px;border-radius:50%;}
+
+.sidebar a{
+  display:block;
+  margin:12px 0;
+  color:white;
+  text-decoration:none;
+}
+
+/* CONTENT */
+.content{
+  flex:1;
+  margin-left:20px;
+}
+
 .cards{
-display:grid;
-grid-template-columns:repeat(4,1fr);
-gap:15px;
-margin-bottom:20px;
+  display:flex;
+  gap:15px;
 }
+
 .card{
-background:#fff;border-radius:12px;overflow:hidden;
-box-shadow:0 5px 15px rgba(0,0,0,0.05);
-}
-.card-header{
-padding:10px;color:#fff;font-size:14px;
-}
-.card-body{padding:20px;font-weight:600;}
-
-.green-bg{background:#16a34a;}
-.blue{background:#2563eb;}
-.orange{background:#f97316;}
-.purple{background:#7c3aed;}
-
-/* GRID */
-.grid{
-display:grid;
-grid-template-columns:1fr 1fr 1fr;
-gap:20px;
-}
-.box{
-background:#fff;
-padding:20px;
-border-radius:12px;
-box-shadow:0 5px 15px rgba(0,0,0,0.05);
-}
-input,select{
-width:100%;
-padding:10px;
-margin:10px 0;
-border-radius:6px;
-border:1px solid #e5e7eb;
+  background:white;
+  padding:15px;
+  border-radius:10px;
+  flex:1;
 }
 
-.btn{
-width:100%;
-padding:12px;
-border:none;
-border-radius:8px;
-color:#fff;
+/* FORM */
+input, select{
+  width:100%;
+  padding:10px;
+  margin-top:10px;
 }
-.deposit{background:#16a34a;}
-.loan{background:#2563eb;}
+
+button{
+  cursor:pointer;
+}
 
 /* TRANSAÇÕES */
-.transaction{
-display:flex;
-justify-content:space-between;
-padding:10px 0;
-border-bottom:1px solid #e5e7eb;
+.trans{
+  max-height:200px;
+  overflow:auto;
 }
 
-/* STEPS */
-.steps{
-background:linear-gradient(135deg,#020617,#1e3a8a);
-color:#fff;
-padding:50px;
-margin-top:30px;
-}
-.steps-grid{
-display:grid;
-grid-template-columns:repeat(4,1fr);
-margin-top:20px;
-text-align:center;
-}
 </style>
+
 </head>
 
 <body>
 
-<nav>
-<div class="logo">🏦 Txuna Finance</div>
-<ul>
-<li>Início</li>
-<li>Poupança</li>
-<li>Empréstimos</li>
-<li>Como Funciona</li>
-<li>Sobre Nós</li>
-<li>Contato</li>
-</ul>
-<button><i class="fa fa-user"></i> Área do Cliente</button>
-</nav>
-
-<section class="hero">
-
-<div>
-<h1>Poupe hoje, conquiste seus sonhos amanhã</h1>
-<p>A Txuna Finance ajuda você a poupar com segurança e oferece empréstimos justos.</p>
-
-<div class="btns">
-<button class="green">Começar Agora</button>
-<button class="outline">Saiba Mais</button>
-</div>
+<div class="nav">
+  <div class="logo">Txuna <span>Finance</span></div>
+  <button onclick="login()">Área do Cliente</button>
 </div>
 
-<div>
-<div class="phone">
-<p>Saldo Total</p>
-<h2>12,450 MZN</h2>
-<p>Poupança: 8,250</p>
-<p>Empréstimos: 4,200</p>
-</div>
-</div>
-
-<div class="features">
-<div><i class="fa fa-shield"></i> 100% Seguro</div>
-<div><i class="fa fa-bolt"></i> Rápido e Fácil</div>
-<div><i class="fa fa-check"></i> Confiança</div>
+<div class="hero">
+  <div>
+    <h1>Poupe hoje, conquiste seus sonhos amanhã</h1>
+    <p>Plataforma de poupança e empréstimos simulados.</p>
+    <div class="btns">
+      <button class="green">Começar</button>
+      <button class="white">Saiba Mais</button>
+    </div>
+  </div>
 </div>
 
-</section>
-
-<section class="stats">
-<div><i class="fa fa-users"></i><h3>1,245+</h3><p>Clientes</p></div>
-<div><i class="fa fa-wallet"></i><h3>2,450,000+</h3><p>Poupanças</p></div>
-<div><i class="fa fa-handshake"></i><h3>980,000+</h3><p>Empréstimos</p></div>
-<div><i class="fa fa-star"></i><h3>98%</h3><p>Satisfação</p></div>
-</section>
+<div class="stats">
+  <div>1,245+ Clientes</div>
+  <div>2,450,000+ Poupanças</div>
+  <div>980,000+ Empréstimos</div>
+  <div>98% Satisfação</div>
+</div>
 
 <div class="main">
 
 <div class="sidebar">
-<div class="user">
-<img src="https://i.pravatar.cc/60">
-<p>José Manuel</p>
-<div class="badge">Conta Verificada</div>
+  <img src="https://i.pravatar.cc/100">
+  <h3 id="nomeUser">Visitante</h3>
+
+  <a href="#">Dashboard</a>
+  <a href="#">Poupança</a>
+  <a href="#">Empréstimos</a>
 </div>
 
-<ul>
-<li>Dashboard</li>
-<li>Minha Poupança</li>
-<li>Meus Empréstimos</li>
-<li>Transações</li>
-<li>Perfil</li>
-<li>Sair</li>
-</ul>
-</div>
-
-<div>
+<div class="content">
 
 <div class="cards">
-<div class="card"><div class="card-header green-bg">Saldo Atual</div><div class="card-body">8,250 MZN</div></div>
-<div class="card"><div class="card-header blue">Empréstimos Aprovados</div><div class="card-body">4,200 MZN</div></div>
-<div class="card"><div class="card-header orange">Em Análise</div><div class="card-body">1 Pedido</div></div>
-<div class="card"><div class="card-header purple">Última Transação</div><div class="card-body">+500 MZN</div></div>
+  <div class="card">
+    <h3>Saldo</h3>
+    <p id="saldo">0 MZN</p>
+  </div>
+
+  <div class="card">
+    <h3>Dívida</h3>
+    <p id="divida">0 MZN</p>
+  </div>
+
+  <div class="card">
+    <h3>Última</h3>
+    <p id="ultima">---</p>
+  </div>
 </div>
 
-<div class="grid">
+<br>
 
-<div class="box">
-<h3>Fazer Poupança</h3>
-<input placeholder="Valor">
-<select><option>Método</option></select>
-<input type="file">
-<button class="btn deposit">Enviar Depósito</button>
+<div class="cards">
+
+<div class="card">
+  <h3>Depositar</h3>
+  <input type="number" id="dep">
+  <button class="green" onclick="depositar()">Confirmar</button>
 </div>
 
-<div class="box">
-<h3>Solicitar Empréstimo</h3>
-<input placeholder="Valor">
-<select><option>Prazo</option></select>
-<p>Você pagará: 2,400 MZN</p>
-<button class="btn loan">Solicitar Empréstimo</button>
+<div class="card">
+  <h3>Empréstimo</h3>
+  <input type="number" id="emp">
+  <button onclick="emprestar()">Solicitar</button>
 </div>
 
-<div class="box">
-<h3>Transações Recentes</h3>
-<div class="transaction"><span>Depósito</span><span>+500</span></div>
-<div class="transaction"><span>Empréstimo</span><span>-2000</span></div>
-<div class="transaction"><span>Depósito</span><span>+300</span></div>
+<div class="card trans">
+  <h3>Transações</h3>
+  <ul id="hist"></ul>
 </div>
 
 </div>
 
 </div>
+
 </div>
 
-<section class="steps">
-<h2>Como Funciona?</h2>
-<div class="steps-grid">
-<div>1<br>Cadastro</div>
-<div>2<br>Poupança</div>
-<div>3<br>Empréstimo</div>
-<div>4<br>Pagamento</div>
-</div>
-</section>
+<script>
+
+let user = null;
+
+/* LOGIN SIMPLES */
+function login(){
+  let nome = prompt("Seu nome:");
+
+  if(!nome) return;
+
+  let data = localStorage.getItem(nome);
+
+  if(data){
+    user = JSON.parse(data);
+  }else{
+    user = {nome, saldo:0, divida:0, hist:[]};
+  }
+
+  document.getElementById("nomeUser").innerText = user.nome;
+  salvar();
+  update();
+}
+
+function salvar(){
+  localStorage.setItem(user.nome, JSON.stringify(user));
+}
+
+function update(){
+  document.getElementById("saldo").innerText = user.saldo + " MZN";
+  document.getElementById("divida").innerText = user.divida + " MZN";
+
+  let h = document.getElementById("hist");
+  h.innerHTML="";
+
+  user.hist.slice().reverse().forEach(t=>{
+    let li=document.createElement("li");
+    li.innerText=t;
+    h.appendChild(li);
+  });
+
+  if(user.hist.length){
+    document.getElementById("ultima").innerText = user.hist[user.hist.length-1];
+  }
+}
+
+/* AÇÕES */
+function depositar(){
+  if(!user) return alert("Faça login");
+
+  let v = Number(document.getElementById("dep").value);
+
+  if(v<=0) return;
+
+  user.saldo += v;
+  user.hist.push("Depósito +" + v);
+
+  salvar();
+  update();
+}
+
+function emprestar(){
+  if(!user) return alert("Faça login");
+
+  let v = Number(document.getElementById("emp").value);
+
+  if(v<=0) return;
+
+  let limite = user.saldo * 2;
+
+  if(v > limite){
+    return alert("Limite excedido");
+  }
+
+  user.hist.push("Pedido de empréstimo (em análise)");
+
+  update();
+
+  setTimeout(()=>{
+    user.saldo += v;
+    user.divida += v;
+    user.hist.push("Empréstimo aprovado +" + v);
+
+    salvar();
+    update();
+  },2000);
+}
+
+</script>
 
 </body>
   </html>
